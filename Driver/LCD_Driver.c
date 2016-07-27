@@ -4,40 +4,6 @@
 
 uint8 DeviceId_LCD=DeviceNull;
 
-#if defined(LCD_SelectSSD1963)
-#include <..\Driver\SSD1963_Driver.c>
-
-#elif defined(LCD_SelectHX8347)
-#include <..\Driver\HX8347_Driver.c>
-#elif defined(LCD_SelectSSD1325)
-#include <..\Driver\SSD1325_Driver.c>
-#elif defined(LCD_SelectReally3_5)
-#include <..\Driver\Really_Driver.c>
-
-#endif
-
-
-
-
-#ifndef Lcd_Write
-void Lcd_Write(void *Addr,void *Buffer,void *Length){}
-#endif
-#ifndef Lcd_Read
-void Lcd_Read(void *Addr,void *Buffer,void *Length){}
-#endif
-#ifndef LCD_SET_Light
-void LCD_SET_Light(u8 Light){}
-#endif
-#ifndef LCD_Set_Pixel
-void LCD_Set_Pixel(uint16 X,uint16 Y,uint16 Color){};
-#endif
-#ifndef LCD_Get_Pixel
-uint16 LCD_Get_Pixel(uint16 X,uint16 Y){return Null;}
-
-#endif
-#ifndef LCD_Initializtion
-void LCD_Initializtion(){};
-#endif
 
 
 /****************************************************************************
@@ -223,7 +189,10 @@ void LCD_Fill_LineY(uint16 SX,uint16 SY,uint16 H,uint16 *Cbuffer)
 	}
 }
 #endif
-
+void LCD_Clear_Screen(uint16 Color)
+{
+	GLCD_Clear(Color);
+}
 void DeviceMount_Lcd()
 {
 	DeviceId_LCD=DeviceId_Index++;
@@ -232,7 +201,5 @@ void DeviceMount_Lcd()
 	Tos_Device_Tab[DeviceId_LCD].DeviceVirtue=DV_Task;
 	Tos_Device_Tab[DeviceId_LCD].DeviceState=NotBusy;
 	Tos_Device_Tab[DeviceId_LCD].Init=LCD_Initializtion;
-	Tos_Device_Tab[DeviceId_LCD].Write=Lcd_Write;
-	Tos_Device_Tab[DeviceId_LCD].Read=Lcd_Read;
 	Tos_Device_Tab[DeviceId_LCD].Exit=Null;
 }

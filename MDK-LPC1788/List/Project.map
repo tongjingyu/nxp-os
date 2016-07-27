@@ -319,6 +319,14 @@ Section Cross References
     operation.o(i.Opera_WhithADCFloat) refers to ddiv.o(.text) for __aeabi_ddiv
     operation.o(i.Opera_WhithADCFloat) refers to d2f.o(.text) for __aeabi_d2f
     operation.o(i.Opera_WhithADCFloat) refers to cfrcmple.o(.text) for __aeabi_cfrcmple
+    main.o(i.CirclePoint) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.DeviceMount_Lcd) refers to tos_device.o(.data) for DeviceId_Index
+    main.o(i.DeviceMount_Lcd) refers to main.o(.data) for DeviceId_LCD
+    main.o(i.DeviceMount_Lcd) refers to main.o(i.LCD_Initializtion) for LCD_Initializtion
+    main.o(i.Draw_Full_List) refers to main.o(i.Draw_X_8Bit) for Draw_X_8Bit
+    main.o(i.Draw_Row_List) refers to main.o(i.Draw_Y_8Bit) for Draw_Y_8Bit
+    main.o(i.Draw_X_8Bit) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.Draw_Y_8Bit) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
     main.o(i.GLCD_Clear) refers to main.o(i.GLCD_SetPixel_16bpp) for GLCD_SetPixel_16bpp
     main.o(i.GLCD_Config) refers to lpc177x_8x_pinsel.o(i.PINSEL_ConfigPin) for PINSEL_ConfigPin
     main.o(i.GLCD_Config) refers to lpc177x_8x_gpio.o(i.GPIO_SetDir) for GPIO_SetDir
@@ -326,29 +334,353 @@ Section Cross References
     main.o(i.GLCD_Config) refers to lpc177x_8x_clkpwr.o(i.CLKPWR_ConfigPPWR) for CLKPWR_ConfigPPWR
     main.o(i.GLCD_Config) refers to main.o(i.LCD_ClockDivide) for LCD_ClockDivide
     main.o(i.GLCD_DrawLine) refers to main.o(i.GLCD_SetPixel_16bpp) for GLCD_SetPixel_16bpp
-    main.o(i.GLCD_Init) refers to main.o(i.GLCD_Ctrl) for GLCD_Ctrl
-    main.o(i.GLCD_Init) refers to main.o(i.GLCD_Config) for GLCD_Config
     main.o(i.GUI_Text) refers to main.o(i.PutChar) for PutChar
     main.o(i.GetASCIICode) refers to memcpya.o(.text) for __aeabi_memcpy
     main.o(i.GetASCIICode) refers to main.o(.constdata) for AsciiLib
+    main.o(i.Key_GetASCII) refers to text.o(i.BufferFill) for BufferFill
+    main.o(i.Key_GetASCII) refers to text.o(i.StringEndingAppend) for StringEndingAppend
+    main.o(i.Key_GetASCII) refers to main.o(i.Tos_GetFontHandle) for Tos_GetFontHandle
+    main.o(i.Key_GetASCII) refers to text.o(i.GetTextLength) for GetTextLength
+    main.o(i.Key_GetASCII) refers to main.o(i.Index_Uchar) for Index_Uchar
+    main.o(i.Key_GetWord) refers to text.o(i.BufferFill) for BufferFill
+    main.o(i.Key_GetWord) refers to text.o(i.StringEndingAppend) for StringEndingAppend
+    main.o(i.Key_GetWord) refers to main.o(i.Tos_GetFontHandle) for Tos_GetFontHandle
+    main.o(i.Key_GetWord) refers to text.o(i.GetTextLength) for GetTextLength
+    main.o(i.Key_GetWord) refers to main.o(i.Index_Word) for Index_Word
+    main.o(i.LCD_Clear_Area) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.LCD_Clear_Screen) refers to main.o(i.GLCD_Clear) for GLCD_Clear
     main.o(i.LCD_ClockDivide) refers to system_lpc177x_8x.o(.data) for SystemCoreClock
+    main.o(i.LCD_Draw_DotLineX) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.LCD_Draw_DotLineY) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.LCD_Draw_LineX) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.LCD_Draw_LineY) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.LCD_Fill_LineX) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.LCD_Fill_LineY) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.LCD_Initializtion) refers to main.o(i.GLCD_Ctrl) for GLCD_Ctrl
+    main.o(i.LCD_Initializtion) refers to main.o(i.GLCD_Config) for GLCD_Config
+    main.o(i.MGUI_DrawBitMap) refers to main.o(i.Tos_GetStyleHandle) for Tos_GetStyleHandle
+    main.o(i.MGUI_DrawBitMap) refers to main.o(i.TGUI_Fill_Rectangle) for TGUI_Fill_Rectangle
+    main.o(i.MGUI_DrawBitMap) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.MUI_Draw) refers to main.o(i.TGUI_Clear_Show) for TGUI_Clear_Show
+    main.o(i.MUI_Draw) refers to main.o(i.TGUI_DefaultStyle) for TGUI_DefaultStyle
+    main.o(i.MUI_Draw) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.MUI_Draw) refers to main.o(i.MUI_Title) for MUI_Title
+    main.o(i.MUI_Draw) refers to main.o(i.MUI_DrawMenu) for MUI_DrawMenu
+    main.o(i.MUI_Draw) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_DrawMenu) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.MUI_DrawMenu) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.MUI_DrawMenu) refers to main.o(i.Tos_GetStyleHandle) for Tos_GetStyleHandle
+    main.o(i.MUI_DrawMenu) refers to main.o(i.TGUI_Fill_Rectangle) for TGUI_Fill_Rectangle
+    main.o(i.MUI_DrawMenu) refers to main.o(i.MUI_GetOptionString) for MUI_GetOptionString
+    main.o(i.MUI_DrawMenu) refers to main.o(i.Printf) for Printf
+    main.o(i.MUI_DrawMenu) refers to main.o(i.Tos_GetFontHandle) for Tos_GetFontHandle
+    main.o(i.MUI_DrawMenu) refers to main.o(.bss) for Run_Value
+    main.o(i.MUI_DrawMenu) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_Enter) refers to ffltui.o(.text) for __aeabi_ui2f
+    main.o(i.MUI_Enter) refers to main.o(i.MUI_GetValue) for MUI_GetValue
+    main.o(i.MUI_Enter) refers to ffixui.o(.text) for __aeabi_f2uiz
+    main.o(i.MUI_Enter) refers to fflti.o(.text) for __aeabi_i2f
+    main.o(i.MUI_Enter) refers to ffixi.o(.text) for __aeabi_f2iz
+    main.o(i.MUI_Enter) refers to main.o(i.MUI_GetIP) for MUI_GetIP
+    main.o(i.MUI_Enter) refers to main.o(i.MUI_GetColor) for MUI_GetColor
+    main.o(i.MUI_Enter) refers to main.o(i.MUI_GetString) for MUI_GetString
+    main.o(i.MUI_Enter) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_Fill_Bar) refers to main.o(i.TGui_Draw_Line) for TGui_Draw_Line
+    main.o(i.MUI_Fill_Bar) refers to main.o(.data) for P_TGui_Style
+    main.o(i.MUI_GetColor) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.MUI_GetColor) refers to text.o(i.BufferFill) for BufferFill
+    main.o(i.MUI_GetColor) refers to text.o(i.TFT_RGB) for TFT_RGB
+    main.o(i.MUI_GetColor) refers to text.o(i.GetStringByFmt) for GetStringByFmt
+    main.o(i.MUI_GetColor) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.MUI_GetColor) refers to main.o(i.Printf_Data) for Printf_Data
+    main.o(i.MUI_GetColor) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.MUI_GetColor) refers to text.o(i.StringToIPUint32) for StringToIPUint32
+    main.o(i.MUI_GetColor) refers to text.o(i.ALL_TFT) for ALL_TFT
+    main.o(i.MUI_GetColor) refers to main.o(i.Key_GetASCII) for Key_GetASCII
+    main.o(i.MUI_GetCurMenuInfor) refers to main.o(i.MUI_OptionLength) for MUI_OptionLength
+    main.o(i.MUI_GetCurMenuInfor) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_GetIP) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.MUI_GetIP) refers to text.o(i.BufferFill) for BufferFill
+    main.o(i.MUI_GetIP) refers to text.o(i.GetStringByFmt) for GetStringByFmt
+    main.o(i.MUI_GetIP) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.MUI_GetIP) refers to main.o(i.Printf_Data) for Printf_Data
+    main.o(i.MUI_GetIP) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.MUI_GetIP) refers to text.o(i.StringToIPUint32) for StringToIPUint32
+    main.o(i.MUI_GetIP) refers to main.o(i.Key_GetASCII) for Key_GetASCII
+    main.o(i.MUI_GetKey) refers to tos.o(i.Tos_TaskGetQMsgDelay) for Tos_TaskGetQMsgDelay
+    main.o(i.MUI_GetKey) refers to tos.o(i.Tos_TaskGetQMsg) for Tos_TaskGetQMsg
+    main.o(i.MUI_GetOptionString) refers to text.o(i.FmtToBuf) for FmtToBuf
+    main.o(i.MUI_GetOptionString) refers to f2d.o(.text) for __aeabi_f2d
+    main.o(i.MUI_GetOptionString) refers to text.o(i.TFT_RGB) for TFT_RGB
+    main.o(i.MUI_GetOptionString) refers to main.o(.data) for BoolString
+    main.o(i.MUI_GetString) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.MUI_GetString) refers to text.o(i.BufferFill) for BufferFill
+    main.o(i.MUI_GetString) refers to text.o(i.StringCoppy) for StringCoppy
+    main.o(i.MUI_GetString) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.MUI_GetString) refers to main.o(i.Printf_String) for Printf_String
+    main.o(i.MUI_GetString) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.MUI_GetString) refers to main.o(i.GetVoidWord) for GetVoidWord
+    main.o(i.MUI_GetString) refers to main.o(i.Key_GetWord) for Key_GetWord
+    main.o(i.MUI_GetValue) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.MUI_GetValue) refers to text.o(i.BufferFill) for BufferFill
+    main.o(i.MUI_GetValue) refers to f2d.o(.text) for __aeabi_f2d
+    main.o(i.MUI_GetValue) refers to text.o(i.GetStringByFmt) for GetStringByFmt
+    main.o(i.MUI_GetValue) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.MUI_GetValue) refers to main.o(i.Printf_Data) for Printf_Data
+    main.o(i.MUI_GetValue) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.MUI_GetValue) refers to text.o(i.GetStringToNumber) for GetStringToNumber
+    main.o(i.MUI_GetValue) refers to main.o(i.Key_GetASCII) for Key_GetASCII
+    main.o(i.MUI_Init) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.MUI_Init) refers to main.o(i.Tos_GetFontHandle) for Tos_GetFontHandle
+    main.o(i.MUI_Init) refers to main.o(i.TGUI_Set_LineN) for TGUI_Set_LineN
+    main.o(i.MUI_Init) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_Init) refers to main.o(.bss) for Run_Value
+    main.o(i.MUI_ReSetTitle) refers to main.o(i.MUI_Draw) for MUI_Draw
+    main.o(i.MUI_ReSetTitle) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_SetDrawClear) refers to main.o(i.TGUI_Set_Color) for TGUI_Set_Color
+    main.o(i.MUI_SetDrawClear) refers to main.o(.bss) for Run_Value
+    main.o(i.MUI_Task) refers to tos_mema.o(i.Mema_Malloc) for Mema_Malloc
+    main.o(i.MUI_Task) refers to tos.o(i.Tos_TaskCreateQmsg) for Tos_TaskCreateQmsg
+    main.o(i.MUI_Task) refers to main.o(i.TGUI_DefaultStyle) for TGUI_DefaultStyle
+    main.o(i.MUI_Task) refers to main.o(i.Task_LoadConfigs) for Task_LoadConfigs
+    main.o(i.MUI_Task) refers to main.o(i.Task_ReSave) for Task_ReSave
+    main.o(i.MUI_Task) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.MUI_Task) refers to main.o(i.TGUI_Clear_Show) for TGUI_Clear_Show
+    main.o(i.MUI_Task) refers to main.o(i.MUI_Init) for MUI_Init
+    main.o(i.MUI_Task) refers to main.o(i.MUI_GetCurMenuInfor) for MUI_GetCurMenuInfor
+    main.o(i.MUI_Task) refers to main.o(i.MUI_Draw) for MUI_Draw
+    main.o(i.MUI_Task) refers to main.o(i.MUI_OptionLength) for MUI_OptionLength
+    main.o(i.MUI_Task) refers to tos.o(i.Tos_TaskDelay) for Tos_TaskDelay
+    main.o(i.MUI_Task) refers to main.o(i.MUI_Enter) for MUI_Enter
+    main.o(i.MUI_Task) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_Title) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.MUI_Title) refers to main.o(i.TGUI_Draw_Rectangle) for TGUI_Draw_Rectangle
+    main.o(i.MUI_Title) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.MUI_Title) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.MUI_Title) refers to main.o(i.Printf) for Printf
+    main.o(i.MUI_Title) refers to main.o(.bss) for Run_Value
+    main.o(i.MUI_Title) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_Waiting) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.MUI_Waiting) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.MUI_Waiting) refers to main.o(i.MUI_Fill_Bar) for MUI_Fill_Bar
+    main.o(i.MUI_Waiting) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.MUI_Waiting) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.MUI_Waiting) refers to tos.o(i.Tos_TaskDelay) for Tos_TaskDelay
+    main.o(i.MUI_Waiting) refers to main.o(i.Tos_GetStyleHandle) for Tos_GetStyleHandle
+    main.o(i.MUI_Waiting) refers to main.o(i.TGUI_Fill_Rectangle) for TGUI_Fill_Rectangle
+    main.o(i.MUI_Waiting) refers to main.o(i.MUI_Draw) for MUI_Draw
+    main.o(i.MUI_Waiting) refers to main.o(.data) for MenuValue
+    main.o(i.MUI_Waiting) refers to main.o(.bss) for Run_Value
+    main.o(i.Nand_ReadMap) refers to tos_mema.o(i.Mema_Malloc) for Mema_Malloc
+    main.o(i.Nand_ReadMap) refers to main.o(i.TGUI_Clear_Show) for TGUI_Clear_Show
+    main.o(i.Nand_ReadMap) refers to main.o(i.PrintfVoid) for PrintfVoid
+    main.o(i.Nand_ReadMap) refers to main.o(i.Draw_Full_List) for Draw_Full_List
+    main.o(i.Nand_ReadMap) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.Nand_ReadMap) refers to tos_mema.o(i.Mema_Free) for Mema_Free
+    main.o(i.Nand_ReadMap) refers to main.o(i.Task_RePaint) for Task_RePaint
+    main.o(i.Printf) refers to printfa.o(i.__0vsprintf) for vsprintf
+    main.o(i.Printf) refers to main.o(i.TGUI_Draw_FormatString) for TGUI_Draw_FormatString
+    main.o(i.Printf) refers to main.o(.data) for P_TGui_Style
+    main.o(i.PrintfVoid) refers to printfa.o(i.__0vsprintf) for vsprintf
+    main.o(i.PrintfVoid) refers to main.o(i.Printf_Infor) for Printf_Infor
+    main.o(i.Printf_Data) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.Printf_Data) refers to main.o(i.Tos_GetFontHandle) for Tos_GetFontHandle
+    main.o(i.Printf_Data) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.Printf_Data) refers to main.o(i.Tos_GetStyleHandle) for Tos_GetStyleHandle
+    main.o(i.Printf_Data) refers to main.o(i.Printf) for Printf
+    main.o(i.Printf_Data) refers to main.o(.bss) for Run_Value
+    main.o(i.Printf_Data) refers to main.o(.data) for MenuValue
+    main.o(i.Printf_Infor) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.Printf_Infor) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.Printf_Infor) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.Printf_Infor) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.Printf_Infor) refers to main.o(i.Printf) for Printf
+    main.o(i.Printf_Infor) refers to tos.o(i.Tos_TaskDelay) for Tos_TaskDelay
+    main.o(i.Printf_Infor) refers to main.o(i.MUI_Draw) for MUI_Draw
+    main.o(i.Printf_Infor) refers to main.o(.bss) for Run_Value
+    main.o(i.Printf_Infor) refers to main.o(.data) for MenuValue
+    main.o(i.Printf_String) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.Printf_String) refers to main.o(i.Tos_GetFontHandle) for Tos_GetFontHandle
+    main.o(i.Printf_String) refers to main.o(i.Tos_GetStyleHandle) for Tos_GetStyleHandle
+    main.o(i.Printf_String) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.Printf_String) refers to main.o(i.Printf) for Printf
+    main.o(i.Printf_String) refers to main.o(.bss) for Run_Value
+    main.o(i.Printf_String) refers to main.o(.data) for MenuValue
+    main.o(i.Printf_Yes) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.Printf_Yes) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.Printf_Yes) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.Printf_Yes) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.Printf_Yes) refers to main.o(i.Tos_GetStyleHandle) for Tos_GetStyleHandle
+    main.o(i.Printf_Yes) refers to main.o(i.Printf) for Printf
+    main.o(i.Printf_Yes) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.Printf_Yes) refers to main.o(.bss) for Run_Value
+    main.o(i.Printf_Yes) refers to main.o(.data) for MenuValue
+    main.o(i.Printf_YesOrNo) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.Printf_YesOrNo) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.Printf_YesOrNo) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.Printf_YesOrNo) refers to main.o(i.TGUI_Set_Region) for TGUI_Set_Region
+    main.o(i.Printf_YesOrNo) refers to main.o(i.Tos_GetStyleHandle) for Tos_GetStyleHandle
+    main.o(i.Printf_YesOrNo) refers to main.o(i.Printf) for Printf
+    main.o(i.Printf_YesOrNo) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.Printf_YesOrNo) refers to main.o(.bss) for Run_Value
+    main.o(i.Printf_YesOrNo) refers to main.o(.data) for MenuValue
     main.o(i.PutChar) refers to main.o(i.GetASCIICode) for GetASCIICode
     main.o(i.PutChar) refers to main.o(i.GLCD_SetPixel_16bpp) for GLCD_SetPixel_16bpp
+    main.o(i.RAM_ReadMap) refers to tos_mema.o(i.Mema_Malloc) for Mema_Malloc
+    main.o(i.RAM_ReadMap) refers to main.o(i.TGUI_Clear_Show) for TGUI_Clear_Show
+    main.o(i.RAM_ReadMap) refers to main.o(i.PrintfVoid) for PrintfVoid
+    main.o(i.RAM_ReadMap) refers to main.o(i.Draw_Full_List) for Draw_Full_List
+    main.o(i.RAM_ReadMap) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.RAM_ReadMap) refers to tos_mema.o(i.Mema_Free) for Mema_Free
+    main.o(i.RAM_ReadMap) refers to main.o(i.Task_RePaint) for Task_RePaint
+    main.o(i.ROM_ReadMap) refers to tos_mema.o(i.Mema_Malloc) for Mema_Malloc
+    main.o(i.ROM_ReadMap) refers to main.o(i.TGUI_Clear_Show) for TGUI_Clear_Show
+    main.o(i.ROM_ReadMap) refers to main.o(i.PrintfVoid) for PrintfVoid
+    main.o(i.ROM_ReadMap) refers to main.o(i.Draw_Full_List) for Draw_Full_List
+    main.o(i.ROM_ReadMap) refers to main.o(i.MUI_GetKey) for MUI_GetKey
+    main.o(i.ROM_ReadMap) refers to tos_mema.o(i.Mema_Free) for Mema_Free
+    main.o(i.ROM_ReadMap) refers to main.o(i.Task_RePaint) for Task_RePaint
+    main.o(i.TGUI_Clear_Show) refers to main.o(i.LCD_Clear_Screen) for LCD_Clear_Screen
+    main.o(i.TGUI_Clear_Show) refers to main.o(.data) for P_TGui_Style
+    main.o(i.TGUI_DefaultStyle) refers to main.o(.bss) for TGui_Style
+    main.o(i.TGUI_DefaultStyle) refers to main.o(.data) for P_TGui_Style
+    main.o(i.TGUI_DrawRound) refers to main.o(i.CirclePoint) for CirclePoint
+    main.o(i.TGUI_DrawRound2) refers to dflti.o(.text) for __aeabi_i2d
+    main.o(i.TGUI_DrawRound2) refers to cdcmple.o(.text) for __aeabi_cdcmpeq
+    main.o(i.TGUI_DrawRound2) refers to main.o(i.CirclePoint) for CirclePoint
+    main.o(i.TGUI_Draw_ASCII) refers to main.o(i.Draw_Full_List) for Draw_Full_List
+    main.o(i.TGUI_Draw_ASCII) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.TGUI_Draw_ArcRectangle) refers to main.o(i.TGui_Draw_Line) for TGui_Draw_Line
+    main.o(i.TGUI_Draw_ArcRectangle) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.TGUI_Draw_Bitmap) refers to main.o(i.LCD_Fill_LineX) for LCD_Fill_LineX
+    main.o(i.TGUI_Draw_Circle) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.TGUI_Draw_DotCircle) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.TGUI_Draw_DotLine) refers to main.o(i.LCD_Draw_DotLineY) for LCD_Draw_DotLineY
+    main.o(i.TGUI_Draw_DotLine) refers to main.o(i.LCD_Draw_DotLineX) for LCD_Draw_DotLineX
+    main.o(i.TGUI_Draw_DotLine) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.TGUI_Draw_DotRectangle) refers to main.o(i.LCD_Draw_DotLineX) for LCD_Draw_DotLineX
+    main.o(i.TGUI_Draw_DotRectangle) refers to main.o(i.LCD_Draw_DotLineY) for LCD_Draw_DotLineY
+    main.o(i.TGUI_Draw_FormatString) refers to main.o(i.TGUI_Get_StringPixel) for TGUI_Get_StringPixel
+    main.o(i.TGUI_Draw_FormatString) refers to main.o(i.TGUI_Draw_Word) for TGUI_Draw_Word
+    main.o(i.TGUI_Draw_FormatString) refers to main.o(i.TGUI_Draw_ASCII) for TGUI_Draw_ASCII
+    main.o(i.TGUI_Draw_FormatString) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.TGUI_Draw_Image) refers to main.o(i.TGUI_Draw_Bitmap) for TGUI_Draw_Bitmap
+    main.o(i.TGUI_Draw_ObjectPopDown) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Draw_ObjectPopDown) refers to main.o(i.LCD_Draw_LineY) for LCD_Draw_LineY
+    main.o(i.TGUI_Draw_ObjectPopDown) refers to main.o(i.TGUI_Fill_Rectangle) for TGUI_Fill_Rectangle
+    main.o(i.TGUI_Draw_ObjectPopUp) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Draw_ObjectPopUp) refers to main.o(i.LCD_Draw_LineY) for LCD_Draw_LineY
+    main.o(i.TGUI_Draw_ObjectPopUp) refers to main.o(i.TGUI_Fill_Rectangle) for TGUI_Fill_Rectangle
+    main.o(i.TGUI_Draw_Rectangle) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Draw_Rectangle) refers to main.o(i.LCD_Draw_LineY) for LCD_Draw_LineY
+    main.o(i.TGUI_Draw_Ring) refers to main.o(i.TGUI_Draw_Circle) for TGUI_Draw_Circle
+    main.o(i.TGUI_Draw_Triangle) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
+    main.o(i.TGUI_Draw_Triangle) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Draw_Triangle) refers to main.o(i.LCD_Draw_LineY) for LCD_Draw_LineY
+    main.o(i.TGUI_Draw_Word) refers to main.o(i.TGUI_Index_Word) for TGUI_Index_Word
+    main.o(i.TGUI_Draw_Word) refers to main.o(i.Draw_Full_List) for Draw_Full_List
+    main.o(i.TGUI_Draw_Word) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.TGUI_Fill_ArcRectangle) refers to main.o(i.LCD_Clear_Area) for LCD_Clear_Area
+    main.o(i.TGUI_Fill_ArcRectangle) refers to main.o(i.TGui_Draw_Line) for TGui_Draw_Line
+    main.o(i.TGUI_Fill_Bar) refers to main.o(i.TGui_Draw_Line) for TGui_Draw_Line
+    main.o(i.TGUI_Fill_BitmapX) refers to main.o(i.TGUI_Draw_Bitmap) for TGUI_Draw_Bitmap
+    main.o(i.TGUI_Fill_BitmapX) refers to main.o(i.LCD_Fill_LineX) for LCD_Fill_LineX
+    main.o(i.TGUI_Fill_BitmapY) refers to main.o(i.TGUI_Draw_Bitmap) for TGUI_Draw_Bitmap
+    main.o(i.TGUI_Fill_BitmapY) refers to main.o(i.LCD_Fill_LineX) for LCD_Fill_LineX
+    main.o(i.TGUI_Fill_Circle) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Fill_Rectangle) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Fill_Ring) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Fill_Triangle) refers to main.o(i.LCD_Draw_LineX) for LCD_Draw_LineX
+    main.o(i.TGUI_Fill_Triangle) refers to main.o(i.LCD_Draw_LineY) for LCD_Draw_LineY
+    main.o(i.TGUI_Get_StringPixel) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.TGUI_Index_Word) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.TGUI_Set_Color) refers to main.o(.data) for P_TGui_Style
+    main.o(i.TGUI_Set_Font) refers to main.o(i.TGUI_Set_LocalFont) for TGUI_Set_LocalFont
+    main.o(i.TGUI_Set_Font) refers to main.o(.data) for P_TGui_Style
+    main.o(i.TGUI_Set_Font) refers to main.o(.constdata) for GBKLib_FontType1212
+    main.o(i.TGUI_Set_LineN) refers to main.o(.data) for P_TGui_Style
+    main.o(i.TGUI_Set_LocalFont) refers to text.o(i.GetCountSize) for GetCountSize
+    main.o(i.TGUI_Set_LocalFont) refers to text.o(i.GetTextLength) for GetTextLength
+    main.o(i.TGUI_Set_LocalFont) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.TGUI_Set_Region) refers to main.o(.data) for P_TGui_Style
+    main.o(i.TGui_Draw_Line) refers to main.o(i.LCD_Set_Pixel) for LCD_Set_Pixel
     main.o(i.Task0) refers to sdram_k4s561632c_32m_16bit.o(i.SDRAM_32M_16BIT_Init) for SDRAM_32M_16BIT_Init
-    main.o(i.Task0) refers to main.o(i.GLCD_Init) for GLCD_Init
+    main.o(i.Task0) refers to main.o(i.LCD_Initializtion) for LCD_Initializtion
     main.o(i.Task0) refers to main.o(i.GLCD_Clear) for GLCD_Clear
     main.o(i.Task0) refers to tos.o(i.Tos_TaskDelay) for Tos_TaskDelay
-    main.o(i.Task0) refers to main.o(i.GUI_Text) for GUI_Text
+    main.o(i.Task1) refers to lpc177x_8x_clkpwr.o(i.CLKPWR_ConfigPPWR) for CLKPWR_ConfigPPWR
+    main.o(i.Task1) refers to lpc177x_8x_gpio.o(i.GPIO_SetDir) for GPIO_SetDir
+    main.o(i.Task1) refers to lpc177x_8x_gpio.o(i.GPIO_OutputValue) for GPIO_OutputValue
     main.o(i.Task1) refers to tos.o(i.Tos_TaskDelay) for Tos_TaskDelay
+    main.o(i.Task_LoadConfigs) refers to main.o(i.Task_Waiting) for Task_Waiting
+    main.o(i.Task_LoadConfigs) refers to main.o(i.Task_RePaint) for Task_RePaint
+    main.o(i.Task_LoadConfigsFromNand) refers to main.o(i.Task_Waiting) for Task_Waiting
+    main.o(i.Task_LoadConfigsFromNand) refers to main.o(i.Task_RePaint) for Task_RePaint
+    main.o(i.Task_RePaint) refers to main.o(i.Tos_GetFontHandle) for Tos_GetFontHandle
+    main.o(i.Task_RePaint) refers to main.o(.data) for MenuValue
+    main.o(i.Task_ReSave) refers to main.o(i.Task_SaveConfigs) for Task_SaveConfigs
+    main.o(i.Task_ReSave) refers to main.o(.bss) for Run_Value
+    main.o(i.Task_SaveConfigs) refers to main.o(i.Task_Waiting) for Task_Waiting
+    main.o(i.Task_SaveConfigs) refers to main.o(.bss) for Run_Value
+    main.o(i.Task_SaveConfigsToNand) refers to main.o(i.Task_Waiting) for Task_Waiting
+    main.o(i.Task_SaveConfigsToNand) refers to main.o(.bss) for Run_Value
+    main.o(i.Task_SetMenuFont) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.Task_SetMenuFont) refers to main.o(i.Task_RePaint) for Task_RePaint
+    main.o(i.Task_SetMenuFont) refers to main.o(.bss) for Run_Value
+    main.o(i.Task_SetMsgFont) refers to main.o(i.TGUI_Set_Font) for TGUI_Set_Font
+    main.o(i.Task_SetMsgFont) refers to main.o(i.Printf_Infor) for Printf_Infor
+    main.o(i.Task_SetMsgFont) refers to main.o(.bss) for Run_Value
+    main.o(i.Task_SetTitleFont) refers to main.o(i.Task_RePaint) for Task_RePaint
+    main.o(i.Task_SetTitleFont) refers to main.o(.bss) for Run_Value
+    main.o(i.Task_ShowAsk) refers to main.o(i.Printf_Yes) for Printf_Yes
+    main.o(i.Task_ShowInfor) refers to main.o(i.Printf_Infor) for Printf_Infor
+    main.o(i.Task_ShowTos) refers to main.o(i.MUI_ReSetTitle) for MUI_ReSetTitle
+    main.o(i.Task_ShowTos) refers to tos.o(i.Tos_TaskDelay) for Tos_TaskDelay
+    main.o(i.Task_ShowTos) refers to main.o(i.MUI_SetDrawClear) for MUI_SetDrawClear
+    main.o(i.Task_ShowYesOrNo) refers to main.o(i.Printf_YesOrNo) for Printf_YesOrNo
+    main.o(i.Task_ShowYesOrNo) refers to main.o(i.Printf_Infor) for Printf_Infor
+    main.o(i.Task_TaskManage) refers to tos.o(i.Tos_GetTaskIDByName) for Tos_GetTaskIDByName
+    main.o(i.Task_TaskManage) refers to main.o(i.Printf_Infor) for Printf_Infor
+    main.o(i.Task_TaskManage) refers to tos.o(i.Tos_TaskDelete) for Tos_TaskDelete
+    main.o(i.Task_TaskManage) refers to tos.o(i.Tos_TaskSuspend) for Tos_TaskSuspend
+    main.o(i.Task_TaskManage) refers to tos.o(i.Tos_TaskResume) for Tos_TaskResume
+    main.o(i.Task_TaskManage) refers to main.o(.bss) for Run_Value
+    main.o(i.Task_Waiting) refers to main.o(i.MUI_Waiting) for MUI_Waiting
+    main.o(i.Tos_GetFontHandle) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.Tos_GetStyleHandle) refers to main.o(.data) for P_TGui_Style
+    main.o(i.Tos_SetFontHandle) refers to main.o(.data) for P_TGUI_Font
+    main.o(i.Tos_SetStyleHandle) refers to main.o(.data) for P_TGui_Style
     main.o(i.main) refers to tos_mema.o(i.Mema_Init) for Mema_Init
     main.o(i.main) refers to tos_device.o(i.DeviceList_Init) for DeviceList_Init
     main.o(i.main) refers to tos.o(i.Tos_ListCreate) for Tos_ListCreate
     main.o(i.main) refers to tos_mema.o(.bss) for MemBuf
     main.o(i.main) refers to main.o(.constdata) for TaskList
     main.o(i.tos_main) refers to main.o(i.main) for main
-    main.o(.constdata) refers to main.o(i.Task0) for Task0
     main.o(.constdata) refers to main.o(.conststring) for .conststring
+    main.o(.constdata) refers to main.o(.bss) for Run_Value
+    main.o(.constdata) refers to main.o(i.Task_SaveConfigs) for Task_SaveConfigs
+    main.o(.constdata) refers to main.o(i.Task_LoadConfigs) for Task_LoadConfigs
+    main.o(.constdata) refers to main.o(i.Task_ShowInfor) for Task_ShowInfor
+    main.o(.constdata) refers to main.o(i.Task_ShowAsk) for Task_ShowAsk
+    main.o(.constdata) refers to main.o(i.Task_ShowYesOrNo) for Task_ShowYesOrNo
+    main.o(.constdata) refers to main.o(i.Task_Waiting) for Task_Waiting
+    main.o(.constdata) refers to main.o(i.Task_TaskManage) for Task_TaskManage
+    main.o(.constdata) refers to tos.o(.data) for Tos_CPUInfor
+    main.o(.constdata) refers to main.o(i.Task_SaveConfigsToNand) for Task_SaveConfigsToNand
+    main.o(.constdata) refers to main.o(i.Task_LoadConfigsFromNand) for Task_LoadConfigsFromNand
+    main.o(.constdata) refers to main.o(.data) for _Tos_Cpu_Freq
+    main.o(.constdata) refers to tos_device.o(.data) for DeviceId_Index
+    main.o(.constdata) refers to main.o(i.Nand_ReadMap) for Nand_ReadMap
+    main.o(.constdata) refers to main.o(i.ROM_ReadMap) for ROM_ReadMap
+    main.o(.constdata) refers to main.o(i.RAM_ReadMap) for RAM_ReadMap
+    main.o(.constdata) refers to main.o(i.Task_ShowTos) for Task_ShowTos
+    main.o(.constdata) refers to main.o(i.Task_SetTitleFont) for Task_SetTitleFont
+    main.o(.constdata) refers to main.o(i.Task_SetMenuFont) for Task_SetMenuFont
+    main.o(.constdata) refers to main.o(i.Task_SetMsgFont) for Task_SetMsgFont
+    main.o(.constdata) refers to main.o(i.Task0) for Task0
+    main.o(.constdata) refers to main.o(i.MUI_Task) for MUI_Task
     main.o(.constdata) refers to main.o(i.Task1) for Task1
+    main.o(.data) refers to main.o(.conststring) for .conststring
     sin.o(i.__softfp_sin) refers (Special) to iusefp.o(.text) for __I$use$fp
     sin.o(i.__softfp_sin) refers to sin.o(i.sin) for sin
     sin.o(i.sin) refers (Special) to iusefp.o(.text) for __I$use$fp
@@ -446,6 +778,7 @@ Section Cross References
     dfixui.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     dfixui.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     f2d.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
+    cdcmple.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     d2f.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
     d2f.o(.text) refers to fepilogue.o(.text) for _float_round
     cfcmple.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
@@ -578,12 +911,10 @@ Removing Unused input sections from the image.
     Removing lpc177x_8x_gpio.o(i.FIO_SetMask), (40 bytes).
     Removing lpc177x_8x_gpio.o(i.FIO_SetValue), (16 bytes).
     Removing lpc177x_8x_gpio.o(i.GPIO_ClearInt), (32 bytes).
-    Removing lpc177x_8x_gpio.o(i.GPIO_ClearValue), (20 bytes).
     Removing lpc177x_8x_gpio.o(i.GPIO_Deinit), (14 bytes).
     Removing lpc177x_8x_gpio.o(i.GPIO_GetIntStatus), (104 bytes).
     Removing lpc177x_8x_gpio.o(i.GPIO_Init), (12 bytes).
     Removing lpc177x_8x_gpio.o(i.GPIO_IntCmd), (72 bytes).
-    Removing lpc177x_8x_gpio.o(i.GPIO_OutputValue), (30 bytes).
     Removing lpc177x_8x_gpio.o(i.GPIO_ReadValue), (22 bytes).
     Removing lpc177x_8x_lcd.o(.rev16_text), (4 bytes).
     Removing lpc177x_8x_lcd.o(.revsh_text), (4 bytes).
@@ -627,22 +958,14 @@ Removing Unused input sections from the image.
     Removing cpu.o(.revsh_text), (4 bytes).
     Removing sdram_k4s561632c_32m_16bit.o(.rev16_text), (4 bytes).
     Removing sdram_k4s561632c_32m_16bit.o(.revsh_text), (4 bytes).
-    Removing tos.o(i.Tos_GetTaskIDByName), (56 bytes).
     Removing tos.o(i.Tos_SetTimeout), (20 bytes).
-    Removing tos.o(i.Tos_TaskCreateQmsg), (96 bytes).
     Removing tos.o(i.Tos_TaskDelayHMSM), (48 bytes).
-    Removing tos.o(i.Tos_TaskDelete), (144 bytes).
     Removing tos.o(i.Tos_TaskDeleteQmsg), (92 bytes).
-    Removing tos.o(i.Tos_TaskGetQMsg), (108 bytes).
-    Removing tos.o(i.Tos_TaskGetQMsgDelay), (108 bytes).
     Removing tos.o(i.Tos_TaskGetState), (32 bytes).
     Removing tos.o(i.Tos_TaskPutQmsg), (132 bytes).
     Removing tos.o(i.Tos_TaskQmail), (28 bytes).
     Removing tos.o(i.Tos_TaskRecover), (52 bytes).
-    Removing tos.o(i.Tos_TaskResume), (108 bytes).
     Removing tos.o(i.Tos_TaskSmail), (56 bytes).
-    Removing tos.o(i.Tos_TaskStop), (76 bytes).
-    Removing tos.o(i.Tos_TaskSuspend), (124 bytes).
     Removing tos.o(i.Tos_TaskTimeout), (84 bytes).
     Removing tos.o(i.Tos_WaitDev), (60 bytes).
     Removing tos_timer.o(i.Tos_CreateTimer), (116 bytes).
@@ -672,17 +995,14 @@ Removing Unused input sections from the image.
     Removing modbus.o(i.MyCom_AppendCrc), (36 bytes).
     Removing modbus.o(i.MyCom_CheckCrc), (48 bytes).
     Removing modbus.o(i.MyCom_SendMsg), (84 bytes).
-    Removing text.o(i.ALL_TFT), (40 bytes).
     Removing text.o(i.Abs), (28 bytes).
     Removing text.o(i.AvrFilter_ByWords), (36 bytes).
     Removing text.o(i.Bcd_Decimal), (16 bytes).
     Removing text.o(i.BufferCoppy), (34 bytes).
-    Removing text.o(i.BufferFill), (22 bytes).
     Removing text.o(i.BytesFindString), (82 bytes).
     Removing text.o(i.CharToUpperLower), (66 bytes).
     Removing text.o(i.ClearWithBuffer), (20 bytes).
     Removing text.o(i.CompareWithBuffer), (36 bytes).
-    Removing text.o(i.CompareWithString), (60 bytes).
     Removing text.o(i.Coppy_FromConst), (24 bytes).
     Removing text.o(i.CreateTrueString), (48 bytes).
     Removing text.o(i.D16FromArray), (46 bytes).
@@ -697,17 +1017,13 @@ Removing Unused input sections from the image.
     Removing text.o(i.FindNumFromString), (138 bytes).
     Removing text.o(i.Float32FromByte), (8 bytes).
     Removing text.o(i.Float32ToByte), (32 bytes).
-    Removing text.o(i.FmtToBuf), (30 bytes).
     Removing text.o(i.FromHex64), (36 bytes).
     Removing text.o(i.GPRS_CheckIpTrue), (88 bytes).
     Removing text.o(i.GetArraySum), (38 bytes).
-    Removing text.o(i.GetCountSize), (30 bytes).
     Removing text.o(i.GetFileNameFormat), (86 bytes).
     Removing text.o(i.GetHexFromString), (228 bytes).
-    Removing text.o(i.GetStringByFmt), (38 bytes).
     Removing text.o(i.GetStringFromNumber), (320 bytes).
     Removing text.o(i.GetStringToBool), (36 bytes).
-    Removing text.o(i.GetStringToNumber), (196 bytes).
     Removing text.o(i.GetWordFromBytes), (38 bytes).
     Removing text.o(i.HtmlGetGB2312), (48 bytes).
     Removing text.o(i.IPUint32ToString), (80 bytes).
@@ -720,15 +1036,12 @@ Removing Unused input sections from the image.
     Removing text.o(i.SerchKeyFromBytes), (36 bytes).
     Removing text.o(i.SetWordToBytes), (22 bytes).
     Removing text.o(i.SplitWithString), (48 bytes).
-    Removing text.o(i.StringCoppy), (36 bytes).
     Removing text.o(i.StringHeadAppend), (36 bytes).
     Removing text.o(i.StringReplaceChar), (26 bytes).
     Removing text.o(i.StringSearchKey), (36 bytes).
-    Removing text.o(i.StringToIPUint32), (106 bytes).
     Removing text.o(i.StringToUpperLower), (26 bytes).
     Removing text.o(i.StringTrmChar), (36 bytes).
     Removing text.o(i.Strstr), (48 bytes).
-    Removing text.o(i.TFT_RGB), (48 bytes).
     Removing text.o(i.ToHex64), (42 bytes).
     Removing text.o(i.Uint16ToByte), (32 bytes).
     Removing text.o(i.Uint32FromByte), (8 bytes).
@@ -749,28 +1062,59 @@ Removing Unused input sections from the image.
     Removing operation.o(i.Opera_WhithADCFloat), (394 bytes).
     Removing main.o(.rev16_text), (4 bytes).
     Removing main.o(.revsh_text), (4 bytes).
+    Removing main.o(i.CirclePoint), (164 bytes).
+    Removing main.o(i.DeviceMount_Lcd), (136 bytes).
+    Removing main.o(i.Draw_Row_List), (62 bytes).
+    Removing main.o(i.Draw_Y_8Bit), (70 bytes).
     Removing main.o(i.GLCD_Copy_Cursor), (36 bytes).
     Removing main.o(i.GLCD_Cursor_Config), (12 bytes).
     Removing main.o(i.GLCD_Cursor_Disable), (20 bytes).
     Removing main.o(i.GLCD_Cursor_Enable), (28 bytes).
     Removing main.o(i.GLCD_DrawLine), (250 bytes).
     Removing main.o(i.GLCD_Move_Cursor), (88 bytes).
+    Removing main.o(i.GUI_Text), (80 bytes).
+    Removing main.o(i.GetASCIICode), (32 bytes).
+    Removing main.o(i.LCD_Clear_Area), (60 bytes).
+    Removing main.o(i.LCD_Draw_DotLineX), (70 bytes).
+    Removing main.o(i.LCD_Draw_DotLineY), (70 bytes).
+    Removing main.o(i.LCD_Fill_LineX), (40 bytes).
+    Removing main.o(i.LCD_Fill_LineY), (40 bytes).
+    Removing main.o(i.MGUI_DrawBitMap), (564 bytes).
+    Removing main.o(i.MUI_GetWordLength), (28 bytes).
+    Removing main.o(i.PutChar), (100 bytes).
+    Removing main.o(i.TGUI_DrawRound), (86 bytes).
+    Removing main.o(i.TGUI_DrawRound2), (154 bytes).
+    Removing main.o(i.TGUI_Draw_ArcRectangle), (318 bytes).
+    Removing main.o(i.TGUI_Draw_Bitmap), (50 bytes).
+    Removing main.o(i.TGUI_Draw_Circle), (152 bytes).
+    Removing main.o(i.TGUI_Draw_DotCircle), (178 bytes).
+    Removing main.o(i.TGUI_Draw_DotLine), (252 bytes).
+    Removing main.o(i.TGUI_Draw_DotRectangle), (88 bytes).
+    Removing main.o(i.TGUI_Draw_Image), (66 bytes).
+    Removing main.o(i.TGUI_Draw_ObjectPopDown), (98 bytes).
+    Removing main.o(i.TGUI_Draw_ObjectPopUp), (98 bytes).
+    Removing main.o(i.TGUI_Draw_Ring), (44 bytes).
+    Removing main.o(i.TGUI_Draw_Triangle), (376 bytes).
+    Removing main.o(i.TGUI_Fill_ArcRectangle), (250 bytes).
+    Removing main.o(i.TGUI_Fill_Bar), (102 bytes).
+    Removing main.o(i.TGUI_Fill_BitmapX), (110 bytes).
+    Removing main.o(i.TGUI_Fill_BitmapY), (110 bytes).
+    Removing main.o(i.TGUI_Fill_Circle), (164 bytes).
+    Removing main.o(i.TGUI_Fill_Ring), (508 bytes).
+    Removing main.o(i.TGUI_Fill_Triangle), (214 bytes).
+    Removing main.o(i.TGUI_Set_Rectangle), (14 bytes).
+    Removing main.o(i.Tos_SetFontHandle), (12 bytes).
+    Removing main.o(i.Tos_SetStyleHandle), (12 bytes).
     Removing main.o(i.tos_main), (4 bytes).
-    Removing fadd.o(.text), (176 bytes).
-    Removing fmul.o(.text), (108 bytes).
     Removing fdiv.o(.text), (128 bytes).
-    Removing fflti.o(.text), (18 bytes).
     Removing dflti.o(.text), (34 bytes).
     Removing dfltui.o(.text), (26 bytes).
-    Removing ffixi.o(.text), (50 bytes).
-    Removing ffixui.o(.text), (40 bytes).
     Removing dfixui.o(.text), (50 bytes).
-    Removing f2d.o(.text), (38 bytes).
-    Removing d2f.o(.text), (56 bytes).
+    Removing cdcmple.o(.text), (40 bytes).
     Removing cfcmple.o(.text), (20 bytes).
     Removing dscalb.o(.text), (46 bytes).
 
-257 unused section(s) (total 26268 bytes) removed from the image.
+268 unused section(s) (total 29318 bytes) removed from the image.
 
 ==============================================================================
 
@@ -781,24 +1125,24 @@ Image Symbol Table
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
     RESET                                    0x00000000   Section      228  startup_lpc177x_8x.o(RESET)
-    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
     ../clib/microlib/errno.c                 0x00000000   Number         0  errno.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc.o ABSOLUTE
@@ -812,21 +1156,21 @@ Image Symbol Table
     ../fplib/microlib/f2d.c                  0x00000000   Number         0  f2d.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  fadd.o ABSOLUTE
-    ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  fdiv.o ABSOLUTE
-    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
+    ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
+    ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixi.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixi.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixui.o ABSOLUTE
-    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  fflti.o ABSOLUTE
+    ../fplib/microlib/fpflt.c                0x00000000   Number         0  dflti.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  dfltui.o ABSOLUTE
-    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
+    ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
     ../fplib/microlib/fpscalb.c              0x00000000   Number         0  dscalb.o ABSOLUTE
     ../mathlib/cos_i.c                       0x00000000   Number         0  cos_i.o ABSOLUTE
     ../mathlib/dunder.c                      0x00000000   Number         0  dunder.o ABSOLUTE
@@ -869,6 +1213,7 @@ Image Symbol Table
     ..\\Libraries\\Drivers\\source\\lpc177x_8x_pinsel.c 0x00000000   Number         0  lpc177x_8x_pinsel.o ABSOLUTE
     ..\\Libraries\\Drivers\\source\\lpc177x_8x_systick.c 0x00000000   Number         0  lpc177x_8x_systick.o ABSOLUTE
     ..\\USER\\Main.c                         0x00000000   Number         0  main.o ABSOLUTE
+    cdcmple.s                                0x00000000   Number         0  cdcmple.o ABSOLUTE
     cdrcmple.s                               0x00000000   Number         0  cdrcmple.o ABSOLUTE
     cfcmple.s                                0x00000000   Number         0  cfcmple.o ABSOLUTE
     cfrcmple.s                               0x00000000   Number         0  cfrcmple.o ABSOLUTE
@@ -887,102 +1232,196 @@ Image Symbol Table
     __lit__00000000                          0x000000f4   Data           4  entry2.o(.ARM.Collect$$$$00002712)
     .text                                    0x000000f8   Section       36  startup_lpc177x_8x.o(.text)
     .text                                    0x0000011c   Section        0  uldiv.o(.text)
-    .text                                    0x0000017e   Section        0  memcpya.o(.text)
-    .text                                    0x000001a2   Section        0  dadd.o(.text)
-    .text                                    0x000002f0   Section        0  ffltui.o(.text)
-    .text                                    0x000002fa   Section        0  iusefp.o(.text)
-    i.MCU_Reset                              0x000002fa   Section        0  cpu.o(i.MCU_Reset)
+    .text                                    0x0000017e   Section        0  fadd.o(.text)
+    .text                                    0x0000022e   Section        0  fmul.o(.text)
+    .text                                    0x0000029a   Section        0  fflti.o(.text)
+    .text                                    0x000002ac   Section        0  ffltui.o(.text)
+    .text                                    0x000002b6   Section        0  ffixi.o(.text)
+    .text                                    0x000002e8   Section       20  cfrcmple.o(.text)
     .ARM.__at_0x02FC                         0x000002fc   Section        4  startup_lpc177x_8x.o(.ARM.__at_0x02FC)
-    .text                                    0x00000300   Section        0  dmul.o(.text)
-    .text                                    0x000003e4   Section        0  ddiv.o(.text)
-    .text                                    0x000004c2   Section        0  dfixi.o(.text)
-    .text                                    0x00000500   Section       20  cfrcmple.o(.text)
-    .text                                    0x00000514   Section        0  uidiv.o(.text)
-    .text                                    0x00000540   Section        0  llshl.o(.text)
-    .text                                    0x0000055e   Section        0  llushr.o(.text)
-    .text                                    0x0000057e   Section        0  llsshr.o(.text)
-    .text                                    0x000005a2   Section        0  fepilogue.o(.text)
-    .text                                    0x0000060e   Section        0  depilogue.o(.text)
-    .text                                    0x000006cc   Section        0  dfixul.o(.text)
-    .text                                    0x000006fc   Section       40  cdrcmple.o(.text)
-    .text                                    0x00000724   Section       36  init.o(.text)
-    TOS_CORE_A                               0x00000748   Section       80  tos_core_a.o(TOS_CORE_A)
-    i.CLKPWR_ConfigPPWR                      0x00000798   Section        0  lpc177x_8x_clkpwr.o(i.CLKPWR_ConfigPPWR)
-    i.CLKPWR_GetCLK                          0x000007c8   Section        0  lpc177x_8x_clkpwr.o(i.CLKPWR_GetCLK)
-    i.DeBug                                  0x00000808   Section        0  debug.o(i.DeBug)
-    i.DeviceList_Init                        0x00000934   Section        0  tos_device.o(i.DeviceList_Init)
-    i.FlowPoolFilter                         0x00000998   Section        0  text.o(i.FlowPoolFilter)
-    i.GLCD_Clear                             0x000009d2   Section        0  main.o(i.GLCD_Clear)
-    i.GLCD_Config                            0x00000a00   Section        0  main.o(i.GLCD_Config)
-    GLCD_Config                              0x00000a01   Thumb Code   480  main.o(i.GLCD_Config)
-    i.GLCD_Ctrl                              0x00000bfc   Section        0  main.o(i.GLCD_Ctrl)
-    GLCD_Ctrl                                0x00000bfd   Thumb Code    96  main.o(i.GLCD_Ctrl)
-    i.GLCD_Init                              0x00000c60   Section        0  main.o(i.GLCD_Init)
-    i.GLCD_SetPixel_16bpp                    0x00000c74   Section        0  main.o(i.GLCD_SetPixel_16bpp)
-    i.GPIO_GetPointer                        0x00000c8c   Section        0  lpc177x_8x_gpio.o(i.GPIO_GetPointer)
-    GPIO_GetPointer                          0x00000c8d   Thumb Code    58  lpc177x_8x_gpio.o(i.GPIO_GetPointer)
-    i.GPIO_SetDir                            0x00000ccc   Section        0  lpc177x_8x_gpio.o(i.GPIO_SetDir)
-    i.GPIO_SetValue                          0x00000cf4   Section        0  lpc177x_8x_gpio.o(i.GPIO_SetValue)
-    i.GUI_Text                               0x00000d08   Section        0  main.o(i.GUI_Text)
-    i.GetASCIICode                           0x00000d58   Section        0  main.o(i.GetASCIICode)
-    i.GetChar_List                           0x00000d78   Section        0  debug.o(i.GetChar_List)
-    i.GetTextLength                          0x00000df8   Section        0  text.o(i.GetTextLength)
-    i.LCD_ClockDivide                        0x00000e10   Section        0  main.o(i.LCD_ClockDivide)
-    LCD_ClockDivide                          0x00000e11   Thumb Code    50  main.o(i.LCD_ClockDivide)
-    i.Mema_Free                              0x00000e48   Section        0  tos_mema.o(i.Mema_Free)
-    i.Mema_Init                              0x00000e78   Section        0  tos_mema.o(i.Mema_Init)
-    i.Mema_Malloc                            0x00000e94   Section        0  tos_mema.o(i.Mema_Malloc)
-    i.PINSEL_ConfigPin                       0x00000ee0   Section        0  lpc177x_8x_pinsel.o(i.PINSEL_ConfigPin)
-    i.PINSEL_GetPinType                      0x00000f28   Section        0  lpc177x_8x_pinsel.o(i.PINSEL_GetPinType)
-    i.PIN_GetPointer                         0x00000fcc   Section        0  lpc177x_8x_pinsel.o(i.PIN_GetPointer)
-    PIN_GetPointer                           0x00000fcd   Thumb Code    18  lpc177x_8x_pinsel.o(i.PIN_GetPointer)
-    i.PutChar                                0x00000fe4   Section        0  main.o(i.PutChar)
-    i.SDRAM_32M_16BIT_Init                   0x00001048   Section        0  sdram_k4s561632c_32m_16bit.o(i.SDRAM_32M_16BIT_Init)
-    i.SYSTICK_ClearCounterFlag               0x00001214   Section        0  lpc177x_8x_systick.o(i.SYSTICK_ClearCounterFlag)
-    i.SYSTICK_Cmd                            0x00001226   Section        0  lpc177x_8x_systick.o(i.SYSTICK_Cmd)
-    i.SYSTICK_IntCmd                         0x0000124e   Section        0  lpc177x_8x_systick.o(i.SYSTICK_IntCmd)
-    i.SYSTICK_InternalInit                   0x00001276   Section        0  lpc177x_8x_systick.o(i.SYSTICK_InternalInit)
-    i.StringEndingAppend                     0x000012d2   Section        0  text.o(i.StringEndingAppend)
-    i.SysTick_Handler                        0x00001314   Section        0  cpu.o(i.SysTick_Handler)
-    i.SysTick_Set                            0x00001320   Section        0  cpu.o(i.SysTick_Set)
-    i.SystemInit                             0x00001338   Section        0  system_lpc177x_8x.o(i.SystemInit)
-    i.Task0                                  0x0000142c   Section        0  main.o(i.Task0)
-    i.Task1                                  0x000014e4   Section        0  main.o(i.Task1)
-    i.Tos_ComputeCPURate                     0x000014f0   Section        0  tos.o(i.Tos_ComputeCPURate)
-    i.Tos_Init                               0x0000154c   Section        0  tos.o(i.Tos_Init)
-    i.Tos_ListCreate                         0x000015e4   Section        0  tos.o(i.Tos_ListCreate)
-    i.Tos_RootTask                           0x00001604   Section        0  tos.o(i.Tos_RootTask)
-    i.Tos_ScanTimer                          0x00001614   Section        0  tos_timer.o(i.Tos_ScanTimer)
-    i.Tos_Start                              0x0000164c   Section        0  tos.o(i.Tos_Start)
-    i.Tos_SysTick                            0x0000167c   Section        0  tos.o(i.Tos_SysTick)
-    i.Tos_TaskCreate                         0x000016cc   Section        0  tos.o(i.Tos_TaskCreate)
-    i.Tos_TaskCreateFindID                   0x0000179c   Section        0  tos.o(i.Tos_TaskCreateFindID)
-    i.Tos_TaskDelay                          0x00001800   Section        0  tos.o(i.Tos_TaskDelay)
-    i.Tos_TaskReady                          0x00001858   Section        0  tos.o(i.Tos_TaskReady)
-    i.Tos_TaskRun                            0x00001918   Section        0  tos.o(i.Tos_TaskRun)
-    i.Tos_TaskStackInit                      0x0000196c   Section        0  tos.o(i.Tos_TaskStackInit)
-    i.Tos_TaskStart                          0x000019dc   Section        0  tos.o(i.Tos_TaskStart)
-    i.Tos_TaskSwitch                         0x00001a00   Section        0  tos.o(i.Tos_TaskSwitch)
-    i.Tos_TaskTcbInit                        0x00001aa0   Section        0  tos.o(i.Tos_TaskTcbInit)
-    i.Tos_TimerReady                         0x00001ab4   Section        0  tos_timer.o(i.Tos_TimerReady)
-    i.__0vsprintf                            0x00001b08   Section        0  printfa.o(i.__0vsprintf)
-    i.__scatterload_copy                     0x00001b2c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00001b3a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00001b3c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._fp_digits                             0x00001b4c   Section        0  printfa.o(i._fp_digits)
-    _fp_digits                               0x00001b4d   Thumb Code   326  printfa.o(i._fp_digits)
-    i._printf_core                           0x00001ca8   Section        0  printfa.o(i._printf_core)
-    _printf_core                             0x00001ca9   Thumb Code  1762  printfa.o(i._printf_core)
-    i._printf_post_padding                   0x00002398   Section        0  printfa.o(i._printf_post_padding)
-    _printf_post_padding                     0x00002399   Thumb Code    38  printfa.o(i._printf_post_padding)
-    i._printf_pre_padding                    0x000023be   Section        0  printfa.o(i._printf_pre_padding)
-    _printf_pre_padding                      0x000023bf   Thumb Code    48  printfa.o(i._printf_pre_padding)
-    i._sputc                                 0x000023ee   Section        0  printfa.o(i._sputc)
-    _sputc                                   0x000023ef   Thumb Code    10  printfa.o(i._sputc)
-    i.main                                   0x000023f8   Section        0  main.o(i.main)
-    .constdata                               0x00002414   Section     1568  main.o(.constdata)
-    AsciiLib                                 0x00002414   Data        1520  main.o(.constdata)
-    .conststring                             0x00002a34   Section        6  main.o(.conststring)
+    .text                                    0x00000300   Section        0  dadd.o(.text)
+    .text                                    0x0000044e   Section        0  dmul.o(.text)
+    .text                                    0x00000532   Section        0  ddiv.o(.text)
+    .text                                    0x00000610   Section        0  ffixui.o(.text)
+    .text                                    0x00000638   Section        0  dfixi.o(.text)
+    .text                                    0x00000676   Section        0  f2d.o(.text)
+    .text                                    0x0000069c   Section        0  d2f.o(.text)
+    .text                                    0x000006d4   Section        0  uidiv.o(.text)
+    .text                                    0x00000700   Section        0  llshl.o(.text)
+    .text                                    0x0000071e   Section        0  llushr.o(.text)
+    .text                                    0x0000073e   Section        0  llsshr.o(.text)
+    .text                                    0x00000762   Section        0  iusefp.o(.text)
+    .text                                    0x00000762   Section        0  fepilogue.o(.text)
+    .text                                    0x000007ce   Section        0  depilogue.o(.text)
+    .text                                    0x0000088c   Section        0  dfixul.o(.text)
+    .text                                    0x000008bc   Section       40  cdrcmple.o(.text)
+    .text                                    0x000008e4   Section       36  init.o(.text)
+    TOS_CORE_A                               0x00000908   Section       80  tos_core_a.o(TOS_CORE_A)
+    i.ALL_TFT                                0x00000958   Section        0  text.o(i.ALL_TFT)
+    i.BufferFill                             0x00000980   Section        0  text.o(i.BufferFill)
+    i.CLKPWR_ConfigPPWR                      0x00000998   Section        0  lpc177x_8x_clkpwr.o(i.CLKPWR_ConfigPPWR)
+    i.CLKPWR_GetCLK                          0x000009c8   Section        0  lpc177x_8x_clkpwr.o(i.CLKPWR_GetCLK)
+    i.CompareWithString                      0x00000a08   Section        0  text.o(i.CompareWithString)
+    i.DeBug                                  0x00000a44   Section        0  debug.o(i.DeBug)
+    i.DeviceList_Init                        0x00000b70   Section        0  tos_device.o(i.DeviceList_Init)
+    i.Draw_Full_List                         0x00000bd4   Section        0  main.o(i.Draw_Full_List)
+    i.Draw_X_8Bit                            0x00000c12   Section        0  main.o(i.Draw_X_8Bit)
+    i.FlowPoolFilter                         0x00000c58   Section        0  text.o(i.FlowPoolFilter)
+    i.FmtToBuf                               0x00000c92   Section        0  text.o(i.FmtToBuf)
+    i.GLCD_Clear                             0x00000cb0   Section        0  main.o(i.GLCD_Clear)
+    i.GLCD_Config                            0x00000cdc   Section        0  main.o(i.GLCD_Config)
+    GLCD_Config                              0x00000cdd   Thumb Code   480  main.o(i.GLCD_Config)
+    i.GLCD_Ctrl                              0x00000ed8   Section        0  main.o(i.GLCD_Ctrl)
+    GLCD_Ctrl                                0x00000ed9   Thumb Code    96  main.o(i.GLCD_Ctrl)
+    i.GLCD_SetPixel_16bpp                    0x00000f3c   Section        0  main.o(i.GLCD_SetPixel_16bpp)
+    i.GPIO_ClearValue                        0x00000f54   Section        0  lpc177x_8x_gpio.o(i.GPIO_ClearValue)
+    i.GPIO_GetPointer                        0x00000f68   Section        0  lpc177x_8x_gpio.o(i.GPIO_GetPointer)
+    GPIO_GetPointer                          0x00000f69   Thumb Code    58  lpc177x_8x_gpio.o(i.GPIO_GetPointer)
+    i.GPIO_OutputValue                       0x00000fa8   Section        0  lpc177x_8x_gpio.o(i.GPIO_OutputValue)
+    i.GPIO_SetDir                            0x00000fc6   Section        0  lpc177x_8x_gpio.o(i.GPIO_SetDir)
+    i.GPIO_SetValue                          0x00000fee   Section        0  lpc177x_8x_gpio.o(i.GPIO_SetValue)
+    i.GetChar_List                           0x00001002   Section        0  debug.o(i.GetChar_List)
+    i.GetCountSize                           0x00001082   Section        0  text.o(i.GetCountSize)
+    i.GetStringByFmt                         0x000010a0   Section        0  text.o(i.GetStringByFmt)
+    i.GetStringToNumber                      0x000010c8   Section        0  text.o(i.GetStringToNumber)
+    i.GetTextLength                          0x0000118c   Section        0  text.o(i.GetTextLength)
+    i.GetVoidWord                            0x000011a4   Section        0  main.o(i.GetVoidWord)
+    i.Index_Uchar                            0x000011c4   Section        0  main.o(i.Index_Uchar)
+    i.Index_Word                             0x000011e4   Section        0  main.o(i.Index_Word)
+    i.Key_GetASCII                           0x00001224   Section        0  main.o(i.Key_GetASCII)
+    i.Key_GetWord                            0x00001354   Section        0  main.o(i.Key_GetWord)
+    i.LCD_Clear_Screen                       0x000014b4   Section        0  main.o(i.LCD_Clear_Screen)
+    i.LCD_ClockDivide                        0x000014c0   Section        0  main.o(i.LCD_ClockDivide)
+    LCD_ClockDivide                          0x000014c1   Thumb Code    50  main.o(i.LCD_ClockDivide)
+    i.LCD_Draw_LineX                         0x000014f8   Section        0  main.o(i.LCD_Draw_LineX)
+    i.LCD_Draw_LineY                         0x0000151e   Section        0  main.o(i.LCD_Draw_LineY)
+    i.LCD_Initializtion                      0x00001544   Section        0  main.o(i.LCD_Initializtion)
+    i.LCD_Set_Pixel                          0x00001558   Section        0  main.o(i.LCD_Set_Pixel)
+    i.MCU_Reset                              0x00001570   Section        0  cpu.o(i.MCU_Reset)
+    i.MUI_Draw                               0x00001574   Section        0  main.o(i.MUI_Draw)
+    i.MUI_DrawMenu                           0x000016a0   Section        0  main.o(i.MUI_DrawMenu)
+    i.MUI_Enter                              0x000017f8   Section        0  main.o(i.MUI_Enter)
+    i.MUI_Fill_Bar                           0x00001948   Section        0  main.o(i.MUI_Fill_Bar)
+    i.MUI_GetColor                           0x000019bc   Section        0  main.o(i.MUI_GetColor)
+    i.MUI_GetCurMenuInfor                    0x00001ad8   Section        0  main.o(i.MUI_GetCurMenuInfor)
+    i.MUI_GetIP                              0x00001afc   Section        0  main.o(i.MUI_GetIP)
+    i.MUI_GetKey                             0x00001bf8   Section        0  main.o(i.MUI_GetKey)
+    i.MUI_GetOptionString                    0x00001c1c   Section        0  main.o(i.MUI_GetOptionString)
+    i.MUI_GetString                          0x00001d74   Section        0  main.o(i.MUI_GetString)
+    i.MUI_GetValue                           0x00001e78   Section        0  main.o(i.MUI_GetValue)
+    i.MUI_Init                               0x00001f68   Section        0  main.o(i.MUI_Init)
+    i.MUI_OptionLength                       0x0000200c   Section        0  main.o(i.MUI_OptionLength)
+    i.MUI_ReSetTitle                         0x00002024   Section        0  main.o(i.MUI_ReSetTitle)
+    i.MUI_SetDrawClear                       0x0000204c   Section        0  main.o(i.MUI_SetDrawClear)
+    i.MUI_Task                               0x00002078   Section        0  main.o(i.MUI_Task)
+    i.MUI_Title                              0x000021f4   Section        0  main.o(i.MUI_Title)
+    i.MUI_Waiting                            0x00002264   Section        0  main.o(i.MUI_Waiting)
+    i.Mema_Free                              0x00002448   Section        0  tos_mema.o(i.Mema_Free)
+    i.Mema_Init                              0x00002478   Section        0  tos_mema.o(i.Mema_Init)
+    i.Mema_Malloc                            0x00002494   Section        0  tos_mema.o(i.Mema_Malloc)
+    i.Nand_ReadMap                           0x000024e0   Section        0  main.o(i.Nand_ReadMap)
+    i.PINSEL_ConfigPin                       0x00002584   Section        0  lpc177x_8x_pinsel.o(i.PINSEL_ConfigPin)
+    i.PINSEL_GetPinType                      0x000025cc   Section        0  lpc177x_8x_pinsel.o(i.PINSEL_GetPinType)
+    i.PIN_GetPointer                         0x00002670   Section        0  lpc177x_8x_pinsel.o(i.PIN_GetPointer)
+    PIN_GetPointer                           0x00002671   Thumb Code    18  lpc177x_8x_pinsel.o(i.PIN_GetPointer)
+    i.Printf                                 0x00002688   Section        0  main.o(i.Printf)
+    i.PrintfVoid                             0x000026dc   Section        0  main.o(i.PrintfVoid)
+    i.Printf_Data                            0x00002708   Section        0  main.o(i.Printf_Data)
+    i.Printf_Infor                           0x00002824   Section        0  main.o(i.Printf_Infor)
+    i.Printf_String                          0x00002898   Section        0  main.o(i.Printf_String)
+    i.Printf_Yes                             0x00002a14   Section        0  main.o(i.Printf_Yes)
+    i.Printf_YesOrNo                         0x00002aac   Section        0  main.o(i.Printf_YesOrNo)
+    i.RAM_ReadMap                            0x00002ba4   Section        0  main.o(i.RAM_ReadMap)
+    i.ROM_ReadMap                            0x00002c44   Section        0  main.o(i.ROM_ReadMap)
+    i.SDRAM_32M_16BIT_Init                   0x00002ce8   Section        0  sdram_k4s561632c_32m_16bit.o(i.SDRAM_32M_16BIT_Init)
+    i.SYSTICK_ClearCounterFlag               0x00002eb4   Section        0  lpc177x_8x_systick.o(i.SYSTICK_ClearCounterFlag)
+    i.SYSTICK_Cmd                            0x00002ec6   Section        0  lpc177x_8x_systick.o(i.SYSTICK_Cmd)
+    i.SYSTICK_IntCmd                         0x00002eee   Section        0  lpc177x_8x_systick.o(i.SYSTICK_IntCmd)
+    i.SYSTICK_InternalInit                   0x00002f16   Section        0  lpc177x_8x_systick.o(i.SYSTICK_InternalInit)
+    i.StringCoppy                            0x00002f72   Section        0  text.o(i.StringCoppy)
+    i.StringEndingAppend                     0x00002f96   Section        0  text.o(i.StringEndingAppend)
+    i.StringToIPUint32                       0x00002fd8   Section        0  text.o(i.StringToIPUint32)
+    i.SysTick_Handler                        0x00003042   Section        0  cpu.o(i.SysTick_Handler)
+    i.SysTick_Set                            0x0000304e   Section        0  cpu.o(i.SysTick_Set)
+    i.SystemInit                             0x00003064   Section        0  system_lpc177x_8x.o(i.SystemInit)
+    i.TFT_RGB                                0x00003158   Section        0  text.o(i.TFT_RGB)
+    i.TGUI_Clear_Show                        0x00003188   Section        0  main.o(i.TGUI_Clear_Show)
+    i.TGUI_DefaultStyle                      0x0000319c   Section        0  main.o(i.TGUI_DefaultStyle)
+    i.TGUI_Draw_ASCII                        0x000031bc   Section        0  main.o(i.TGUI_Draw_ASCII)
+    i.TGUI_Draw_FormatString                 0x0000325c   Section        0  main.o(i.TGUI_Draw_FormatString)
+    i.TGUI_Draw_Rectangle                    0x0000346c   Section        0  main.o(i.TGUI_Draw_Rectangle)
+    i.TGUI_Draw_Word                         0x000034b8   Section        0  main.o(i.TGUI_Draw_Word)
+    i.TGUI_Fill_Rectangle                    0x0000356c   Section        0  main.o(i.TGUI_Fill_Rectangle)
+    i.TGUI_Get_StringPixel                   0x000035a0   Section        0  main.o(i.TGUI_Get_StringPixel)
+    i.TGUI_Index_Word                        0x000035d8   Section        0  main.o(i.TGUI_Index_Word)
+    i.TGUI_Set_Color                         0x0000362c   Section        0  main.o(i.TGUI_Set_Color)
+    i.TGUI_Set_Font                          0x0000364c   Section        0  main.o(i.TGUI_Set_Font)
+    i.TGUI_Set_LineN                         0x000036b8   Section        0  main.o(i.TGUI_Set_LineN)
+    i.TGUI_Set_LocalFont                     0x000036c4   Section        0  main.o(i.TGUI_Set_LocalFont)
+    i.TGUI_Set_Region                        0x000037dc   Section        0  main.o(i.TGUI_Set_Region)
+    i.TGui_Draw_Line                         0x00003804   Section        0  main.o(i.TGui_Draw_Line)
+    i.Task0                                  0x000039c0   Section        0  main.o(i.Task0)
+    i.Task1                                  0x000039da   Section        0  main.o(i.Task1)
+    i.Task_LoadConfigs                       0x00003a1e   Section        0  main.o(i.Task_LoadConfigs)
+    i.Task_LoadConfigsFromNand               0x00003a30   Section        0  main.o(i.Task_LoadConfigsFromNand)
+    i.Task_RePaint                           0x00003a40   Section        0  main.o(i.Task_RePaint)
+    i.Task_ReSave                            0x00003a70   Section        0  main.o(i.Task_ReSave)
+    i.Task_SaveConfigs                       0x00003aa8   Section        0  main.o(i.Task_SaveConfigs)
+    i.Task_SaveConfigsToNand                 0x00003ac0   Section        0  main.o(i.Task_SaveConfigsToNand)
+    i.Task_SetMenuFont                       0x00003ad8   Section        0  main.o(i.Task_SetMenuFont)
+    i.Task_SetMsgFont                        0x00003af4   Section        0  main.o(i.Task_SetMsgFont)
+    i.Task_SetTitleFont                      0x00003b20   Section        0  main.o(i.Task_SetTitleFont)
+    i.Task_ShowAsk                           0x00003b34   Section        0  main.o(i.Task_ShowAsk)
+    i.Task_ShowInfor                         0x00003b4c   Section        0  main.o(i.Task_ShowInfor)
+    i.Task_ShowTos                           0x00003b68   Section        0  main.o(i.Task_ShowTos)
+    i.Task_ShowYesOrNo                       0x00003b9c   Section        0  main.o(i.Task_ShowYesOrNo)
+    i.Task_TaskManage                        0x00003be0   Section        0  main.o(i.Task_TaskManage)
+    i.Task_Waiting                           0x00003d0c   Section        0  main.o(i.Task_Waiting)
+    i.Tos_ComputeCPURate                     0x00003d24   Section        0  tos.o(i.Tos_ComputeCPURate)
+    i.Tos_GetFontHandle                      0x00003d80   Section        0  main.o(i.Tos_GetFontHandle)
+    i.Tos_GetStyleHandle                     0x00003d8c   Section        0  main.o(i.Tos_GetStyleHandle)
+    i.Tos_GetTaskIDByName                    0x00003d98   Section        0  tos.o(i.Tos_GetTaskIDByName)
+    i.Tos_Init                               0x00003dd0   Section        0  tos.o(i.Tos_Init)
+    i.Tos_ListCreate                         0x00003e68   Section        0  tos.o(i.Tos_ListCreate)
+    i.Tos_RootTask                           0x00003e88   Section        0  tos.o(i.Tos_RootTask)
+    i.Tos_ScanTimer                          0x00003e98   Section        0  tos_timer.o(i.Tos_ScanTimer)
+    i.Tos_Start                              0x00003ed0   Section        0  tos.o(i.Tos_Start)
+    i.Tos_SysTick                            0x00003f00   Section        0  tos.o(i.Tos_SysTick)
+    i.Tos_TaskCreate                         0x00003f50   Section        0  tos.o(i.Tos_TaskCreate)
+    i.Tos_TaskCreateFindID                   0x00004020   Section        0  tos.o(i.Tos_TaskCreateFindID)
+    i.Tos_TaskCreateQmsg                     0x00004084   Section        0  tos.o(i.Tos_TaskCreateQmsg)
+    i.Tos_TaskDelay                          0x000040e4   Section        0  tos.o(i.Tos_TaskDelay)
+    i.Tos_TaskDelete                         0x0000413c   Section        0  tos.o(i.Tos_TaskDelete)
+    i.Tos_TaskGetQMsg                        0x000041cc   Section        0  tos.o(i.Tos_TaskGetQMsg)
+    i.Tos_TaskGetQMsgDelay                   0x00004238   Section        0  tos.o(i.Tos_TaskGetQMsgDelay)
+    i.Tos_TaskReady                          0x000042a4   Section        0  tos.o(i.Tos_TaskReady)
+    i.Tos_TaskResume                         0x00004364   Section        0  tos.o(i.Tos_TaskResume)
+    i.Tos_TaskRun                            0x000043d0   Section        0  tos.o(i.Tos_TaskRun)
+    i.Tos_TaskStackInit                      0x00004424   Section        0  tos.o(i.Tos_TaskStackInit)
+    i.Tos_TaskStart                          0x00004494   Section        0  tos.o(i.Tos_TaskStart)
+    i.Tos_TaskStop                           0x000044b8   Section        0  tos.o(i.Tos_TaskStop)
+    i.Tos_TaskSuspend                        0x00004504   Section        0  tos.o(i.Tos_TaskSuspend)
+    i.Tos_TaskSwitch                         0x00004580   Section        0  tos.o(i.Tos_TaskSwitch)
+    i.Tos_TaskTcbInit                        0x00004620   Section        0  tos.o(i.Tos_TaskTcbInit)
+    i.Tos_TimerReady                         0x00004634   Section        0  tos_timer.o(i.Tos_TimerReady)
+    i.__0vsprintf                            0x00004688   Section        0  printfa.o(i.__0vsprintf)
+    i.__scatterload_copy                     0x000046ac   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x000046ba   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x000046bc   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._fp_digits                             0x000046cc   Section        0  printfa.o(i._fp_digits)
+    _fp_digits                               0x000046cd   Thumb Code   326  printfa.o(i._fp_digits)
+    i._printf_core                           0x00004828   Section        0  printfa.o(i._printf_core)
+    _printf_core                             0x00004829   Thumb Code  1762  printfa.o(i._printf_core)
+    i._printf_post_padding                   0x00004f18   Section        0  printfa.o(i._printf_post_padding)
+    _printf_post_padding                     0x00004f19   Thumb Code    38  printfa.o(i._printf_post_padding)
+    i._printf_pre_padding                    0x00004f3e   Section        0  printfa.o(i._printf_pre_padding)
+    _printf_pre_padding                      0x00004f3f   Thumb Code    48  printfa.o(i._printf_pre_padding)
+    i._sputc                                 0x00004f6e   Section        0  printfa.o(i._sputc)
+    _sputc                                   0x00004f6f   Thumb Code    10  printfa.o(i._sputc)
+    i.main                                   0x00004f78   Section        0  main.o(i.main)
+    .constdata                               0x00004f94   Section    68252  main.o(.constdata)
+    AsciiLib                                 0x00004f94   Data        1520  main.o(.constdata)
+    .conststring                             0x00015a30   Section     1240  main.o(.conststring)
     .data                                    0x10000000   Section       16  system_lpc177x_8x.o(.data)
     .data                                    0x10000010   Section       44  tos.o(.data)
     Count                                    0x10000010   Data           1  tos.o(.data)
@@ -993,8 +1432,11 @@ Image Symbol Table
     .data                                    0x10000040   Section        4  tos_mema.o(.data)
     .data                                    0x10000044   Section        8  tos_device.o(.data)
     .data                                    0x1000004c   Section        8  debug.o(.data)
-    .bss                                     0x10000054   Section    40000  tos_mema.o(.bss)
-    STACK                                    0x10009c98   Section     1024  startup_lpc177x_8x.o(STACK)
+    .data                                    0x10000054   Section       36  main.o(.data)
+    Oldi                                     0x10000064   Data           1  main.o(.data)
+    .bss                                     0x10000078   Section    40000  tos_mema.o(.bss)
+    .bss                                     0x10009cb8   Section      116  main.o(.bss)
+    STACK                                    0x10009d30   Section     1024  startup_lpc177x_8x.o(STACK)
 
     Global Symbols
 
@@ -1067,97 +1509,237 @@ Image Symbol Table
     USB_IRQHandler                           0x00000113   Thumb Code     0  startup_lpc177x_8x.o(.text)
     WDT_IRQHandler                           0x00000113   Thumb Code     0  startup_lpc177x_8x.o(.text)
     __aeabi_uldivmod                         0x0000011d   Thumb Code    98  uldiv.o(.text)
-    __aeabi_memcpy                           0x0000017f   Thumb Code    36  memcpya.o(.text)
-    __aeabi_memcpy4                          0x0000017f   Thumb Code     0  memcpya.o(.text)
-    __aeabi_memcpy8                          0x0000017f   Thumb Code     0  memcpya.o(.text)
-    __aeabi_dadd                             0x000001a3   Thumb Code   322  dadd.o(.text)
-    __aeabi_dsub                             0x000002e5   Thumb Code     6  dadd.o(.text)
-    __aeabi_drsub                            0x000002eb   Thumb Code     6  dadd.o(.text)
-    __aeabi_ui2f                             0x000002f1   Thumb Code    10  ffltui.o(.text)
-    MCU_Reset                                0x000002fb   Thumb Code     2  cpu.o(i.MCU_Reset)
-    __I$use$fp                               0x000002fb   Thumb Code     0  iusefp.o(.text)
-    __aeabi_dmul                             0x00000301   Thumb Code   228  dmul.o(.text)
-    __aeabi_ddiv                             0x000003e5   Thumb Code   222  ddiv.o(.text)
-    __aeabi_d2iz                             0x000004c3   Thumb Code    62  dfixi.o(.text)
-    __aeabi_cfrcmple                         0x00000501   Thumb Code    20  cfrcmple.o(.text)
-    __aeabi_uidiv                            0x00000515   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x00000515   Thumb Code    44  uidiv.o(.text)
-    __aeabi_llsl                             0x00000541   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x00000541   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x0000055f   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x0000055f   Thumb Code     0  llushr.o(.text)
-    __aeabi_lasr                             0x0000057f   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x0000057f   Thumb Code     0  llsshr.o(.text)
-    _float_round                             0x000005a3   Thumb Code    18  fepilogue.o(.text)
-    _float_epilogue                          0x000005b5   Thumb Code    90  fepilogue.o(.text)
-    _double_round                            0x0000060f   Thumb Code    26  depilogue.o(.text)
-    _double_epilogue                         0x00000629   Thumb Code   164  depilogue.o(.text)
-    __aeabi_d2ulz                            0x000006cd   Thumb Code    48  dfixul.o(.text)
-    __aeabi_cdrcmple                         0x000006fd   Thumb Code    38  cdrcmple.o(.text)
-    __scatterload                            0x00000725   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00000725   Thumb Code     0  init.o(.text)
-    TOS_ContextSwitch                        0x00000749   Thumb Code     0  tos_core_a.o(TOS_CORE_A)
-    TOS_SwitchToTask                         0x0000077b   Thumb Code     0  tos_core_a.o(TOS_CORE_A)
-    CLKPWR_ConfigPPWR                        0x00000799   Thumb Code    38  lpc177x_8x_clkpwr.o(i.CLKPWR_ConfigPPWR)
-    CLKPWR_GetCLK                            0x000007c9   Thumb Code    46  lpc177x_8x_clkpwr.o(i.CLKPWR_GetCLK)
-    DeBug                                    0x00000809   Thumb Code   278  debug.o(i.DeBug)
-    DeviceList_Init                          0x00000935   Thumb Code    90  tos_device.o(i.DeviceList_Init)
-    FlowPoolFilter                           0x00000999   Thumb Code    58  text.o(i.FlowPoolFilter)
-    GLCD_Clear                               0x000009d3   Thumb Code    44  main.o(i.GLCD_Clear)
-    GLCD_Init                                0x00000c61   Thumb Code    20  main.o(i.GLCD_Init)
-    GLCD_SetPixel_16bpp                      0x00000c75   Thumb Code    18  main.o(i.GLCD_SetPixel_16bpp)
-    GPIO_SetDir                              0x00000ccd   Thumb Code    40  lpc177x_8x_gpio.o(i.GPIO_SetDir)
-    GPIO_SetValue                            0x00000cf5   Thumb Code    20  lpc177x_8x_gpio.o(i.GPIO_SetValue)
-    GUI_Text                                 0x00000d09   Thumb Code    80  main.o(i.GUI_Text)
-    GetASCIICode                             0x00000d59   Thumb Code    26  main.o(i.GetASCIICode)
-    GetChar_List                             0x00000d79   Thumb Code   128  debug.o(i.GetChar_List)
-    GetTextLength                            0x00000df9   Thumb Code    24  text.o(i.GetTextLength)
-    Mema_Free                                0x00000e49   Thumb Code    44  tos_mema.o(i.Mema_Free)
-    Mema_Init                                0x00000e79   Thumb Code    22  tos_mema.o(i.Mema_Init)
-    Mema_Malloc                              0x00000e95   Thumb Code    72  tos_mema.o(i.Mema_Malloc)
-    PINSEL_ConfigPin                         0x00000ee1   Thumb Code    66  lpc177x_8x_pinsel.o(i.PINSEL_ConfigPin)
-    PINSEL_GetPinType                        0x00000f29   Thumb Code   164  lpc177x_8x_pinsel.o(i.PINSEL_GetPinType)
-    PutChar                                  0x00000fe5   Thumb Code   100  main.o(i.PutChar)
-    SDRAM_32M_16BIT_Init                     0x00001049   Thumb Code   426  sdram_k4s561632c_32m_16bit.o(i.SDRAM_32M_16BIT_Init)
-    SYSTICK_ClearCounterFlag                 0x00001215   Thumb Code    18  lpc177x_8x_systick.o(i.SYSTICK_ClearCounterFlag)
-    SYSTICK_Cmd                              0x00001227   Thumb Code    40  lpc177x_8x_systick.o(i.SYSTICK_Cmd)
-    SYSTICK_IntCmd                           0x0000124f   Thumb Code    40  lpc177x_8x_systick.o(i.SYSTICK_IntCmd)
-    SYSTICK_InternalInit                     0x00001277   Thumb Code    92  lpc177x_8x_systick.o(i.SYSTICK_InternalInit)
-    StringEndingAppend                       0x000012d3   Thumb Code    66  text.o(i.StringEndingAppend)
-    SysTick_Handler                          0x00001315   Thumb Code    12  cpu.o(i.SysTick_Handler)
-    SysTick_Set                              0x00001321   Thumb Code    22  cpu.o(i.SysTick_Set)
-    SystemInit                               0x00001339   Thumb Code   180  system_lpc177x_8x.o(i.SystemInit)
-    Task0                                    0x0000142d   Thumb Code   132  main.o(i.Task0)
-    Task1                                    0x000014e5   Thumb Code    10  main.o(i.Task1)
-    Tos_ComputeCPURate                       0x000014f1   Thumb Code    68  tos.o(i.Tos_ComputeCPURate)
-    Tos_Init                                 0x0000154d   Thumb Code   132  tos.o(i.Tos_Init)
-    Tos_ListCreate                           0x000015e5   Thumb Code    32  tos.o(i.Tos_ListCreate)
-    Tos_RootTask                             0x00001605   Thumb Code    14  tos.o(i.Tos_RootTask)
-    Tos_ScanTimer                            0x00001615   Thumb Code    52  tos_timer.o(i.Tos_ScanTimer)
-    Tos_Start                                0x0000164d   Thumb Code    32  tos.o(i.Tos_Start)
-    Tos_SysTick                              0x0000167d   Thumb Code    42  tos.o(i.Tos_SysTick)
-    Tos_TaskCreate                           0x000016cd   Thumb Code   204  tos.o(i.Tos_TaskCreate)
-    Tos_TaskCreateFindID                     0x0000179d   Thumb Code    94  tos.o(i.Tos_TaskCreateFindID)
-    Tos_TaskDelay                            0x00001801   Thumb Code    76  tos.o(i.Tos_TaskDelay)
-    Tos_TaskReady                            0x00001859   Thumb Code   184  tos.o(i.Tos_TaskReady)
-    Tos_TaskRun                              0x00001919   Thumb Code    66  tos.o(i.Tos_TaskRun)
-    Tos_TaskStackInit                        0x0000196d   Thumb Code   110  tos.o(i.Tos_TaskStackInit)
-    Tos_TaskStart                            0x000019dd   Thumb Code    28  tos.o(i.Tos_TaskStart)
-    Tos_TaskSwitch                           0x00001a01   Thumb Code   148  tos.o(i.Tos_TaskSwitch)
-    Tos_TaskTcbInit                          0x00001aa1   Thumb Code    18  tos.o(i.Tos_TaskTcbInit)
-    Tos_TimerReady                           0x00001ab5   Thumb Code    78  tos_timer.o(i.Tos_TimerReady)
-    __0vsprintf                              0x00001b09   Thumb Code    30  printfa.o(i.__0vsprintf)
-    __1vsprintf                              0x00001b09   Thumb Code     0  printfa.o(i.__0vsprintf)
-    __2vsprintf                              0x00001b09   Thumb Code     0  printfa.o(i.__0vsprintf)
-    __c89vsprintf                            0x00001b09   Thumb Code     0  printfa.o(i.__0vsprintf)
-    vsprintf                                 0x00001b09   Thumb Code     0  printfa.o(i.__0vsprintf)
-    __scatterload_copy                       0x00001b2d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00001b3b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00001b3d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x000023f9   Thumb Code    20  main.o(i.main)
-    TaskList                                 0x00002a04   Data          48  main.o(.constdata)
-    Region$$Table$$Base                      0x00002a3c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00002a5c   Number         0  anon$$obj.o(Region$$Table)
+    __aeabi_fadd                             0x0000017f   Thumb Code   164  fadd.o(.text)
+    __aeabi_fsub                             0x00000223   Thumb Code     6  fadd.o(.text)
+    __aeabi_frsub                            0x00000229   Thumb Code     6  fadd.o(.text)
+    __aeabi_fmul                             0x0000022f   Thumb Code   108  fmul.o(.text)
+    __aeabi_i2f                              0x0000029b   Thumb Code    18  fflti.o(.text)
+    __aeabi_ui2f                             0x000002ad   Thumb Code    10  ffltui.o(.text)
+    __aeabi_f2iz                             0x000002b7   Thumb Code    50  ffixi.o(.text)
+    __aeabi_cfrcmple                         0x000002e9   Thumb Code    20  cfrcmple.o(.text)
+    __aeabi_dadd                             0x00000301   Thumb Code   322  dadd.o(.text)
+    __aeabi_dsub                             0x00000443   Thumb Code     6  dadd.o(.text)
+    __aeabi_drsub                            0x00000449   Thumb Code     6  dadd.o(.text)
+    __aeabi_dmul                             0x0000044f   Thumb Code   228  dmul.o(.text)
+    __aeabi_ddiv                             0x00000533   Thumb Code   222  ddiv.o(.text)
+    __aeabi_f2uiz                            0x00000611   Thumb Code    40  ffixui.o(.text)
+    __aeabi_d2iz                             0x00000639   Thumb Code    62  dfixi.o(.text)
+    __aeabi_f2d                              0x00000677   Thumb Code    38  f2d.o(.text)
+    __aeabi_d2f                              0x0000069d   Thumb Code    56  d2f.o(.text)
+    __aeabi_uidiv                            0x000006d5   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x000006d5   Thumb Code    44  uidiv.o(.text)
+    __aeabi_llsl                             0x00000701   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x00000701   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x0000071f   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x0000071f   Thumb Code     0  llushr.o(.text)
+    __aeabi_lasr                             0x0000073f   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x0000073f   Thumb Code     0  llsshr.o(.text)
+    __I$use$fp                               0x00000763   Thumb Code     0  iusefp.o(.text)
+    _float_round                             0x00000763   Thumb Code    18  fepilogue.o(.text)
+    _float_epilogue                          0x00000775   Thumb Code    90  fepilogue.o(.text)
+    _double_round                            0x000007cf   Thumb Code    26  depilogue.o(.text)
+    _double_epilogue                         0x000007e9   Thumb Code   164  depilogue.o(.text)
+    __aeabi_d2ulz                            0x0000088d   Thumb Code    48  dfixul.o(.text)
+    __aeabi_cdrcmple                         0x000008bd   Thumb Code    38  cdrcmple.o(.text)
+    __scatterload                            0x000008e5   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x000008e5   Thumb Code     0  init.o(.text)
+    TOS_ContextSwitch                        0x00000909   Thumb Code     0  tos_core_a.o(TOS_CORE_A)
+    TOS_SwitchToTask                         0x0000093b   Thumb Code     0  tos_core_a.o(TOS_CORE_A)
+    ALL_TFT                                  0x00000959   Thumb Code    40  text.o(i.ALL_TFT)
+    BufferFill                               0x00000981   Thumb Code    22  text.o(i.BufferFill)
+    CLKPWR_ConfigPPWR                        0x00000999   Thumb Code    38  lpc177x_8x_clkpwr.o(i.CLKPWR_ConfigPPWR)
+    CLKPWR_GetCLK                            0x000009c9   Thumb Code    46  lpc177x_8x_clkpwr.o(i.CLKPWR_GetCLK)
+    CompareWithString                        0x00000a09   Thumb Code    60  text.o(i.CompareWithString)
+    DeBug                                    0x00000a45   Thumb Code   278  debug.o(i.DeBug)
+    DeviceList_Init                          0x00000b71   Thumb Code    90  tos_device.o(i.DeviceList_Init)
+    Draw_Full_List                           0x00000bd5   Thumb Code    62  main.o(i.Draw_Full_List)
+    Draw_X_8Bit                              0x00000c13   Thumb Code    70  main.o(i.Draw_X_8Bit)
+    FlowPoolFilter                           0x00000c59   Thumb Code    58  text.o(i.FlowPoolFilter)
+    FmtToBuf                                 0x00000c93   Thumb Code    30  text.o(i.FmtToBuf)
+    GLCD_Clear                               0x00000cb1   Thumb Code    44  main.o(i.GLCD_Clear)
+    GLCD_SetPixel_16bpp                      0x00000f3d   Thumb Code    18  main.o(i.GLCD_SetPixel_16bpp)
+    GPIO_ClearValue                          0x00000f55   Thumb Code    20  lpc177x_8x_gpio.o(i.GPIO_ClearValue)
+    GPIO_OutputValue                         0x00000fa9   Thumb Code    30  lpc177x_8x_gpio.o(i.GPIO_OutputValue)
+    GPIO_SetDir                              0x00000fc7   Thumb Code    40  lpc177x_8x_gpio.o(i.GPIO_SetDir)
+    GPIO_SetValue                            0x00000fef   Thumb Code    20  lpc177x_8x_gpio.o(i.GPIO_SetValue)
+    GetChar_List                             0x00001003   Thumb Code   128  debug.o(i.GetChar_List)
+    GetCountSize                             0x00001083   Thumb Code    30  text.o(i.GetCountSize)
+    GetStringByFmt                           0x000010a1   Thumb Code    38  text.o(i.GetStringByFmt)
+    GetStringToNumber                        0x000010c9   Thumb Code   178  text.o(i.GetStringToNumber)
+    GetTextLength                            0x0000118d   Thumb Code    24  text.o(i.GetTextLength)
+    GetVoidWord                              0x000011a5   Thumb Code    32  main.o(i.GetVoidWord)
+    Index_Uchar                              0x000011c5   Thumb Code    32  main.o(i.Index_Uchar)
+    Index_Word                               0x000011e5   Thumb Code    64  main.o(i.Index_Word)
+    Key_GetASCII                             0x00001225   Thumb Code   218  main.o(i.Key_GetASCII)
+    Key_GetWord                              0x00001355   Thumb Code   276  main.o(i.Key_GetWord)
+    LCD_Clear_Screen                         0x000014b5   Thumb Code    12  main.o(i.LCD_Clear_Screen)
+    LCD_Draw_LineX                           0x000014f9   Thumb Code    38  main.o(i.LCD_Draw_LineX)
+    LCD_Draw_LineY                           0x0000151f   Thumb Code    38  main.o(i.LCD_Draw_LineY)
+    LCD_Initializtion                        0x00001545   Thumb Code    20  main.o(i.LCD_Initializtion)
+    LCD_Set_Pixel                            0x00001559   Thumb Code    18  main.o(i.LCD_Set_Pixel)
+    MCU_Reset                                0x00001571   Thumb Code     2  cpu.o(i.MCU_Reset)
+    MUI_Draw                                 0x00001575   Thumb Code   294  main.o(i.MUI_Draw)
+    MUI_DrawMenu                             0x000016a1   Thumb Code   332  main.o(i.MUI_DrawMenu)
+    MUI_Enter                                0x000017f9   Thumb Code   330  main.o(i.MUI_Enter)
+    MUI_Fill_Bar                             0x00001949   Thumb Code   110  main.o(i.MUI_Fill_Bar)
+    MUI_GetColor                             0x000019bd   Thumb Code   260  main.o(i.MUI_GetColor)
+    MUI_GetCurMenuInfor                      0x00001ad9   Thumb Code    30  main.o(i.MUI_GetCurMenuInfor)
+    MUI_GetIP                                0x00001afd   Thumb Code   224  main.o(i.MUI_GetIP)
+    MUI_GetKey                               0x00001bf9   Thumb Code    34  main.o(i.MUI_GetKey)
+    MUI_GetOptionString                      0x00001c1d   Thumb Code   338  main.o(i.MUI_GetOptionString)
+    MUI_GetString                            0x00001d75   Thumb Code   252  main.o(i.MUI_GetString)
+    MUI_GetValue                             0x00001e79   Thumb Code   222  main.o(i.MUI_GetValue)
+    MUI_Init                                 0x00001f69   Thumb Code   150  main.o(i.MUI_Init)
+    MUI_OptionLength                         0x0000200d   Thumb Code    22  main.o(i.MUI_OptionLength)
+    MUI_ReSetTitle                           0x00002025   Thumb Code    34  main.o(i.MUI_ReSetTitle)
+    MUI_SetDrawClear                         0x0000204d   Thumb Code    40  main.o(i.MUI_SetDrawClear)
+    MUI_Task                                 0x00002079   Thumb Code   374  main.o(i.MUI_Task)
+    MUI_Title                                0x000021f5   Thumb Code   102  main.o(i.MUI_Title)
+    MUI_Waiting                              0x00002265   Thumb Code   474  main.o(i.MUI_Waiting)
+    Mema_Free                                0x00002449   Thumb Code    44  tos_mema.o(i.Mema_Free)
+    Mema_Init                                0x00002479   Thumb Code    22  tos_mema.o(i.Mema_Init)
+    Mema_Malloc                              0x00002495   Thumb Code    72  tos_mema.o(i.Mema_Malloc)
+    Nand_ReadMap                             0x000024e1   Thumb Code   134  main.o(i.Nand_ReadMap)
+    PINSEL_ConfigPin                         0x00002585   Thumb Code    66  lpc177x_8x_pinsel.o(i.PINSEL_ConfigPin)
+    PINSEL_GetPinType                        0x000025cd   Thumb Code   164  lpc177x_8x_pinsel.o(i.PINSEL_GetPinType)
+    Printf                                   0x00002689   Thumb Code    80  main.o(i.Printf)
+    PrintfVoid                               0x000026dd   Thumb Code    42  main.o(i.PrintfVoid)
+    Printf_Data                              0x00002709   Thumb Code   266  main.o(i.Printf_Data)
+    Printf_Infor                             0x00002825   Thumb Code    98  main.o(i.Printf_Infor)
+    Printf_String                            0x00002899   Thumb Code   362  main.o(i.Printf_String)
+    Printf_Yes                               0x00002a15   Thumb Code   138  main.o(i.Printf_Yes)
+    Printf_YesOrNo                           0x00002aad   Thumb Code   230  main.o(i.Printf_YesOrNo)
+    RAM_ReadMap                              0x00002ba5   Thumb Code   132  main.o(i.RAM_ReadMap)
+    ROM_ReadMap                              0x00002c45   Thumb Code   134  main.o(i.ROM_ReadMap)
+    SDRAM_32M_16BIT_Init                     0x00002ce9   Thumb Code   426  sdram_k4s561632c_32m_16bit.o(i.SDRAM_32M_16BIT_Init)
+    SYSTICK_ClearCounterFlag                 0x00002eb5   Thumb Code    18  lpc177x_8x_systick.o(i.SYSTICK_ClearCounterFlag)
+    SYSTICK_Cmd                              0x00002ec7   Thumb Code    40  lpc177x_8x_systick.o(i.SYSTICK_Cmd)
+    SYSTICK_IntCmd                           0x00002eef   Thumb Code    40  lpc177x_8x_systick.o(i.SYSTICK_IntCmd)
+    SYSTICK_InternalInit                     0x00002f17   Thumb Code    92  lpc177x_8x_systick.o(i.SYSTICK_InternalInit)
+    StringCoppy                              0x00002f73   Thumb Code    36  text.o(i.StringCoppy)
+    StringEndingAppend                       0x00002f97   Thumb Code    66  text.o(i.StringEndingAppend)
+    StringToIPUint32                         0x00002fd9   Thumb Code   106  text.o(i.StringToIPUint32)
+    SysTick_Handler                          0x00003043   Thumb Code    12  cpu.o(i.SysTick_Handler)
+    SysTick_Set                              0x0000304f   Thumb Code    22  cpu.o(i.SysTick_Set)
+    SystemInit                               0x00003065   Thumb Code   180  system_lpc177x_8x.o(i.SystemInit)
+    TFT_RGB                                  0x00003159   Thumb Code    48  text.o(i.TFT_RGB)
+    TGUI_Clear_Show                          0x00003189   Thumb Code    14  main.o(i.TGUI_Clear_Show)
+    TGUI_DefaultStyle                        0x0000319d   Thumb Code    14  main.o(i.TGUI_DefaultStyle)
+    TGUI_Draw_ASCII                          0x000031bd   Thumb Code   150  main.o(i.TGUI_Draw_ASCII)
+    TGUI_Draw_FormatString                   0x0000325d   Thumb Code   518  main.o(i.TGUI_Draw_FormatString)
+    TGUI_Draw_Rectangle                      0x0000346d   Thumb Code    76  main.o(i.TGUI_Draw_Rectangle)
+    TGUI_Draw_Word                           0x000034b9   Thumb Code   172  main.o(i.TGUI_Draw_Word)
+    TGUI_Fill_Rectangle                      0x0000356d   Thumb Code    50  main.o(i.TGUI_Fill_Rectangle)
+    TGUI_Get_StringPixel                     0x000035a1   Thumb Code    50  main.o(i.TGUI_Get_StringPixel)
+    TGUI_Index_Word                          0x000035d9   Thumb Code    78  main.o(i.TGUI_Index_Word)
+    TGUI_Set_Color                           0x0000362d   Thumb Code    28  main.o(i.TGUI_Set_Color)
+    TGUI_Set_Font                            0x0000364d   Thumb Code    78  main.o(i.TGUI_Set_Font)
+    TGUI_Set_LineN                           0x000036b9   Thumb Code     8  main.o(i.TGUI_Set_LineN)
+    TGUI_Set_LocalFont                       0x000036c5   Thumb Code   274  main.o(i.TGUI_Set_LocalFont)
+    TGUI_Set_Region                          0x000037dd   Thumb Code    36  main.o(i.TGUI_Set_Region)
+    TGui_Draw_Line                           0x00003805   Thumb Code   444  main.o(i.TGui_Draw_Line)
+    Task0                                    0x000039c1   Thumb Code    26  main.o(i.Task0)
+    Task1                                    0x000039db   Thumb Code    68  main.o(i.Task1)
+    Task_LoadConfigs                         0x00003a1f   Thumb Code    18  main.o(i.Task_LoadConfigs)
+    Task_LoadConfigsFromNand                 0x00003a31   Thumb Code    16  main.o(i.Task_LoadConfigsFromNand)
+    Task_RePaint                             0x00003a41   Thumb Code    44  main.o(i.Task_RePaint)
+    Task_ReSave                              0x00003a71   Thumb Code    50  main.o(i.Task_ReSave)
+    Task_SaveConfigs                         0x00003aa9   Thumb Code    20  main.o(i.Task_SaveConfigs)
+    Task_SaveConfigsToNand                   0x00003ac1   Thumb Code    18  main.o(i.Task_SaveConfigsToNand)
+    Task_SetMenuFont                         0x00003ad9   Thumb Code    22  main.o(i.Task_SetMenuFont)
+    Task_SetMsgFont                          0x00003af5   Thumb Code    32  main.o(i.Task_SetMsgFont)
+    Task_SetTitleFont                        0x00003b21   Thumb Code    14  main.o(i.Task_SetTitleFont)
+    Task_ShowAsk                             0x00003b35   Thumb Code    10  main.o(i.Task_ShowAsk)
+    Task_ShowInfor                           0x00003b4d   Thumb Code    18  main.o(i.Task_ShowInfor)
+    Task_ShowTos                             0x00003b69   Thumb Code    38  main.o(i.Task_ShowTos)
+    Task_ShowYesOrNo                         0x00003b9d   Thumb Code    34  main.o(i.Task_ShowYesOrNo)
+    Task_TaskManage                          0x00003be1   Thumb Code   180  main.o(i.Task_TaskManage)
+    Task_Waiting                             0x00003d0d   Thumb Code    14  main.o(i.Task_Waiting)
+    Tos_ComputeCPURate                       0x00003d25   Thumb Code    68  tos.o(i.Tos_ComputeCPURate)
+    Tos_GetFontHandle                        0x00003d81   Thumb Code     6  main.o(i.Tos_GetFontHandle)
+    Tos_GetStyleHandle                       0x00003d8d   Thumb Code     6  main.o(i.Tos_GetStyleHandle)
+    Tos_GetTaskIDByName                      0x00003d99   Thumb Code    50  tos.o(i.Tos_GetTaskIDByName)
+    Tos_Init                                 0x00003dd1   Thumb Code   132  tos.o(i.Tos_Init)
+    Tos_ListCreate                           0x00003e69   Thumb Code    32  tos.o(i.Tos_ListCreate)
+    Tos_RootTask                             0x00003e89   Thumb Code    14  tos.o(i.Tos_RootTask)
+    Tos_ScanTimer                            0x00003e99   Thumb Code    52  tos_timer.o(i.Tos_ScanTimer)
+    Tos_Start                                0x00003ed1   Thumb Code    32  tos.o(i.Tos_Start)
+    Tos_SysTick                              0x00003f01   Thumb Code    42  tos.o(i.Tos_SysTick)
+    Tos_TaskCreate                           0x00003f51   Thumb Code   204  tos.o(i.Tos_TaskCreate)
+    Tos_TaskCreateFindID                     0x00004021   Thumb Code    94  tos.o(i.Tos_TaskCreateFindID)
+    Tos_TaskCreateQmsg                       0x00004085   Thumb Code    86  tos.o(i.Tos_TaskCreateQmsg)
+    Tos_TaskDelay                            0x000040e5   Thumb Code    76  tos.o(i.Tos_TaskDelay)
+    Tos_TaskDelete                           0x0000413d   Thumb Code   140  tos.o(i.Tos_TaskDelete)
+    Tos_TaskGetQMsg                          0x000041cd   Thumb Code    98  tos.o(i.Tos_TaskGetQMsg)
+    Tos_TaskGetQMsgDelay                     0x00004239   Thumb Code    98  tos.o(i.Tos_TaskGetQMsgDelay)
+    Tos_TaskReady                            0x000042a5   Thumb Code   184  tos.o(i.Tos_TaskReady)
+    Tos_TaskResume                           0x00004365   Thumb Code   102  tos.o(i.Tos_TaskResume)
+    Tos_TaskRun                              0x000043d1   Thumb Code    66  tos.o(i.Tos_TaskRun)
+    Tos_TaskStackInit                        0x00004425   Thumb Code   110  tos.o(i.Tos_TaskStackInit)
+    Tos_TaskStart                            0x00004495   Thumb Code    28  tos.o(i.Tos_TaskStart)
+    Tos_TaskStop                             0x000044b9   Thumb Code    70  tos.o(i.Tos_TaskStop)
+    Tos_TaskSuspend                          0x00004505   Thumb Code   118  tos.o(i.Tos_TaskSuspend)
+    Tos_TaskSwitch                           0x00004581   Thumb Code   148  tos.o(i.Tos_TaskSwitch)
+    Tos_TaskTcbInit                          0x00004621   Thumb Code    18  tos.o(i.Tos_TaskTcbInit)
+    Tos_TimerReady                           0x00004635   Thumb Code    78  tos_timer.o(i.Tos_TimerReady)
+    __0vsprintf                              0x00004689   Thumb Code    30  printfa.o(i.__0vsprintf)
+    __1vsprintf                              0x00004689   Thumb Code     0  printfa.o(i.__0vsprintf)
+    __2vsprintf                              0x00004689   Thumb Code     0  printfa.o(i.__0vsprintf)
+    __c89vsprintf                            0x00004689   Thumb Code     0  printfa.o(i.__0vsprintf)
+    vsprintf                                 0x00004689   Thumb Code     0  printfa.o(i.__0vsprintf)
+    __scatterload_copy                       0x000046ad   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x000046bb   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x000046bd   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x00004f79   Thumb Code    20  main.o(i.main)
+    GBKLib_FontType1212                      0x00005584   Data          20  main.o(.constdata)
+    GBKLib_FontType1616                      0x00005598   Data          20  main.o(.constdata)
+    GBKLib_FontType1624                      0x000055ac   Data          20  main.o(.constdata)
+    GBKLib_FontType2424                      0x000055c0   Data          20  main.o(.constdata)
+    GBKLib_FontType3232                      0x000055d4   Data          20  main.o(.constdata)
+    GBKLib_FontType4848                      0x000055e8   Data          20  main.o(.constdata)
+    GBK0612Lib                               0x000055fc   Data        1140  main.o(.constdata)
+    GBK1212_Index                            0x00005a70   Data          15  main.o(.constdata)
+    GBK1212Lib                               0x00005a7f   Data         168  main.o(.constdata)
+    GBK0816Lib                               0x00005b27   Data        1520  main.o(.constdata)
+    GBK1616_Index                            0x00006117   Data           9  main.o(.constdata)
+    GBK1616Lib                               0x00006120   Data         128  main.o(.constdata)
+    GBK0824Lib                               0x000061a0   Data        2280  main.o(.constdata)
+    GBK1624_Index                            0x00006a88   Data           9  main.o(.constdata)
+    GBK1624Lib                               0x00006a91   Data         192  main.o(.constdata)
+    GBK1224Lib                               0x00006b51   Data        4560  main.o(.constdata)
+    GBK2424_Index                            0x00007d21   Data           9  main.o(.constdata)
+    GBK2424Lib                               0x00007d2a   Data         288  main.o(.constdata)
+    GBK1632Lib                               0x00007e4a   Data        6080  main.o(.constdata)
+    GBK3232_Index                            0x0000960a   Data           9  main.o(.constdata)
+    GBK3232Lib                               0x00009613   Data         512  main.o(.constdata)
+    GBK2448Lib                               0x00009813   Data       13680  main.o(.constdata)
+    GBK4848_Index                            0x0000cd83   Data           9  main.o(.constdata)
+    GBK4848Lib                               0x0000cd8c   Data        1152  main.o(.constdata)
+    Menu0x1100                               0x0000d20c   Data         120  main.o(.constdata)
+    Menu0x1200                               0x0000d284   Data          72  main.o(.constdata)
+    Menu0x1300                               0x0000d2cc   Data          96  main.o(.constdata)
+    Menu0x1000                               0x0000d32c   Data          60  main.o(.constdata)
+    Menu0x2100                               0x0000d368   Data          60  main.o(.constdata)
+    Menu0x2200                               0x0000d3a4   Data          72  main.o(.constdata)
+    Menu0x2000                               0x0000d3ec   Data          48  main.o(.constdata)
+    Menu0x3100                               0x0000d41c   Data          60  main.o(.constdata)
+    Menu0x3200                               0x0000d458   Data          60  main.o(.constdata)
+    Menu0x3300                               0x0000d494   Data          60  main.o(.constdata)
+    Menu0x3000                               0x0000d4d0   Data          72  main.o(.constdata)
+    Menu0x4100                               0x0000d518   Data          96  main.o(.constdata)
+    Menu0x4210                               0x0000d578   Data          96  main.o(.constdata)
+    Menu0x4220                               0x0000d5d8   Data          96  main.o(.constdata)
+    Menu0x4230                               0x0000d638   Data          96  main.o(.constdata)
+    Menu0x4200                               0x0000d698   Data          72  main.o(.constdata)
+    Menu0x4300                               0x0000d6e0   Data          72  main.o(.constdata)
+    Menu0x4000                               0x0000d728   Data          72  main.o(.constdata)
+    Menu0x5000                               0x0000d770   Data          84  main.o(.constdata)
+    Menu0x6000                               0x0000d7c4   Data          24  main.o(.constdata)
+    MenuHome                                 0x0000d7dc   Data          84  main.o(.constdata)
+    TOSLogoLib                               0x0000d830   Data       33214  main.o(.constdata)
+    TaskList                                 0x000159f0   Data          64  main.o(.constdata)
+    Region$$Table$$Base                      0x00015f08   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00015f28   Number         0  anon$$obj.o(Region$$Table)
     SystemCoreClock                          0x10000000   Data           4  system_lpc177x_8x.o(.data)
     PeripheralClock                          0x10000004   Data           4  system_lpc177x_8x.o(.data)
     EMCClock                                 0x10000008   Data           4  system_lpc177x_8x.o(.data)
@@ -1177,8 +1759,19 @@ Image Symbol Table
     DeBug_Out                                0x1000004d   Data           1  debug.o(.data)
     DeBug_Type                               0x1000004e   Data           1  debug.o(.data)
     DeBug_CB                                 0x10000050   Data           4  debug.o(.data)
-    MemBuf                                   0x10000054   Data       40000  tos_mema.o(.bss)
-    __initial_sp                             0x1000a098   Data           0  startup_lpc177x_8x.o(STACK)
+    DeviceId_LCD                             0x10000054   Data           1  main.o(.data)
+    BoolString                               0x10000058   Data           8  main.o(.data)
+    _Tos_Cpu_Freq                            0x10000060   Data           4  main.o(.data)
+    P_TGui_Style                             0x10000068   Data           4  main.o(.data)
+    P_TGUI_Font                              0x1000006c   Data           4  main.o(.data)
+    Cursor_X                                 0x10000070   Data           2  main.o(.data)
+    Cursor_Y                                 0x10000072   Data           2  main.o(.data)
+    MenuValue                                0x10000074   Data           4  main.o(.data)
+    MemBuf                                   0x10000078   Data       40000  tos_mema.o(.bss)
+    TGui_Style                               0x10009cb8   Data          22  main.o(.bss)
+    TGUI_Font                                0x10009cd0   Data          28  main.o(.bss)
+    Run_Value                                0x10009cec   Data          64  main.o(.bss)
+    __initial_sp                             0x1000a130   Data           0  startup_lpc177x_8x.o(STACK)
 
 
 
@@ -1188,121 +1781,218 @@ Memory Map of the image
 
   Image Entry point : 0x000000e5
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00002ab0, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00015fa0, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00002a5c, Max: 0x00080000, ABSOLUTE)
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x00015f28, Max: 0x00080000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x000000e4   Data   RO          796    RESET               startup_lpc177x_8x.o
-    0x000000e4   0x00000000   Code   RO         2075  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x000000e4   0x00000004   Code   RO         2162    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x000000e8   0x00000004   Code   RO         2165    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x000000ec   0x00000000   Code   RO         2167    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x000000ec   0x00000000   Code   RO         2169    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x000000ec   0x00000008   Code   RO         2170    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x000000f4   0x00000000   Code   RO         2172    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x000000f4   0x00000000   Code   RO         2174    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x000000f4   0x00000004   Code   RO         2163    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x000000e4   0x00000000   Code   RO         2766  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x000000e4   0x00000004   Code   RO         2855    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x000000e8   0x00000004   Code   RO         2858    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x000000ec   0x00000000   Code   RO         2860    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x000000ec   0x00000000   Code   RO         2862    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x000000ec   0x00000008   Code   RO         2863    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x000000f4   0x00000000   Code   RO         2865    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x000000f4   0x00000000   Code   RO         2867    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x000000f4   0x00000004   Code   RO         2856    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
     0x000000f8   0x00000024   Code   RO          798    .text               startup_lpc177x_8x.o
-    0x0000011c   0x00000062   Code   RO         2078    .text               mc_w.l(uldiv.o)
-    0x0000017e   0x00000024   Code   RO         2080    .text               mc_w.l(memcpya.o)
-    0x000001a2   0x0000014e   Code   RO         2118    .text               mf_w.l(dadd.o)
-    0x000002f0   0x0000000a   Code   RO         2126    .text               mf_w.l(ffltui.o)
-    0x000002fa   0x00000000   Code   RO         2194    .text               mc_w.l(iusefp.o)
-    0x000002fa   0x00000002   Code   RO          806    i.MCU_Reset         cpu.o
+    0x0000011c   0x00000062   Code   RO         2769    .text               mc_w.l(uldiv.o)
+    0x0000017e   0x000000b0   Code   RO         2803    .text               mf_w.l(fadd.o)
+    0x0000022e   0x0000006c   Code   RO         2805    .text               mf_w.l(fmul.o)
+    0x0000029a   0x00000012   Code   RO         2815    .text               mf_w.l(fflti.o)
+    0x000002ac   0x0000000a   Code   RO         2817    .text               mf_w.l(ffltui.o)
+    0x000002b6   0x00000032   Code   RO         2823    .text               mf_w.l(ffixi.o)
+    0x000002e8   0x00000014   Code   RO         2839    .text               mf_w.l(cfrcmple.o)
     0x000002fc   0x00000004   Code   RO          797    .ARM.__at_0x02FC    startup_lpc177x_8x.o
-    0x00000300   0x000000e4   Code   RO         2120    .text               mf_w.l(dmul.o)
-    0x000003e4   0x000000de   Code   RO         2122    .text               mf_w.l(ddiv.o)
-    0x000004c2   0x0000003e   Code   RO         2136    .text               mf_w.l(dfixi.o)
-    0x00000500   0x00000014   Code   RO         2146    .text               mf_w.l(cfrcmple.o)
-    0x00000514   0x0000002c   Code   RO         2179    .text               mc_w.l(uidiv.o)
-    0x00000540   0x0000001e   Code   RO         2181    .text               mc_w.l(llshl.o)
-    0x0000055e   0x00000020   Code   RO         2183    .text               mc_w.l(llushr.o)
-    0x0000057e   0x00000024   Code   RO         2185    .text               mc_w.l(llsshr.o)
-    0x000005a2   0x0000006c   Code   RO         2195    .text               mf_w.l(fepilogue.o)
-    0x0000060e   0x000000be   Code   RO         2197    .text               mf_w.l(depilogue.o)
-    0x000006cc   0x00000030   Code   RO         2201    .text               mf_w.l(dfixul.o)
-    0x000006fc   0x00000028   Code   RO         2203    .text               mf_w.l(cdrcmple.o)
-    0x00000724   0x00000024   Code   RO         2211    .text               mc_w.l(init.o)
-    0x00000748   0x00000050   Code   RO         1174    TOS_CORE_A          tos_core_a.o
-    0x00000798   0x00000030   Code   RO           88    i.CLKPWR_ConfigPPWR  lpc177x_8x_clkpwr.o
-    0x000007c8   0x00000040   Code   RO           91    i.CLKPWR_GetCLK     lpc177x_8x_clkpwr.o
-    0x00000808   0x0000012c   Code   RO         1335    i.DeBug             debug.o
-    0x00000934   0x00000064   Code   RO         1250    i.DeviceList_Init   tos_device.o
-    0x00000998   0x0000003a   Code   RO         1459    i.FlowPoolFilter    text.o
-    0x000009d2   0x0000002c   Code   RO         1922    i.GLCD_Clear        main.o
-    0x000009fe   0x00000002   PAD
-    0x00000a00   0x000001fc   Code   RO         1923    i.GLCD_Config       main.o
-    0x00000bfc   0x00000064   Code   RO         1925    i.GLCD_Ctrl         main.o
-    0x00000c60   0x00000014   Code   RO         1930    i.GLCD_Init         main.o
-    0x00000c74   0x00000018   Code   RO         1932    i.GLCD_SetPixel_16bpp  main.o
-    0x00000c8c   0x00000040   Code   RO          365    i.GPIO_GetPointer   lpc177x_8x_gpio.o
-    0x00000ccc   0x00000028   Code   RO          370    i.GPIO_SetDir       lpc177x_8x_gpio.o
-    0x00000cf4   0x00000014   Code   RO          371    i.GPIO_SetValue     lpc177x_8x_gpio.o
-    0x00000d08   0x00000050   Code   RO         1933    i.GUI_Text          main.o
-    0x00000d58   0x00000020   Code   RO         1934    i.GetASCIICode      main.o
-    0x00000d78   0x00000080   Code   RO         1341    i.GetChar_List      debug.o
-    0x00000df8   0x00000018   Code   RO         1471    i.GetTextLength     text.o
-    0x00000e10   0x00000038   Code   RO         1935    i.LCD_ClockDivide   main.o
-    0x00000e48   0x00000030   Code   RO         1206    i.Mema_Free         tos_mema.o
-    0x00000e78   0x0000001c   Code   RO         1207    i.Mema_Init         tos_mema.o
-    0x00000e94   0x0000004c   Code   RO         1208    i.Mema_Malloc       tos_mema.o
-    0x00000ee0   0x00000048   Code   RO          666    i.PINSEL_ConfigPin  lpc177x_8x_pinsel.o
-    0x00000f28   0x000000a4   Code   RO          668    i.PINSEL_GetPinType  lpc177x_8x_pinsel.o
-    0x00000fcc   0x00000018   Code   RO          678    i.PIN_GetPointer    lpc177x_8x_pinsel.o
-    0x00000fe4   0x00000064   Code   RO         1936    i.PutChar           main.o
-    0x00001048   0x000001cc   Code   RO          886    i.SDRAM_32M_16BIT_Init  sdram_k4s561632c_32m_16bit.o
-    0x00001214   0x00000012   Code   RO            3    i.SYSTICK_ClearCounterFlag  lpc177x_8x_systick.o
-    0x00001226   0x00000028   Code   RO            4    i.SYSTICK_Cmd       lpc177x_8x_systick.o
-    0x0000124e   0x00000028   Code   RO            7    i.SYSTICK_IntCmd    lpc177x_8x_systick.o
-    0x00001276   0x0000005c   Code   RO            8    i.SYSTICK_InternalInit  lpc177x_8x_systick.o
-    0x000012d2   0x00000042   Code   RO         1485    i.StringEndingAppend  text.o
-    0x00001314   0x0000000c   Code   RO          807    i.SysTick_Handler   cpu.o
-    0x00001320   0x00000016   Code   RO          808    i.SysTick_Set       cpu.o
-    0x00001336   0x00000002   PAD
-    0x00001338   0x000000f4   Code   RO          758    i.SystemInit        system_lpc177x_8x.o
-    0x0000142c   0x000000b8   Code   RO         1937    i.Task0             main.o
-    0x000014e4   0x0000000a   Code   RO         1938    i.Task1             main.o
-    0x000014ee   0x00000002   PAD
-    0x000014f0   0x0000005c   Code   RO          910    i.Tos_ComputeCPURate  tos.o
-    0x0000154c   0x00000098   Code   RO          912    i.Tos_Init          tos.o
-    0x000015e4   0x00000020   Code   RO          913    i.Tos_ListCreate    tos.o
-    0x00001604   0x0000000e   Code   RO          914    i.Tos_RootTask      tos.o
-    0x00001612   0x00000002   PAD
-    0x00001614   0x00000038   Code   RO         1135    i.Tos_ScanTimer     tos_timer.o
-    0x0000164c   0x00000030   Code   RO          916    i.Tos_Start         tos.o
-    0x0000167c   0x00000050   Code   RO          917    i.Tos_SysTick       tos.o
-    0x000016cc   0x000000d0   Code   RO          918    i.Tos_TaskCreate    tos.o
-    0x0000179c   0x00000064   Code   RO          919    i.Tos_TaskCreateFindID  tos.o
-    0x00001800   0x00000058   Code   RO          921    i.Tos_TaskDelay     tos.o
-    0x00001858   0x000000c0   Code   RO          930    i.Tos_TaskReady     tos.o
-    0x00001918   0x00000054   Code   RO          933    i.Tos_TaskRun       tos.o
-    0x0000196c   0x0000006e   Code   RO          935    i.Tos_TaskStackInit  tos.o
-    0x000019da   0x00000002   PAD
-    0x000019dc   0x00000024   Code   RO          936    i.Tos_TaskStart     tos.o
-    0x00001a00   0x000000a0   Code   RO          939    i.Tos_TaskSwitch    tos.o
-    0x00001aa0   0x00000012   Code   RO          940    i.Tos_TaskTcbInit   tos.o
-    0x00001ab2   0x00000002   PAD
-    0x00001ab4   0x00000054   Code   RO         1136    i.Tos_TimerReady    tos_timer.o
-    0x00001b08   0x00000024   Code   RO         2091    i.__0vsprintf       mc_w.l(printfa.o)
-    0x00001b2c   0x0000000e   Code   RO         2217    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x00001b3a   0x00000002   Code   RO         2218    i.__scatterload_null  mc_w.l(handlers.o)
-    0x00001b3c   0x0000000e   Code   RO         2219    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x00001b4a   0x00000002   PAD
-    0x00001b4c   0x0000015c   Code   RO         2092    i._fp_digits        mc_w.l(printfa.o)
-    0x00001ca8   0x000006f0   Code   RO         2093    i._printf_core      mc_w.l(printfa.o)
-    0x00002398   0x00000026   Code   RO         2094    i._printf_post_padding  mc_w.l(printfa.o)
-    0x000023be   0x00000030   Code   RO         2095    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x000023ee   0x0000000a   Code   RO         2097    i._sputc            mc_w.l(printfa.o)
-    0x000023f8   0x0000001c   Code   RO         1939    i.main              main.o
-    0x00002414   0x00000620   Data   RO         1941    .constdata          main.o
-    0x00002a34   0x00000006   Data   RO         1942    .conststring        main.o
-    0x00002a3a   0x00000002   PAD
-    0x00002a3c   0x00000020   Data   RO         2215    Region$$Table       anon$$obj.o
+    0x00000300   0x0000014e   Code   RO         2809    .text               mf_w.l(dadd.o)
+    0x0000044e   0x000000e4   Code   RO         2811    .text               mf_w.l(dmul.o)
+    0x00000532   0x000000de   Code   RO         2813    .text               mf_w.l(ddiv.o)
+    0x00000610   0x00000028   Code   RO         2825    .text               mf_w.l(ffixui.o)
+    0x00000638   0x0000003e   Code   RO         2827    .text               mf_w.l(dfixi.o)
+    0x00000676   0x00000026   Code   RO         2831    .text               mf_w.l(f2d.o)
+    0x0000069c   0x00000038   Code   RO         2835    .text               mf_w.l(d2f.o)
+    0x000006d4   0x0000002c   Code   RO         2872    .text               mc_w.l(uidiv.o)
+    0x00000700   0x0000001e   Code   RO         2874    .text               mc_w.l(llshl.o)
+    0x0000071e   0x00000020   Code   RO         2876    .text               mc_w.l(llushr.o)
+    0x0000073e   0x00000024   Code   RO         2878    .text               mc_w.l(llsshr.o)
+    0x00000762   0x00000000   Code   RO         2887    .text               mc_w.l(iusefp.o)
+    0x00000762   0x0000006c   Code   RO         2888    .text               mf_w.l(fepilogue.o)
+    0x000007ce   0x000000be   Code   RO         2890    .text               mf_w.l(depilogue.o)
+    0x0000088c   0x00000030   Code   RO         2894    .text               mf_w.l(dfixul.o)
+    0x000008bc   0x00000028   Code   RO         2896    .text               mf_w.l(cdrcmple.o)
+    0x000008e4   0x00000024   Code   RO         2904    .text               mc_w.l(init.o)
+    0x00000908   0x00000050   Code   RO         1174    TOS_CORE_A          tos_core_a.o
+    0x00000958   0x00000028   Code   RO         1434    i.ALL_TFT           text.o
+    0x00000980   0x00000016   Code   RO         1439    i.BufferFill        text.o
+    0x00000996   0x00000002   PAD
+    0x00000998   0x00000030   Code   RO           88    i.CLKPWR_ConfigPPWR  lpc177x_8x_clkpwr.o
+    0x000009c8   0x00000040   Code   RO           91    i.CLKPWR_GetCLK     lpc177x_8x_clkpwr.o
+    0x00000a08   0x0000003c   Code   RO         1444    i.CompareWithString  text.o
+    0x00000a44   0x0000012c   Code   RO         1335    i.DeBug             debug.o
+    0x00000b70   0x00000064   Code   RO         1250    i.DeviceList_Init   tos_device.o
+    0x00000bd4   0x0000003e   Code   RO         1924    i.Draw_Full_List    main.o
+    0x00000c12   0x00000046   Code   RO         1926    i.Draw_X_8Bit       main.o
+    0x00000c58   0x0000003a   Code   RO         1459    i.FlowPoolFilter    text.o
+    0x00000c92   0x0000001e   Code   RO         1460    i.FmtToBuf          text.o
+    0x00000cb0   0x0000002c   Code   RO         1928    i.GLCD_Clear        main.o
+    0x00000cdc   0x000001fc   Code   RO         1929    i.GLCD_Config       main.o
+    0x00000ed8   0x00000064   Code   RO         1931    i.GLCD_Ctrl         main.o
+    0x00000f3c   0x00000018   Code   RO         1937    i.GLCD_SetPixel_16bpp  main.o
+    0x00000f54   0x00000014   Code   RO          362    i.GPIO_ClearValue   lpc177x_8x_gpio.o
+    0x00000f68   0x00000040   Code   RO          365    i.GPIO_GetPointer   lpc177x_8x_gpio.o
+    0x00000fa8   0x0000001e   Code   RO          368    i.GPIO_OutputValue  lpc177x_8x_gpio.o
+    0x00000fc6   0x00000028   Code   RO          370    i.GPIO_SetDir       lpc177x_8x_gpio.o
+    0x00000fee   0x00000014   Code   RO          371    i.GPIO_SetValue     lpc177x_8x_gpio.o
+    0x00001002   0x00000080   Code   RO         1341    i.GetChar_List      debug.o
+    0x00001082   0x0000001e   Code   RO         1464    i.GetCountSize      text.o
+    0x000010a0   0x00000026   Code   RO         1467    i.GetStringByFmt    text.o
+    0x000010c6   0x00000002   PAD
+    0x000010c8   0x000000c4   Code   RO         1470    i.GetStringToNumber  text.o
+    0x0000118c   0x00000018   Code   RO         1471    i.GetTextLength     text.o
+    0x000011a4   0x00000020   Code   RO         1940    i.GetVoidWord       main.o
+    0x000011c4   0x00000020   Code   RO         1941    i.Index_Uchar       main.o
+    0x000011e4   0x00000040   Code   RO         1942    i.Index_Word        main.o
+    0x00001224   0x00000130   Code   RO         1943    i.Key_GetASCII      main.o
+    0x00001354   0x00000160   Code   RO         1944    i.Key_GetWord       main.o
+    0x000014b4   0x0000000c   Code   RO         1946    i.LCD_Clear_Screen  main.o
+    0x000014c0   0x00000038   Code   RO         1947    i.LCD_ClockDivide   main.o
+    0x000014f8   0x00000026   Code   RO         1950    i.LCD_Draw_LineX    main.o
+    0x0000151e   0x00000026   Code   RO         1951    i.LCD_Draw_LineY    main.o
+    0x00001544   0x00000014   Code   RO         1954    i.LCD_Initializtion  main.o
+    0x00001558   0x00000018   Code   RO         1955    i.LCD_Set_Pixel     main.o
+    0x00001570   0x00000002   Code   RO          806    i.MCU_Reset         cpu.o
+    0x00001572   0x00000002   PAD
+    0x00001574   0x0000012c   Code   RO         1957    i.MUI_Draw          main.o
+    0x000016a0   0x00000158   Code   RO         1958    i.MUI_DrawMenu      main.o
+    0x000017f8   0x00000150   Code   RO         1959    i.MUI_Enter         main.o
+    0x00001948   0x00000074   Code   RO         1960    i.MUI_Fill_Bar      main.o
+    0x000019bc   0x0000011c   Code   RO         1961    i.MUI_GetColor      main.o
+    0x00001ad8   0x00000024   Code   RO         1962    i.MUI_GetCurMenuInfor  main.o
+    0x00001afc   0x000000fc   Code   RO         1963    i.MUI_GetIP         main.o
+    0x00001bf8   0x00000022   Code   RO         1964    i.MUI_GetKey        main.o
+    0x00001c1a   0x00000002   PAD
+    0x00001c1c   0x00000158   Code   RO         1965    i.MUI_GetOptionString  main.o
+    0x00001d74   0x00000104   Code   RO         1966    i.MUI_GetString     main.o
+    0x00001e78   0x000000f0   Code   RO         1967    i.MUI_GetValue      main.o
+    0x00001f68   0x000000a4   Code   RO         1969    i.MUI_Init          main.o
+    0x0000200c   0x00000016   Code   RO         1970    i.MUI_OptionLength  main.o
+    0x00002022   0x00000002   PAD
+    0x00002024   0x00000028   Code   RO         1971    i.MUI_ReSetTitle    main.o
+    0x0000204c   0x0000002c   Code   RO         1972    i.MUI_SetDrawClear  main.o
+    0x00002078   0x0000017c   Code   RO         1973    i.MUI_Task          main.o
+    0x000021f4   0x00000070   Code   RO         1974    i.MUI_Title         main.o
+    0x00002264   0x000001e4   Code   RO         1975    i.MUI_Waiting       main.o
+    0x00002448   0x00000030   Code   RO         1206    i.Mema_Free         tos_mema.o
+    0x00002478   0x0000001c   Code   RO         1207    i.Mema_Init         tos_mema.o
+    0x00002494   0x0000004c   Code   RO         1208    i.Mema_Malloc       tos_mema.o
+    0x000024e0   0x000000a4   Code   RO         1976    i.Nand_ReadMap      main.o
+    0x00002584   0x00000048   Code   RO          666    i.PINSEL_ConfigPin  lpc177x_8x_pinsel.o
+    0x000025cc   0x000000a4   Code   RO          668    i.PINSEL_GetPinType  lpc177x_8x_pinsel.o
+    0x00002670   0x00000018   Code   RO          678    i.PIN_GetPointer    lpc177x_8x_pinsel.o
+    0x00002688   0x00000054   Code   RO         1977    i.Printf            main.o
+    0x000026dc   0x0000002a   Code   RO         1978    i.PrintfVoid        main.o
+    0x00002706   0x00000002   PAD
+    0x00002708   0x0000011c   Code   RO         1979    i.Printf_Data       main.o
+    0x00002824   0x00000074   Code   RO         1980    i.Printf_Infor      main.o
+    0x00002898   0x0000017c   Code   RO         1981    i.Printf_String     main.o
+    0x00002a14   0x00000098   Code   RO         1982    i.Printf_Yes        main.o
+    0x00002aac   0x000000f8   Code   RO         1983    i.Printf_YesOrNo    main.o
+    0x00002ba4   0x000000a0   Code   RO         1985    i.RAM_ReadMap       main.o
+    0x00002c44   0x000000a4   Code   RO         1986    i.ROM_ReadMap       main.o
+    0x00002ce8   0x000001cc   Code   RO          886    i.SDRAM_32M_16BIT_Init  sdram_k4s561632c_32m_16bit.o
+    0x00002eb4   0x00000012   Code   RO            3    i.SYSTICK_ClearCounterFlag  lpc177x_8x_systick.o
+    0x00002ec6   0x00000028   Code   RO            4    i.SYSTICK_Cmd       lpc177x_8x_systick.o
+    0x00002eee   0x00000028   Code   RO            7    i.SYSTICK_IntCmd    lpc177x_8x_systick.o
+    0x00002f16   0x0000005c   Code   RO            8    i.SYSTICK_InternalInit  lpc177x_8x_systick.o
+    0x00002f72   0x00000024   Code   RO         1484    i.StringCoppy       text.o
+    0x00002f96   0x00000042   Code   RO         1485    i.StringEndingAppend  text.o
+    0x00002fd8   0x0000006a   Code   RO         1489    i.StringToIPUint32  text.o
+    0x00003042   0x0000000c   Code   RO          807    i.SysTick_Handler   cpu.o
+    0x0000304e   0x00000016   Code   RO          808    i.SysTick_Set       cpu.o
+    0x00003064   0x000000f4   Code   RO          758    i.SystemInit        system_lpc177x_8x.o
+    0x00003158   0x00000030   Code   RO         1493    i.TFT_RGB           text.o
+    0x00003188   0x00000014   Code   RO         1987    i.TGUI_Clear_Show   main.o
+    0x0000319c   0x00000020   Code   RO         1988    i.TGUI_DefaultStyle  main.o
+    0x000031bc   0x000000a0   Code   RO         1991    i.TGUI_Draw_ASCII   main.o
+    0x0000325c   0x00000210   Code   RO         1998    i.TGUI_Draw_FormatString  main.o
+    0x0000346c   0x0000004c   Code   RO         2002    i.TGUI_Draw_Rectangle  main.o
+    0x000034b8   0x000000b4   Code   RO         2005    i.TGUI_Draw_Word    main.o
+    0x0000356c   0x00000032   Code   RO         2011    i.TGUI_Fill_Rectangle  main.o
+    0x0000359e   0x00000002   PAD
+    0x000035a0   0x00000038   Code   RO         2014    i.TGUI_Get_StringPixel  main.o
+    0x000035d8   0x00000054   Code   RO         2015    i.TGUI_Index_Word   main.o
+    0x0000362c   0x00000020   Code   RO         2016    i.TGUI_Set_Color    main.o
+    0x0000364c   0x0000006c   Code   RO         2017    i.TGUI_Set_Font     main.o
+    0x000036b8   0x0000000c   Code   RO         2018    i.TGUI_Set_LineN    main.o
+    0x000036c4   0x00000118   Code   RO         2019    i.TGUI_Set_LocalFont  main.o
+    0x000037dc   0x00000028   Code   RO         2021    i.TGUI_Set_Region   main.o
+    0x00003804   0x000001bc   Code   RO         2022    i.TGui_Draw_Line    main.o
+    0x000039c0   0x0000001a   Code   RO         2023    i.Task0             main.o
+    0x000039da   0x00000044   Code   RO         2024    i.Task1             main.o
+    0x00003a1e   0x00000012   Code   RO         2025    i.Task_LoadConfigs  main.o
+    0x00003a30   0x00000010   Code   RO         2026    i.Task_LoadConfigsFromNand  main.o
+    0x00003a40   0x00000030   Code   RO         2027    i.Task_RePaint      main.o
+    0x00003a70   0x00000038   Code   RO         2028    i.Task_ReSave       main.o
+    0x00003aa8   0x00000018   Code   RO         2029    i.Task_SaveConfigs  main.o
+    0x00003ac0   0x00000018   Code   RO         2030    i.Task_SaveConfigsToNand  main.o
+    0x00003ad8   0x0000001c   Code   RO         2031    i.Task_SetMenuFont  main.o
+    0x00003af4   0x0000002c   Code   RO         2032    i.Task_SetMsgFont   main.o
+    0x00003b20   0x00000014   Code   RO         2033    i.Task_SetTitleFont  main.o
+    0x00003b34   0x00000018   Code   RO         2034    i.Task_ShowAsk      main.o
+    0x00003b4c   0x0000001c   Code   RO         2035    i.Task_ShowInfor    main.o
+    0x00003b68   0x00000034   Code   RO         2036    i.Task_ShowTos      main.o
+    0x00003b9c   0x00000044   Code   RO         2037    i.Task_ShowYesOrNo  main.o
+    0x00003be0   0x0000012c   Code   RO         2038    i.Task_TaskManage   main.o
+    0x00003d0c   0x00000018   Code   RO         2039    i.Task_Waiting      main.o
+    0x00003d24   0x0000005c   Code   RO          910    i.Tos_ComputeCPURate  tos.o
+    0x00003d80   0x0000000c   Code   RO         2040    i.Tos_GetFontHandle  main.o
+    0x00003d8c   0x0000000c   Code   RO         2041    i.Tos_GetStyleHandle  main.o
+    0x00003d98   0x00000038   Code   RO          911    i.Tos_GetTaskIDByName  tos.o
+    0x00003dd0   0x00000098   Code   RO          912    i.Tos_Init          tos.o
+    0x00003e68   0x00000020   Code   RO          913    i.Tos_ListCreate    tos.o
+    0x00003e88   0x0000000e   Code   RO          914    i.Tos_RootTask      tos.o
+    0x00003e96   0x00000002   PAD
+    0x00003e98   0x00000038   Code   RO         1135    i.Tos_ScanTimer     tos_timer.o
+    0x00003ed0   0x00000030   Code   RO          916    i.Tos_Start         tos.o
+    0x00003f00   0x00000050   Code   RO          917    i.Tos_SysTick       tos.o
+    0x00003f50   0x000000d0   Code   RO          918    i.Tos_TaskCreate    tos.o
+    0x00004020   0x00000064   Code   RO          919    i.Tos_TaskCreateFindID  tos.o
+    0x00004084   0x00000060   Code   RO          920    i.Tos_TaskCreateQmsg  tos.o
+    0x000040e4   0x00000058   Code   RO          921    i.Tos_TaskDelay     tos.o
+    0x0000413c   0x00000090   Code   RO          923    i.Tos_TaskDelete    tos.o
+    0x000041cc   0x0000006c   Code   RO          925    i.Tos_TaskGetQMsg   tos.o
+    0x00004238   0x0000006c   Code   RO          926    i.Tos_TaskGetQMsgDelay  tos.o
+    0x000042a4   0x000000c0   Code   RO          930    i.Tos_TaskReady     tos.o
+    0x00004364   0x0000006c   Code   RO          932    i.Tos_TaskResume    tos.o
+    0x000043d0   0x00000054   Code   RO          933    i.Tos_TaskRun       tos.o
+    0x00004424   0x0000006e   Code   RO          935    i.Tos_TaskStackInit  tos.o
+    0x00004492   0x00000002   PAD
+    0x00004494   0x00000024   Code   RO          936    i.Tos_TaskStart     tos.o
+    0x000044b8   0x0000004c   Code   RO          937    i.Tos_TaskStop      tos.o
+    0x00004504   0x0000007c   Code   RO          938    i.Tos_TaskSuspend   tos.o
+    0x00004580   0x000000a0   Code   RO          939    i.Tos_TaskSwitch    tos.o
+    0x00004620   0x00000012   Code   RO          940    i.Tos_TaskTcbInit   tos.o
+    0x00004632   0x00000002   PAD
+    0x00004634   0x00000054   Code   RO         1136    i.Tos_TimerReady    tos_timer.o
+    0x00004688   0x00000024   Code   RO         2782    i.__0vsprintf       mc_w.l(printfa.o)
+    0x000046ac   0x0000000e   Code   RO         2910    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x000046ba   0x00000002   Code   RO         2911    i.__scatterload_null  mc_w.l(handlers.o)
+    0x000046bc   0x0000000e   Code   RO         2912    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x000046ca   0x00000002   PAD
+    0x000046cc   0x0000015c   Code   RO         2783    i._fp_digits        mc_w.l(printfa.o)
+    0x00004828   0x000006f0   Code   RO         2784    i._printf_core      mc_w.l(printfa.o)
+    0x00004f18   0x00000026   Code   RO         2785    i._printf_post_padding  mc_w.l(printfa.o)
+    0x00004f3e   0x00000030   Code   RO         2786    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x00004f6e   0x0000000a   Code   RO         2788    i._sputc            mc_w.l(printfa.o)
+    0x00004f78   0x0000001c   Code   RO         2044    i.main              main.o
+    0x00004f94   0x00010a9c   Data   RO         2047    .constdata          main.o
+    0x00015a30   0x000004d8   Data   RO         2048    .conststring        main.o
+    0x00015f08   0x00000020   Data   RO         2908    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x0000a098, Max: 0x00010000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Base: 0x10000000, Size: 0x0000a130, Max: 0x00010000, ABSOLUTE)
 
     Base Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -1312,9 +2002,11 @@ Memory Map of the image
     0x10000040   0x00000004   Data   RW         1210    .data               tos_mema.o
     0x10000044   0x00000008   Data   RW         1258    .data               tos_device.o
     0x1000004c   0x00000008   Data   RW         1342    .data               debug.o
-    0x10000054   0x00009c40   Zero   RW         1209    .bss                tos_mema.o
-    0x10009c94   0x00000004   PAD
-    0x10009c98   0x00000400   Zero   RW          794    STACK               startup_lpc177x_8x.o
+    0x10000054   0x00000024   Data   RW         2049    .data               main.o
+    0x10000078   0x00009c40   Zero   RW         1209    .bss                tos_mema.o
+    0x10009cb8   0x00000074   Zero   RW         2046    .bss                main.o
+    0x10009d2c   0x00000004   PAD
+    0x10009d30   0x00000400   Zero   RW          794    STACK               startup_lpc177x_8x.o
 
 
 ==============================================================================
@@ -1328,24 +2020,24 @@ Image component sizes
        428         22          0          8          0       1700   debug.o
        112         28          0          0          0       1060   lpc177x_8x_clkpwr.o
          0          0          0          0          0       2340   lpc177x_8x_emc.o
-       124         12          0          0          0       3622   lpc177x_8x_gpio.o
+       174         12          0          0          0       4771   lpc177x_8x_gpio.o
        260         18          0          0          0       2363   lpc177x_8x_pinsel.o
        190          0          0          0          0      29433   lpc177x_8x_systick.o
-      1186        110       1574          0          0       7501   main.o
+     10388        984      69492         36        116      55911   main.o
        460         34          0          0          0       1199   sdram_k4s561632c_32m_16bit.o
         40         12        228          0       1024        940   startup_lpc177x_8x.o
        244         64          0         16          0        925   system_lpc177x_8x.o
-       148          0          0          0          0       2050   text.o
-      1414        166          0         44          0      10186   tos.o
+       754         18          0          0          0       7439   text.o
+      2234        224          0         44          0      14369   tos.o
         80         10          0          0          0        224   tos_core_a.o
-       100         10          0          8          0       1702   tos_device.o
+       100         10          0          8          0       2118   tos_device.o
        152         14          0          4      40000       2708   tos_mema.o
        140         10          0          4          0       1943   tos_timer.o
 
     ----------------------------------------------------------------------
-      5126        510       1836         84      41028      78416   Object Totals
+     15812       1460      69752        120      41144     137963   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        12          0          2          0          4          0   (incl. Padding)
+        20          0          0          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1365,34 +2057,40 @@ Image component sizes
         30          0          0          0          0         68   llshl.o
         36          0          0          0          0         68   llsshr.o
         32          0          0          0          0         68   llushr.o
-        36          0          0          0          0         68   memcpya.o
       2256         86          0          0          0        508   printfa.o
         44          0          0          0          0         80   uidiv.o
         98          0          0          0          0         92   uldiv.o
         40          2          0          0          0         68   cdrcmple.o
         20          0          0          0          0         68   cfrcmple.o
+        56          0          0          0          0         88   d2f.o
        334          0          0          0          0        148   dadd.o
        222          0          0          0          0        100   ddiv.o
        190          0          0          0          0        176   depilogue.o
         62          0          0          0          0         80   dfixi.o
         48          0          0          0          0         68   dfixul.o
        228          0          0          0          0         96   dmul.o
+        38          0          0          0          0         68   f2d.o
+       176          0          0          0          0        140   fadd.o
        108          0          0          0          0        168   fepilogue.o
+        50          0          0          0          0         68   ffixi.o
+        40          0          0          0          0         68   ffixui.o
+        18          0          0          0          0         68   fflti.o
         10          0          0          0          0         68   ffltui.o
+       108          0          0          0          0         76   fmul.o
 
     ----------------------------------------------------------------------
-      3882        104          0          0          0       2060   Library Totals
+      4332        104          0          0          0       2568   Library Totals
          2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      2618        102          0          0          0       1020   mc_w.l
-      1262          2          0          0          0       1040   mf_w.l
+      2582        102          0          0          0        952   mc_w.l
+      1748          2          0          0          0       1616   mf_w.l
 
     ----------------------------------------------------------------------
-      3882        104          0          0          0       2060   Library Totals
+      4332        104          0          0          0       2568   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1401,15 +2099,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      9008        614       1836         84      41028      76628   Grand Totals
-      9008        614       1836         84      41028      76628   ELF Image Totals
-      9008        614       1836         84          0          0   ROM Totals
+     20144       1564      69752        120      41144     131899   Grand Totals
+     20144       1564      69752        120      41144     131899   ELF Image Totals
+     20144       1564      69752        120          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                10844 (  10.59kB)
-    Total RW  Size (RW Data + ZI Data)             41112 (  40.15kB)
-    Total ROM Size (Code + RO Data + RW Data)      10928 (  10.67kB)
+    Total RO  Size (Code + RO Data)                89896 (  87.79kB)
+    Total RW  Size (RW Data + ZI Data)             41264 (  40.30kB)
+    Total ROM Size (Code + RO Data + RW Data)      90016 (  87.91kB)
 
 ==============================================================================
 

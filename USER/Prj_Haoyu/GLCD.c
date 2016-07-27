@@ -231,7 +231,7 @@ static void GLCD_Ctrl (int bEna)
 * Return         : None
 * Attention		 : None
 *******************************************************************************/
-void GLCD_Init (void)
+void LCD_Initializtion (void)
 {
     GLCD_Ctrl (0);
     GLCD_Config();
@@ -446,7 +446,11 @@ void GUI_Text(uint16_t Xpos, uint16_t Ypos, uint8_t *str,uint16_t Color, uint16_
     }
     while ( *str != 0 );
 }
-
+void LCD_Set_Pixel(uint16 X,uint16 Y,uint16 Color)
+{
+	 volatile uint16_t *pLCDbuf = (uint16_t *)LCD_VRAM_BASE_ADDR;  /* LCD buffer start address */
+	 pLCDbuf[ Y * GLCD_X_SIZE + X ] = Color;	
+}
 /******************************************************************************
 * Function Name  : LCD_DrawLine
 * Description    : Bresenham's line algorithm

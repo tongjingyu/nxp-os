@@ -1,8 +1,8 @@
 #include <Include.h>
-#include <..\MGUI\Menu_Base.h>
-#include <ComKeyBoard.h>
+#include <..\USER\Prj_Prafire\Menu_Base.h>
+#include <..\USER\Prj_Prafire\PageApp.h>
+
 MUI_MenuValue *MenuValue;
-App_Value Run_Value;
 const char *BoolString[2]={"False","True "};//不能放在子程序里，会出现未知错误
 
 void MUI_Fill_Bar(uint16 x1, uint16 y1, uint16 x2, uint16 y2,uint16 Max,uint16 Rate)
@@ -26,16 +26,16 @@ void MUI_Waiting(char *Title,uint8 D)
 	for(i=0;i<30;i++)
 	{
 	MUI_SetDrawClear(False);
-	MUI_Fill_Bar(MenuValue->StartX+1,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY,MenuValue->EndX-2,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY+10,30,i);
+	MUI_Fill_Bar(MenuValue->StartX+1,(LCD_YSIZE-MenuValue->StartY)/2+MenuValue->StartY,MenuValue->EndX-2,(LCD_YSIZE-MenuValue->StartY)/2+MenuValue->StartY+10,30,i);
 	TGUI_Set_Font(Run_Value.MenuCFG.MenuFont);
-	TGUI_Set_Region(0,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY+10,MenuValue->EndX*i/30+40,MenuValue->EndY,Align_CenterTop);
+	TGUI_Set_Region(0,(LCD_YSIZE-MenuValue->StartY)/2+MenuValue->StartY+10,LCD_XSIZE*i/30+40,LCD_YSIZE,Align_CenterTop);
 	MUI_SetDrawClear(False);
-	//Printf("%d%% ",(uint8)((float)i*100/30));
+	Printf("%d%% ",(uint8)((float)i*100/30));
 	Tos_TaskDelay(D);
 	MUI_SetDrawClear(True);
-	//Printf("%d%% ",(uint8)((float)i*100/30));
+	Printf("%d%% ",(uint8)((float)i*100/30));
 	}
-	TGUI_Fill_Rectangle(MenuValue->StartX+1,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY,MenuValue->EndX-2,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY+10,Tos_GetStyleHandle()->B_Color);
+	TGUI_Fill_Rectangle(MenuValue->StartX+1,(LCD_YSIZE-MenuValue->StartY)/2+MenuValue->StartY,MenuValue->EndX-2,(LCD_YSIZE-MenuValue->StartY)/2+MenuValue->StartY+10,Tos_GetStyleHandle()->B_Color);
 	MenuValue->DrawMode=Draw_All;
 	MUI_Draw(MenuValue->CurMenu);
 }
@@ -160,21 +160,21 @@ void Printf_Data(uint8 *Buf,uint8 Length,uint8 Cursor)
     uint16 x;
     uint8 Buf1[2];
     TGUI_Set_Font(Run_Value.MenuCFG.MsgFont);
-    x=(MenuValue->EndX-Tos_GetFontHandle()->SizeEW*Length)/2;
+    x=(LCD_XSIZE-Tos_GetFontHandle()->SizeEW*Length)/2;
     for(i=1;(i<Length-1);i++)
     {
-        TGUI_Set_Region(x+i*Tos_GetFontHandle()->SizeEW,0,x+(i+1)*Tos_GetFontHandle()->SizeEW,MenuValue->EndY,Align_LeftCenter);
+        TGUI_Set_Region(x+i*Tos_GetFontHandle()->SizeEW,0,x+(i+1)*Tos_GetFontHandle()->SizeEW,LCD_YSIZE,Align_LeftCenter);
         Buf1[0]=Buf[i-1];
         Buf1[1]=0;
         if(i==Cursor)Tos_GetStyleHandle()->SelectTrue=True;
         else Tos_GetStyleHandle()->SelectTrue=False;
         Printf((char *)&Buf1[0]);
     }
-		TGUI_Set_Region(0,0,MenuValue->EndX-2,MenuValue->EndY,Align_LeftCenter);
+		TGUI_Set_Region(0,0,LCD_XSIZE-2,LCD_YSIZE,Align_LeftCenter);
 		if(Cursor==0)Tos_GetStyleHandle()->SelectTrue=True;
         else Tos_GetStyleHandle()->SelectTrue=False;
 		 Printf("No");
-		TGUI_Set_Region(0,0,MenuValue->EndX-2,MenuValue->EndY,Align_RightCenter);
+		TGUI_Set_Region(0,0,LCD_XSIZE-2,LCD_YSIZE,Align_RightCenter);
 		if(Cursor==(Length-1))Tos_GetStyleHandle()->SelectTrue=True;
         else Tos_GetStyleHandle()->SelectTrue=False;
 		 Printf("Yes");
@@ -186,23 +186,23 @@ void Printf_String(uint8 *Buf,uint16 Length,uint8 Size,uint8 Cursor)
     uint16 x;
     uint8 Buf1[3];
     TGUI_Set_Font(Run_Value.MenuCFG.MsgFont);
-    x=(MenuValue->EndX-Tos_GetFontHandle()->SizeEW*Length)/2;
+    x=(LCD_XSIZE-Tos_GetFontHandle()->SizeEW*Length)/2;
     for(i=1;(i<Size-1);)
     {
 			if(n==Cursor)Tos_GetStyleHandle()->SelectTrue=True;
         else Tos_GetStyleHandle()->SelectTrue=False;
-        TGUI_Set_Region(x+i*Tos_GetFontHandle()->SizeEW,0,x+(i+1)*Tos_GetFontHandle()->SizeEW,MenuValue->EndY,Align_LeftCenter);
+        TGUI_Set_Region(x+i*Tos_GetFontHandle()->SizeEW,0,x+(i+1)*Tos_GetFontHandle()->SizeEW,LCD_YSIZE,Align_LeftCenter);
         if(Buf[i-1]>0x80){Buf1[0]=Buf[i-1];Buf1[1]=Buf[i];Buf1[2]=0;i+=2;n++;}
         else {Buf1[0]=Buf[i-1];Buf1[1]=0;i+=1;n++;}
 				if(Buf1[0]==0)End=True;
 				if(End==True){Buf1[0]=' ';Buf1[1]=0;}
         Printf((char *)&Buf1[0]);
     }
-		TGUI_Set_Region(0,0,MenuValue->EndX-2,MenuValue->EndY,Align_LeftCenter);
+		TGUI_Set_Region(0,0,LCD_XSIZE-2,LCD_YSIZE,Align_LeftCenter);
 		if(Cursor==0)Tos_GetStyleHandle()->SelectTrue=True;
         else Tos_GetStyleHandle()->SelectTrue=False;
 		 Printf("No");
-		TGUI_Set_Region(0,0,MenuValue->EndX-2,MenuValue->EndY,Align_RightCenter);
+		TGUI_Set_Region(0,0,LCD_XSIZE-2,LCD_YSIZE,Align_RightCenter);
 		if(Cursor==(Size-1))Tos_GetStyleHandle()->SelectTrue=True;
         else Tos_GetStyleHandle()->SelectTrue=False;
 		 Printf("Yes");
@@ -333,7 +333,7 @@ BOOL Printf_Infor(char *Msg,uint16 Delay)
 {
 	MUI_ReSetTitle("Infor");
 	TGUI_Set_Font(Run_Value.MenuCFG.MsgFont);
-	TGUI_Set_Region(0,0,MenuValue->EndX,MenuValue->EndY,Align_CenterCenter);
+	TGUI_Set_Region(0,0,LCD_XSIZE,LCD_YSIZE,Align_CenterCenter);
 	MUI_SetDrawClear(False);
 	Printf((char *)Msg);
 	Tos_TaskDelay(Delay);
@@ -367,7 +367,7 @@ BOOL Printf_Yes(char *Msg)
 	while(1)
 	{
 			MUI_SetDrawClear(False);
-			TGUI_Set_Region(0,0,MenuValue->EndX,MenuValue->EndY,Align_CenterCenter);
+			TGUI_Set_Region(0,0,LCD_XSIZE,LCD_YSIZE,Align_CenterCenter);
 			Tos_GetStyleHandle()->SelectTrue=True;
 			Printf("Ok");
 			KeyData=MUI_GetKey(0);
@@ -375,7 +375,7 @@ BOOL Printf_Yes(char *Msg)
 			if(KeyData==Key_Down)break;
 	}
 	MUI_SetDrawClear(True);
-	TGUI_Set_Region(0,0,MenuValue->EndX,MenuValue->EndY,Align_CenterCenter);
+	TGUI_Set_Region(0,0,LCD_XSIZE,LCD_YSIZE,Align_CenterCenter);
 	Tos_GetStyleHandle()->SelectTrue=False;
 	Printf("Ok");
   return True;  
@@ -393,10 +393,10 @@ BOOL Printf_YesOrNo(char *Msg)
 	while(1)
 	{
 			MUI_SetDrawClear(Ov);
-			TGUI_Set_Region(MenuValue->EndX*1/4,0,MenuValue->EndX*3/4,MenuValue->EndY,Align_LeftCenter);
+			TGUI_Set_Region(LCD_XSIZE*1/4,0,LCD_XSIZE*3/4,LCD_YSIZE,Align_LeftCenter);
 			Tos_GetStyleHandle()->SelectTrue=(BOOL)i;
 			Printf("Ok");
-			TGUI_Set_Region(MenuValue->EndX*1/4,0,MenuValue->EndX*3/4,MenuValue->EndY,Align_RightCenter);
+			TGUI_Set_Region(LCD_XSIZE*1/4,0,LCD_XSIZE*3/4,LCD_YSIZE,Align_RightCenter);
 			Tos_GetStyleHandle()->SelectTrue=(BOOL)!i;
 			Printf("No");
 			if(Ov)break;
@@ -433,7 +433,7 @@ void MUI_Title(char *Title)
 {
 	if(!Title)return;
 	LCD_Draw_LineX(MenuValue->StartX,MenuValue->StartY,MenuValue->EndX,Run_Value.MenuCFG.K_Color);
-	TGUI_Draw_Rectangle(0,0,MenuValue->EndX,MenuValue->EndY,Run_Value.MenuCFG.K_Color);
+	TGUI_Draw_Rectangle(0,0,LCD_XSIZE,LCD_YSIZE,Run_Value.MenuCFG.K_Color);
 	TGUI_Set_Font(Run_Value.MenuCFG.TitleFont);
 	TGUI_Set_Region(0,0,MenuValue->EndX,MenuValue->StartY,Align_CenterCenter);
 	Printf(Title);
@@ -474,12 +474,12 @@ void MUI_DrawMenu(const MUI_MenuStruct *CurMenu)
 	const MUI_MenuStruct *Menu=CurMenu;
 	if(!Menu)return;
 	TGUI_Set_Font(Run_Value.MenuCFG.MenuFont);  
-	TGUI_Set_Region(MenuValue->StartX,MenuValue->StartY,MenuValue->EndX,MenuValue->EndY,Align_LeftTop);
+	TGUI_Set_Region(MenuValue->StartX,MenuValue->StartY,LCD_XSIZE,LCD_YSIZE,Align_LeftTop);
 	i=MenuValue->DeepRecord[MenuValue->Index]/MenuValue->RowCount;
 	Menu+=(i*MenuValue->RowCount);
 	if(i!=Oldi)
 	{
-		TGUI_Fill_Rectangle(MenuValue->StartX+1,MenuValue->StartY+1,MenuValue->EndX-2,MenuValue->EndY-2,Tos_GetStyleHandle()->B_Color);
+		TGUI_Fill_Rectangle(MenuValue->StartX+1,MenuValue->StartY+1,LCD_XSIZE-2,LCD_YSIZE-2,Tos_GetStyleHandle()->B_Color);
 		Oldi=i;
 	}
 	i=1;

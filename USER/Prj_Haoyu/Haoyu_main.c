@@ -1,20 +1,14 @@
 #include <Include.h>
-#include "SDRAM_K4S561632C_32M_16BIT.h"
+#include <SDRAM_K4S561632C_32M_16BIT.h>
 #include <..\USER\Prj_Haoyu\AsciiLib.c>
 #include <..\USER\Prj_Haoyu\GLCD.c>
-
-
-
-
-
-
-
-
-
-
-
-
-
+#include <..\USER\Prj_Haoyu\GBK_Lib.c>
+#include <LCD_Driver.c>
+#include <GUI_Include.c>
+#include <Tos_Mema.h>
+#include <..\MGUI\Menu_Base.c>
+#include <..\USER\Prj_Haoyu\Page.c>
+#include <..\USER\Prj_Haoyu\PageApp.c>
 
 
 
@@ -24,22 +18,8 @@
 void Task0(void *Tags)
 {
 	SDRAM_32M_16BIT_Init();	  
-	GLCD_Init();
-		GLCD_Clear(Black);
-	Tos_TaskDelay(1000);
-
-	GLCD_Clear(White);
-Tos_TaskDelay(1000);
-
-	GLCD_Clear(Red);
-Tos_TaskDelay(1000);
-
+	LCD_Initializtion();
 	GLCD_Clear(Green);
-Tos_TaskDelay(1000);
-	GLCD_Clear(Blue);
-Tos_TaskDelay(1000);
-	GUI_Text((GLCD_X_SIZE - 120 ) / 2, GLCD_Y_SIZE / 2 - 8, "http://www.trtos.com", White, Blue);
-	GUI_Text( ( GLCD_X_SIZE - 136 ) / 2, GLCD_Y_SIZE / 2 + 8, "Embeded System Development", White, Blue);
 	while(1)
 	{
 		Tos_TaskDelay(100);
@@ -47,14 +27,20 @@ Tos_TaskDelay(1000);
 }
 void Task1(void *Tags)
 {
-
+	CLKPWR_ConfigPPWR(CLKPWR_PCONP_PCGPIO, ENABLE);
+	GPIO_SetDir(2, 1<<21, GPIO_DIRECTION_OUTPUT);
+	GPIO_OutputValue(2,1<<21,0);
 	while(1)
 	{
+		GPIO_OutputValue(2,1<<21,0);
+		Tos_TaskDelay(100);
+		GPIO_OutputValue(2,1<<21,1);
 		Tos_TaskDelay(100);
 	}
 }
 const TaskInitList TaskList[]={
 {Task0,Null,"Task0",2000},
+{MUI_Task,(void *)&MenuHome[0],"MUI_Task",2000},
 {Task1,Null,"Task0",2000},
 {Null},
 };

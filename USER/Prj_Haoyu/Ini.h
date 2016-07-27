@@ -18,4 +18,5 @@
 //#define USART3_IRQ_EXT
 #define USART3_BaudRate 9600
 //#define IWDG_ENABLE 
+#define GUI_ENABLE
 #define __ENT_KEY__ "35"
