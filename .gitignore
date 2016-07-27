@@ -1,0 +1,10 @@
+# Object files
+*.o
+*.d
+*.crf
+*.htm
+*.lnp
+*.sct
+*.plg
+*.iex
+
