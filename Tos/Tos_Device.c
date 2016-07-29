@@ -3,6 +3,8 @@
 #include <Driver_Include.h>
 #include <Tos_device.h>
 #include <Tos_Mema.h>
+#include <Usart_Driver.h>
+#include <CPU.h>
 uint8 DeviceId_Index;
 //设备列表   Tos的设备里包含
 DeviceInfor	*Tos_Device_Tab;
@@ -16,11 +18,11 @@ void DeviceList_Init()
 	uint8 i;
 	DeviceId_Index=0;
 	Tos_Device_Tab=Mema_Malloc(sizeof(DeviceInfor)*Tos_DeviceTotal);
-//	for(i=0;i<USART_DEF_CH_SIZE;i++)
-//	{
-//		DeviceId_USART_TX[i]=DeviceNull;
-//		DeviceId_USART_RX[i]=DeviceNull;
-//	}
+	for(i=0;i<USART_DEF_CH_SIZE;i++)
+	{
+		DeviceId_USART_TX[i]=DeviceNull;
+		DeviceId_USART_RX[i]=DeviceNull;
+	}
 	for(i=0;i<Tos_DeviceTotal;i++)
 	{
 		Tos_Device_Tab[i].Init=Null;
@@ -85,8 +87,9 @@ void Device_Init()
 	uint8 i;
 typedef   void 					(*FuncTaskTags)(void);
 typedef   void 					(*FuncArrayTags)(uint8 ID);
+//typedef   void 					(*FuncIOListTags)(const GPIO_InitStruct *List);
 typedef   void 					(*FuncValueTags)(void *);
-	DeBug("Tos Device Init..........",Infor_Infor);
+	//DeBug("Tos Device Init..........",Infor_Infor);
 	for(i=0;i<Tos_DeviceTotal;i++)
 	{
 			if(Tos_Device_Tab[i].Init)
@@ -95,6 +98,7 @@ typedef   void 					(*FuncValueTags)(void *);
 				{
 					case DV_Array:((FuncArrayTags)(Tos_Device_Tab[i].Init))(Tos_Device_Tab[i].Note);break;
 					case DV_Task:((FuncTaskTags)Tos_Device_Tab[i].Init)();break;
+//					case DV_IOList:((FuncIOListTags)Tos_Device_Tab[i].Init)((const GPIO_InitStruct *)Tos_Device_Tab[i].Note);break;
 					case DV_TaskValue:((FuncValueTags)Tos_Device_Tab[i].Init)((void *)Tos_Device_Tab[i].Note);break;
 				}
 			}

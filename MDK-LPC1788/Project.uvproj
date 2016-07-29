@@ -7,7 +7,7 @@
 
   <Targets>
     <Target>
-      <TargetName>BOARD_HAOYOU</TargetName>
+      <TargetName>BOARD_HAOYU</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
       <TargetOption>
@@ -349,7 +349,7 @@
             <uSurpInc>0</uSurpInc>
             <VariousControls>
               <MiscControls></MiscControls>
-              <Define>BOARD_HAOYOU</Define>
+              <Define>BOARD_HAOYU</Define>
               <Undefine></Undefine>
               <IncludePath>..\USER;..\Driver;..\Configs;..\Boot;..\Tos;..\Tools;..\FS\TQFS;..\USER\Prj_4.3LCD;..\USER\Prj_CanBus;..\USER\Prj_Sensor;..\GUI\MGui;..\FuncTask;..\USER\Prj_Really;..\USER\Prj_PdaTran;..\USB\WHID;..\FS;..\GUI\TGui;..\GUI;..\Libraries\Drivers\include;..\Libraries\CMSIS</IncludePath>
             </VariousControls>
@@ -422,6 +422,21 @@
               <FileType>1</FileType>
               <FilePath>..\Libraries\Drivers\source\lpc177x_8x_pinsel.c</FilePath>
             </File>
+            <File>
+              <FileName>lpc177x_8x_eeprom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_eeprom.c</FilePath>
+            </File>
+            <File>
+              <FileName>lpc177x_8x_ssp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_ssp.c</FilePath>
+            </File>
+            <File>
+              <FileName>lpc177x_8x_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_uart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -476,6 +491,11 @@
               <FileName>SDRAM_K4S561632C_32M_16BIT.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Driver\SDRAM_K4S561632C_32M_16BIT.c</FilePath>
+            </File>
+            <File>
+              <FileName>Usart_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\Usart_Driver.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -553,11 +573,6 @@
               <FilePath>..\Tools\ModBus.c</FilePath>
             </File>
             <File>
-              <FileName>Text.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tools\Text.c</FilePath>
-            </File>
-            <File>
               <FileName>CheakOut.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Tools\CheakOut.c</FilePath>
@@ -566,6 +581,16 @@
               <FileName>Operation.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Tools\Operation.c</FilePath>
+            </File>
+            <File>
+              <FileName>TTS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Tools\TTS.c</FilePath>
+            </File>
+            <File>
+              <FileName>AppConfig.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Tools\AppConfig.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,5 +1,5 @@
 #include <Tos_Mema.h>
-#include <text.h>
+#include <TTS.h>
 TOS_MEMA_Ptr *RootMema;
 
 uint8 MemBuf[MEMA_BUFFER_SIZE];

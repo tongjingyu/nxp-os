@@ -9,39 +9,7 @@
 
 
 
-/**************************************************************************************
- Func: 单片机内部flash编程
- Time: 2015-07-25
- Ver.:	1.0  	
- Note: Size为数据长度用sizeof（实体）
-**************************************************************************************/
-void Flash_WriteData(uint32 Addr,void *Data,uint16 Size)
-{
-	#define SmallPageSize 512
-	uint16 i,c=0;
-	uint16 *P;
-	P=(uint16 *)Data;
-	FLASH_Unlock();
-	c=Size/SmallPageSize;
-	if(Size%SmallPageSize)c++;
-	for(i=0;i<c;i++)FLASH_ErasePage(Addr+SmallPageSize*c);
-	i=0;
-	while(Size--)FLASH_ProgramHalfWord(Addr+i++*2,*P++);
-	FLASH_Lock();
-}
-/**************************************************************************************
- Func: Flash内部falsh数据
- Time: 2015-07-25
- Ver.:	1.0  	
- Note: Size为数据长度用sizeof（实体）
-**************************************************************************************/
-void Flash_ReadData(uint32 Addr,void *Data,uint16 Size)
-{
-	uint8 *P,*S;
-	P=(uint8 *)Data;
-	S=(uint8 *)(Addr);
-	while(Size--)*P++=*S++;
-}
+
 /**************************************************************************************
  Func: 泛型存储配置
  Time: 2015-09-5
@@ -65,8 +33,8 @@ void Save_VoidConfig(void(*Save)(uint32 Addr,void *Data,uint16 Size),uint32 Addr
 **************************************************************************************/
 void Save_AppConfig(void *Data,uint16 Sector)
 {
-	assert_param(Sector<2);//对于本地配置只允许使用两个配置单位
-	Save_VoidConfig(Flash_WriteData,CONFIGS_ADDR_BASE,Data,Sector);
+	//assert_param(Sector<2);//对于本地配置只允许使用两个配置单位
+	Save_VoidConfig(Flash_WriteData,0,Data,Sector);
 }
 /**************************************************************************************
  Func: 获取泛型配置
@@ -79,7 +47,7 @@ BOOL Load_VoidConfig(void(*Load)(uint32 Addr,void *Data,uint16 Size),uint32 Addr
 	uint8 *P;
 	uint16 CrcValue;
 	ConfigHeadStruct *CHS;
-	assert_param(Sector<2);
+//	assert_param(Sector<2);
 	P=(uint8 *)Data;
 	Load(Addr+Sector*CONFIG_SECTOR_SPACE,Data,4 );//获取头部
 	CHS=(ConfigHeadStruct *)P;
@@ -99,8 +67,8 @@ Error:
 **************************************************************************************/
 BOOL Load_AppConfig(void *Data,uint16 Sector)
 {
-	assert_param(Sector<2);//对于本地配置只允许使用两个配置单位
-	return Load_VoidConfig(Flash_ReadData,CONFIGS_ADDR_BASE,Data,Sector);
+//	assert_param(Sector<2);//对于本地配置只允许使用两个配置单位
+	return Load_VoidConfig(Flash_ReadData,0,Data,Sector);
 }
 /**************************************************************************************
  Func: 创建发送消息

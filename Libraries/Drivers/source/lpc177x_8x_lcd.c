@@ -69,7 +69,7 @@ static void LCD_CtrlSetup(LCD_Config_Type* pConfig);
  *                  LCD_FUNC_ERR  Error occurred.
  *
  **********************************************************************/
-LCD_RET_CODE LCD_Init (LCD_Config_Type* pConfig)
+LCD_RET_CODE LCD_Init1 (LCD_Config_Type* pConfig)
 {
 	uint8_t clkdiv;
 
@@ -664,7 +664,7 @@ void LCD_LoadPic (LCD_PANEL panel, uint32_t X_Left, uint32_t Y_Up,
  * @return 	None.
  *
  **********************************************************************/
-void LCD_FillRect (LCD_PANEL panel, uint32_t startx,uint32_t endx, 
+void LCD_FillRect1 (LCD_PANEL panel, uint32_t startx,uint32_t endx, 
                                         uint32_t starty, uint32_t endy,
                                         LcdPixel_t color)
 {

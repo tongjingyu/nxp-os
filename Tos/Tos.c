@@ -1,6 +1,6 @@
 #include <Include.h>
 #include <Board_Driver.h>
-#include <Text.h>
+#include <TTS.h>
 #include <Tos.h>
 #include <DeBug.h>
 #include <Tos_Mema.h>
@@ -196,7 +196,7 @@ void Tos_Init(void)
 ********************************************************************************/
 void Tos_RootTask(void *Tags)
 {
-	
+	Device_Init();//设备初始化放在系统未启动时会导致部分驱动异常，如fmsc
 #ifdef IWDG_ENABLE
 	IWDG_Configuration();
 #endif

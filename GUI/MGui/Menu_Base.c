@@ -26,9 +26,9 @@ void MUI_Waiting(char *Title,uint8 D)
 	for(i=0;i<30;i++)
 	{
 	MUI_SetDrawClear(False);
-	MUI_Fill_Bar(MenuValue->StartX+1,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY,MenuValue->EndX-2,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY+10,30,i);
+	MUI_Fill_Bar(MenuValue->StartX+1,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY,MenuValue->EndX-2,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY+30,30,i);
 	TGUI_Set_Font(Run_Value.MenuCFG.MenuFont);
-	TGUI_Set_Region(0,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY+10,MenuValue->EndX*i/30+40,MenuValue->EndY,Align_CenterTop);
+	TGUI_Set_Region(0,(MenuValue->EndY-MenuValue->StartY)/2+MenuValue->StartY,MenuValue->EndX*i/30+40,MenuValue->EndY,Align_CenterTop);
 	MUI_SetDrawClear(False);
 	//Printf("%d%% ",(uint8)((float)i*100/30));
 	Tos_TaskDelay(D);
@@ -150,7 +150,7 @@ void Key_GetWord(uint8 KeyValue,char *D,uint8 InType)
 void MUI_ReSetTitle(char *Title)
 {
 	
-	MenuValue->DrawMode|=Draw_Menu;
+	MenuValue->DrawMode|=Draw_Title;
 	MenuValue->Title=Title;
   MUI_Draw(Null);
 }
@@ -340,6 +340,7 @@ BOOL Printf_Infor(char *Msg,uint16 Delay)
 	MUI_SetDrawClear(True);
 	Printf((char *)Msg);
 	MenuValue->DrawMode=Draw_All;
+	MenuValue->Title=(char *)MUI_GetCurMenuInfor()->Option;
 	MUI_Draw(MenuValue->CurMenu);
 	return True;
 }
@@ -499,7 +500,7 @@ void MUI_Draw(const MUI_MenuStruct *CurMenu)
 {
 	if(MenuValue->DrawMode==Draw_All)TGUI_Clear_Show();
 	TGUI_DefaultStyle();
-	if(MenuValue->Title!=MenuValue->OldTitle){MUI_SetDrawClear(True);MUI_Title(MenuValue->OldTitle);MUI_SetDrawClear(False);MUI_Title(MenuValue->Title);MenuValue->OldTitle=MenuValue->Title;MenuValue->DrawMode&=~Draw_Title;}
+	if(MenuValue->Title!=MenuValue->OldTitle){ MUI_SetDrawClear(True);MUI_Title(MenuValue->OldTitle);MUI_SetDrawClear(False);MUI_Title(MenuValue->Title);MenuValue->OldTitle=MenuValue->Title;MenuValue->DrawMode&=~Draw_Title;}
 	if(MenuValue->DrawMode&Draw_Title){MUI_SetDrawClear(False);MUI_Title(MenuValue->Title);MenuValue->DrawMode&=~Draw_Title;}
   if(CurMenu!=MenuValue->OldMenu){MUI_SetDrawClear(True);MUI_DrawMenu(MenuValue->OldMenu);MUI_SetDrawClear(False);MUI_DrawMenu(CurMenu);MenuValue->OldMenu=CurMenu;MenuValue->DrawMode&=~Draw_Menu;}
 	else if(MenuValue->DrawMode&Draw_Menu){MUI_SetDrawClear(False);MUI_DrawMenu(MenuValue->CurMenu);MenuValue->DrawMode&=~Draw_Menu;}

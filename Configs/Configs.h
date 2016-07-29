@@ -21,7 +21,7 @@
                          \_)     
 
 *********************************************************************************/
-#if defined(BOARD_HAOYOU)
+#if defined(BOARD_HAOYU)
 #include <..\USER\Prj_Haoyu\Ini.h>
 
 #else  

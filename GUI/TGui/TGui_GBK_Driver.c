@@ -177,6 +177,7 @@ void TGUI_Draw_Word(uint16 X,uint16 Y,uint16 Word)
 {
 	uint32 Addr;
 	uint16 Color;
+	uint16 BColor;
 	uint16 i,w;
 	Addr=TGUI_Index_Word(Word);
 	Addr*=P_TGUI_Font->LibSizeC;
@@ -184,9 +185,9 @@ void TGUI_Draw_Word(uint16 X,uint16 Y,uint16 Word)
 	w=P_TGUI_Font->SizeCW/8+!(!(P_TGUI_Font->SizeCW%8));//(P_TGUI_Font->SizeCW)/8;//弥补1212大小的中文字符
 	for(i=0;i<w;i++)
 	{
-		if(P_TGui_Style->SelectTrue==True)Color=P_TGui_Style->S_Color;
-		else Color=P_TGui_Style->F_Color;
-		Draw_Full_List((uint8 *)(Addr+i*P_TGUI_Font->SizeCH),P_TGUI_Font->SizeCH,X,Y,Color,P_TGui_Style->B_Color,P_TGui_Style->A_Color);
+		if(P_TGui_Style->SelectTrue==True){Color=P_TGui_Style->S_Color;BColor=P_TGui_Style->F_Color;}
+		else {Color=P_TGui_Style->F_Color;BColor=P_TGui_Style->B_Color;}
+		Draw_Full_List((uint8 *)(Addr+i*P_TGUI_Font->SizeCH),P_TGUI_Font->SizeCH,X,Y,Color,BColor,P_TGui_Style->A_Color);
 		X+=8;
 	}
 }

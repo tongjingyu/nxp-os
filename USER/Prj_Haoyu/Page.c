@@ -20,7 +20,7 @@ const MUI_MenuStruct Menu0x1200[]={
 	{"(2)Infor",(void *)&Task_ShowInfor,VT_TaskUint8,10},
 	{"(3)Ask",(void *)&Task_ShowAsk,VT_Task,0},
 	{"(3)YesOrNo",(void *)&Task_ShowYesOrNo,VT_Task,0},
-  {"(3)Waiting",(void *)&Task_Waiting,VT_TaskUint8,3},
+  {"(3)Waiting",(void *)&Task_Waiting,VT_TaskUint8,30},
 	{"MessageShow",Null,VT_End,Null},
 };
 const MUI_MenuStruct Menu0x1300[]={
@@ -170,7 +170,7 @@ const MUI_MenuStruct Menu0x6000[]={
 	{"Game",Null,VT_End,Null},
 };
 const MUI_MenuStruct MenuHome[]={
-	{"(1)FuncTask",(void *)&Menu0x1000[0],VT_Menu,1},
+	{"(1)Func≤‚ ‘",(void *)&Menu0x1000[0],VT_Menu,1},
 	{"(2)HandTest",(void *)&Menu0x2000[0],VT_Menu,1},
 	{"(3)About",(void *)&Menu0x3000[0],VT_Menu,1},
 	{"(4)Set",(void *)&Menu0x4000[0],VT_Menu,1},

@@ -11,12 +11,12 @@ void Task_RePaint()
 void Task_SaveConfigs(uint8 D)
 {
 	Run_Value.CH.Size=sizeof(Run_Value);
-//	Save_AppConfig(&Run_Value,0);
+	Save_AppConfig(&Run_Value,0);
 	if(D)Task_Waiting(D);
 }
 void Task_LoadConfigs(uint8 D)
 {
-	//if(!Load_AppConfig(&Run_Value,0)){Task_ReSave();Printf_Infor("Load Error!",1000);}
+	if(!Load_AppConfig(&Run_Value,0)){Task_ReSave();Printf_Infor("Load Error!",1000);}
 	if(D)Task_Waiting(D);
 	Task_RePaint();
 }
@@ -121,7 +121,7 @@ void ROM_ReadMap()
 		PrintfVoid("PageIndex[%d] UpDownExit",Page);
 		for(X=0;X<320;X+=8)
 		{
-//		Flash_ReadData(FLASH_ADDR_BASE+Y++*240+40*Page*240,&P[0],240);
+		Flash_ReadData(0+Y++*240+40*Page*240,&P[0],240);
 		Draw_Full_List(&P[0],240,X,0,Color_Red,Color_Blue,Color_Green);
 		}		
 		KeyData=MUI_GetKey(0);
@@ -145,7 +145,7 @@ void RAM_ReadMap()
 		PrintfVoid("PageIndex[%d] UpDownExit",Page);
 		for(X=0;X<2;X+=8)
 		{
-	//	Flash_ReadData(0x02000000+Y++*240+40*Page*240,&P[0],240);
+		Flash_ReadData(0+Y++*240+40*Page*240,&P[0],240);
 		Draw_Full_List(&P[0],240,X,0,Color_Red,Color_Blue,Color_Green);
 		}		
 		KeyData=MUI_GetKey(0);
@@ -169,7 +169,7 @@ void Nand_ReadMap()
 		PrintfVoid("PageIndex[%d] UpDownExit",Page);
 		for(X=0;X<320;X+=8)
 		{
-//		SPI_FLASH_BufferRead(&P[0],Y++*240+40*Page*240,240);
+
 		Draw_Full_List(&P[0],240,X,0,Color_Red,Color_Blue,Color_Green);
 		}		
 		KeyData=MUI_GetKey(0);
@@ -187,11 +187,11 @@ void Task_ShowTos()
 	MUI_ReSetTitle("About TOS");
 	for(i=6;i;i--)
 	{
-//	MGUI_DrawBitMap((LCD_XSIZE-TOSLogoLib[0])/2,(LCD_YSIZE-TOSLogoLib[1])/2,(uintbus)TOSLogoLib,i);
-	Tos_TaskDelay(300);	
+	MGUI_DrawBitMap((LCD_XSIZE-TOSLogoLib[0])/2,(LCD_YSIZE-TOSLogoLib[1])/2,(uintbus)TOSLogoLib,i);
+	Tos_TaskDelay(1000);	
 	}
 	MUI_SetDrawClear(True);
-//	MGUI_DrawBitMap((LCD_XSIZE-TOSLogoLib[0])/2,(LCD_YSIZE-TOSLogoLib[1])/2,(uintbus)TOSLogoLib,0);
+	MGUI_DrawBitMap((LCD_XSIZE-TOSLogoLib[0])/2,(LCD_YSIZE-TOSLogoLib[1])/2,(uintbus)TOSLogoLib,0);
 }
 void MUI_Init(const MUI_MenuStruct *CurMenu)
 {
@@ -217,6 +217,9 @@ void MUI_Task(void *Tags)
 	Tos_ArrayMessage *ArrayMsg;
 	MGUI_KeyMsg *KeyMsg;
 	const MUI_MenuStruct *CurMenu=(MUI_MenuStruct *)Tags;
+	SDRAM_32M_16BIT_Init();	  
+	LCD_Initializtion();
+	GLCD_Clear(Green);
 	MenuValue=Mema_Malloc(sizeof(MUI_MenuValue));
 	KeyMsg=Mema_Malloc(sizeof(MGUI_KeyMsg)*3);
 	ArrayMsg=Mema_Malloc(sizeof(Tos_ArrayMessage)*3);
@@ -224,7 +227,8 @@ void MUI_Task(void *Tags)
 	Tos_TaskCreateQmsg(ArrayMsg,3);
 	TGUI_DefaultStyle();
 	Task_LoadConfigs(0);
-	Task_ReSave();
+	Tos_TaskGetIO_InPut();
+//	Task_ReSave();
 	MUI_SetDrawClear(True);
 	TGUI_Clear_Show();
 	MUI_Init(CurMenu);
@@ -233,14 +237,13 @@ void MUI_Task(void *Tags)
 		MenuValue->Title=(char *)MUI_GetCurMenuInfor()->Option;
 		MUI_Draw(MenuValue->CurMenu);
 		MenuValue->OptionLength=MUI_OptionLength(MenuValue->CurMenu);
-		KeyData=Key_Down;
-		//MUI_GetKey(0);
-		Tos_TaskDelay(300);	
+		KeyData=MUI_GetKey(0);
 		if(KeyData==Key_Down)if((MenuValue->OptionLength-1)>MenuValue->DeepRecord[MenuValue->Index])MenuValue->DeepRecord[MenuValue->Index]++;else MenuValue->DeepRecord[MenuValue->Index]=0;
 		if(KeyData==Key_Up)if(MenuValue->DeepRecord[MenuValue->Index])MenuValue->DeepRecord[MenuValue->Index]--;else MenuValue->DeepRecord[MenuValue->Index]=MenuValue->OptionLength-1;
 		if(KeyData==Key_Right)MUI_Enter(MenuValue->CurMenu+MenuValue->DeepRecord[MenuValue->Index]);
 		if(KeyData==Key_Left)MenuValue->DeepRecord[MenuValue->Index]=0;
 		MenuValue->DrawMode|=Draw_Menu;
+		
 	}
 }
 

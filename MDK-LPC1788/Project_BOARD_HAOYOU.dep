@@ -43,7 +43,7 @@ I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmInstr.h)(0x51C7B54A
 I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmFunc.h)(0x51C7B54A)
 I (H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x51C7B0C4)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_clkpwr.h)(0x50170714)
-F (..\Libraries\Drivers\source\lpc177x_8x_lcd.c)(0x50170714)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\lpc177x_8x_lcd.o --omf_browse ..\user\prj_haoyu\obj\lpc177x_8x_lcd.crf --depend ..\user\prj_haoyu\obj\lpc177x_8x_lcd.d)
+F (..\Libraries\Drivers\source\lpc177x_8x_lcd.c)(0x579B093C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\lpc177x_8x_lcd.o --omf_browse ..\user\prj_haoyu\obj\lpc177x_8x_lcd.crf --depend ..\user\prj_haoyu\obj\lpc177x_8x_lcd.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_libcfg_default.h)(0x50170714)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc_types.h)(0x50170714)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdint.h)(0x51C7B744)
@@ -73,15 +73,15 @@ I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cm3.h)(0x51C7B54A)
 I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmInstr.h)(0x51C7B54A)
 I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmFunc.h)(0x51C7B54A)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\CMSIS\CM3\DeviceSupport\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x4F38E62A)
-F (..\Libraries\Startup\startup_LPC177x_8x.s)(0x57971246)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"--list .\list\startup_lpc177x_8x.lst --xref -o ..\user\prj_haoyu\obj\startup_lpc177x_8x.o --depend ..\user\prj_haoyu\obj\startup_lpc177x_8x.d)
+F (..\Libraries\Startup\startup_LPC177x_8x.s)(0x579AB223)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"--list .\list\startup_lpc177x_8x.lst --xref -o ..\user\prj_haoyu\obj\startup_lpc177x_8x.o --depend ..\user\prj_haoyu\obj\startup_lpc177x_8x.d)
 F (..\Doc\record.txt)(0x57673E21)()
 F (..\Doc\readme.txt)(0x575FCD76)()
 F (..\README.md)(0x578878A9)()
-F (..\Driver\CPU.c)(0x57981C76)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\cpu.o --omf_browse ..\user\prj_haoyu\obj\cpu.crf --depend ..\user\prj_haoyu\obj\cpu.d)
+F (..\Driver\CPU.c)(0x579B0A34)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\cpu.o --omf_browse ..\user\prj_haoyu\obj\cpu.crf --depend ..\user\prj_haoyu\obj\cpu.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -90,7 +90,7 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timed.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\CPU.h)(0x57970F1E)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\CPU.h)(0x579AEA72)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_systick.h)(0x50170714)
 I (H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x\LPC177x_8x.h)(0x51C7B0C4)
 I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cm3.h)(0x51C7B54A)
@@ -99,6 +99,7 @@ I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmInstr.h)(0x51C7B54A
 I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmFunc.h)(0x51C7B54A)
 I (H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x51C7B0C4)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc_types.h)(0x50170714)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_eeprom.h)(0x50170714)
 F (..\Driver\SDRAM_K4S561632C_32M_16BIT.c)(0x5045CFE9)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\sdram_k4s561632c_32m_16bit.o --omf_browse ..\user\prj_haoyu\obj\sdram_k4s561632c_32m_16bit.crf --depend ..\user\prj_haoyu\obj\sdram_k4s561632c_32m_16bit.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_emc.h)(0x50170714)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc_types.h)(0x50170714)
@@ -114,12 +115,12 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_timer
 I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\SDRAM_K4S561632C_32M_16BIT.h)(0x5045D013)
 F (..\Configs\Include.h)(0x57975EA9)()
 F (..\Configs\Define.h)(0x5746619B)()
-F (..\Configs\Configs.h)(0x57981972)()
-F (..\Tos\Tos.c)(0x57976070)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tos.o --omf_browse ..\user\prj_haoyu\obj\tos.crf --depend ..\user\prj_haoyu\obj\tos.d)
+F (..\Configs\Configs.h)(0x579AC488)()
+F (..\Tos\Tos.c)(0x579B1074)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tos.o --omf_browse ..\user\prj_haoyu\obj\tos.crf --depend ..\user\prj_haoyu\obj\tos.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -129,14 +130,13 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\Board_Driver.h)(0x5797607F)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Text.h)(0x575D076D)
-I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
+I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\String.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\DeBug.h)(0x57975EB2)
 F (..\Tos\Tos_timer.c)(0x57650231)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tos_timer.o --omf_browse ..\user\prj_haoyu\obj\tos_timer.crf --depend ..\user\prj_haoyu\obj\tos_timer.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -151,7 +151,7 @@ F (..\Tos\LockCode.c)(0x573B04BD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -161,12 +161,12 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\CheakOut.h)(0x573B04BC)
-F (..\Tos\Tos_Mema.c)(0x576A72CE)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tos_mema.o --omf_browse ..\user\prj_haoyu\obj\tos_mema.crf --depend ..\user\prj_haoyu\obj\tos_mema.d)
+F (..\Tos\Tos_Mema.c)(0x579B108B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tos_mema.o --omf_browse ..\user\prj_haoyu\obj\tos_mema.crf --depend ..\user\prj_haoyu\obj\tos_mema.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -174,13 +174,13 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timer.h)(0x575FCA9B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timed.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\text.h)(0x575D076D)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\TTS.h)(0x575D076D)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
-F (..\Tos\Tos_Device.c)(0x5798148F)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tos_device.o --omf_browse ..\user\prj_haoyu\obj\tos_device.crf --depend ..\user\prj_haoyu\obj\tos_device.d)
+F (..\Tos\Tos_Device.c)(0x579AF312)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tos_device.o --omf_browse ..\user\prj_haoyu\obj\tos_device.crf --depend ..\user\prj_haoyu\obj\tos_device.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -189,23 +189,32 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timed.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Tools_Include.h)(0x573B04BC)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Tools_Include.h)(0x579B0FFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\DeBug.h)(0x57975EB2)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\ModBus.h)(0x573B04BC)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\PID.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\text.h)(0x575D076D)
-I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
+I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\String.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Tools.h)(0x573B04BC)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\CheakOut.h)(0x573B04BC)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Encryption.h)(0x573B04BC)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Operation.h)(0x573B04BC)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\AppConfig.h)(0x573B04BC)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\Driver_Include.h)(0x57976027)
-F (..\Tools\DeBug.c)(0x57975EE7)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\debug.o --omf_browse ..\user\prj_haoyu\obj\debug.crf --depend ..\user\prj_haoyu\obj\debug.d)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\Usart_Driver.h)(0x579AD1FB)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_uart.h)(0x50170714)
+I (H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x\LPC177x_8x.h)(0x51C7B0C4)
+I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cm3.h)(0x51C7B54A)
+I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmInstr.h)(0x51C7B54A)
+I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmFunc.h)(0x51C7B54A)
+I (H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x51C7B0C4)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc_types.h)(0x50170714)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\CPU.h)(0x579AEA72)
+F (..\Tools\DeBug.c)(0x579B10AA)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\debug.o --omf_browse ..\user\prj_haoyu\obj\debug.crf --depend ..\user\prj_haoyu\obj\debug.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -214,14 +223,14 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timed.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\text.h)(0x575D076D)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\TTS.h)(0x575D076D)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\DeBug.h)(0x57975EB2)
-F (..\Tools\ModBus.c)(0x5746619B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\modbus.o --omf_browse ..\user\prj_haoyu\obj\modbus.crf --depend ..\user\prj_haoyu\obj\modbus.d)
+F (..\Tools\ModBus.c)(0x579B10D1)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\modbus.o --omf_browse ..\user\prj_haoyu\obj\modbus.crf --depend ..\user\prj_haoyu\obj\modbus.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -231,29 +240,14 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\CheakOut.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Text.h)(0x575D076D)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\TTS.h)(0x575D076D)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\ModBus.h)(0x573B04BC)
-F (..\Tools\Text.c)(0x5754F750)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\text.o --omf_browse ..\user\prj_haoyu\obj\text.crf --depend ..\user\prj_haoyu\obj\text.d)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
-I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timer.h)(0x575FCA9B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timed.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\text.h)(0x575D076D)
-I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
 F (..\Tools\CheakOut.c)(0x5760A5C1)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\cheakout.o --omf_browse ..\user\prj_haoyu\obj\cheakout.crf --depend ..\user\prj_haoyu\obj\cheakout.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
@@ -265,70 +259,18 @@ I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\CheakOut.h)(0x573B04BC)
 F (..\Tools\Operation.c)(0x573B04BC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\operation.o --omf_browse ..\user\prj_haoyu\obj\operation.crf --depend ..\user\prj_haoyu\obj\operation.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
 I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Operation.h)(0x573B04BC)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
-F (..\USER\Main.c)(0x57981B13)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\main.o --omf_browse ..\user\prj_haoyu\obj\main.crf --depend ..\user\prj_haoyu\obj\main.d)
+F (..\Tools\TTS.c)(0x579B10DF)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\tts.o --omf_browse ..\user\prj_haoyu\obj\tts.crf --depend ..\user\prj_haoyu\obj\tts.d)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
 I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x57981972)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Ini.h)(0x57984CFD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Include.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos.h)(0x57673F64)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timer.h)(0x575FCA9B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Timed.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_device.h)(0x5746619B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\LockCode.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tos\Tos_Mema.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Haoyu_main.c)(0x57985867)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\SDRAM_K4S561632C_32M_16BIT.h)(0x5045D013)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\AsciiLib.c)(0x57981987)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\AsciiLib.h)(0x4CEF820F)
-I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\string.h)(0x51C7B744)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\GLCD.c)(0x57984BBF)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\GLCD.h)(0x5798512B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc_types.h)(0x50170714)
-I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdint.h)(0x51C7B744)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_gpio.h)(0x50170714)
-I (H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x\LPC177x_8x.h)(0x51C7B0C4)
-I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cm3.h)(0x51C7B54A)
-I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmInstr.h)(0x51C7B54A)
-I (H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include\core_cmFunc.h)(0x51C7B54A)
-I (H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x\system_LPC177x_8x.h)(0x51C7B0C4)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_clkpwr.h)(0x50170714)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Libraries\Drivers\include\lpc177x_8x_pinsel.h)(0x50170714)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\GBK_Lib.c)(0x573B0514)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\TGui\GBK_Lib.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\LCD_Driver.c)(0x57984D4D)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\Driver_Include.h)(0x57976027)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Driver\LCD_Driver.h)(0x57984A3D)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\GUI_Include.c)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\GUI_Include.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\TGui\TGUI_2D_Driver.c)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\TGui\TGui_2D_Driver.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\TGui\TGUI_GBK_Driver.c)(0x5754059D)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Tools_include.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\DeBug.h)(0x57975EB2)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\ModBus.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\PID.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\text.h)(0x575D076D)
-I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\stdarg.h)(0x51C7B744)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Tools.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\CheakOut.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Encryption.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\Operation.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\Tools\AppConfig.h)(0x573B04BC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\TGui\TGui_GBk_Driver.h)(0x573B04BD)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\MGUI\Menu_Base.c)(0x579857EA)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\MGUI\Menu_Base.h)(0x57511DF7)
-I (K:\Home_Project\MDK Work\TRTOS NXP\FuncTask\ComKeyBoard.h)(0x573B04FC)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Page.c)(0x5798522B)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Page.h)(0x579850AB)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\Menu_Base.h)(0x573B0515)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\PageApp.h)(0x579850B5)
-I (K:\Home_Project\MDK Work\TRTOS NXP\USER\Prj_Haoyu\PageApp.c)(0x579856C1)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\MGui\MGUI_Lib.c)(0x5753F735)
-I (K:\Home_Project\MDK Work\TRTOS NXP\GUI\MGui\MGUI_Lib.h)(0x573B04BC)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)
+F (..\USER\Main.c)(0x579AC48C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I..\USER -I..\Driver -I..\Configs -I..\Boot -I..\Tos -I..\Tools -I..\FS\TQFS -I..\USER\Prj_4.3LCD -I..\USER\Prj_CanBus -I..\USER\Prj_Sensor -I..\GUI\MGui -I..\FuncTask -I..\USER\Prj_Really -I..\USER\Prj_PdaTran -I..\USB\WHID -I..\FS -I..\GUI\TGui -I..\GUI -I..\Libraries\Drivers\include -I..\Libraries\CMSIS-I "H:\Program Files (x64)\Keil4.72a\ARM\RV31\INC"-I "H:\Program Files (x64)\Keil4.72a\ARM\CMSIS\Include"-I "H:\Program Files (x64)\Keil4.72a\ARM\Inc\NXP\LPC177x_8x"-DBOARD_HAOYOU -o ..\user\prj_haoyu\obj\main.o --omf_browse ..\user\prj_haoyu\obj\main.crf --depend ..\user\prj_haoyu\obj\main.d)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Include.h)(0x57975EA9)
+I (H:\Program Files (x64)\Keil4.72a\ARM\ARMCC\include\math.h)(0x51C7B744)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Define.h)(0x5746619B)
+I (K:\Home_Project\MDK Work\TRTOS NXP\Configs\Configs.h)(0x579AC488)

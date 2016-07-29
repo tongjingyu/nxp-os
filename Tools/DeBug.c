@@ -1,6 +1,6 @@
 #include <Include.h>
 #include <Tos_Include.h>
-#include <text.h>
+#include <TTS.h>
 #include <DeBug.h>
 
 DeBug_CallBack DeBug_CB;
@@ -119,8 +119,6 @@ void DeBug(char *fmt,...)
 	if((DeBug_Type==Infor_All)|(DeBug_Type>=TempOk))
 	{
 		StringEndingAppend("\r\n",&Buf[0]);
-	//	if(DeBug_Out&DeBug_USART1)if(Device_Ok(DeviceId_USART_TX[0]))USART_WriteDatas(USART1,(uint8 *)&Buf[0],GetTextLength(Buf));
-	//	if(DeBug_Out&DeBug_USART2)if(Device_Ok(DeviceId_USART_TX[1]))USART_WriteDatas(USART2,(uint8 *)&Buf[0],GetTextLength(Buf));
 		if(DeBug_CB)DeBug_CB((uint8 *)&Buf[0],GetTextLength(Buf));
 	}
 	Mema_Free(Buf);

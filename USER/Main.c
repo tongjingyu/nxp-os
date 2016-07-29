@@ -1,7 +1,7 @@
 #include <Include.h>
 
 
-#if defined(BOARD_HAOYOU)//ÍØÆÕÈğÔ¶³ÌÎÂÊª¶È
+#if defined(BOARD_HAOYU)//ÍØÆÕÈğÔ¶³ÌÎÂÊª¶È
 #include <..\USER\Prj_Haoyu\Haoyu_main.c>
 #else  
 	#error "Missing define: Check Your Project Main.c!"
