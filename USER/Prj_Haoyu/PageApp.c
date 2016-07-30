@@ -159,13 +159,12 @@ void RAM_ReadMap()
 }
 void Nand_ReadMap()
 {
-	uint16 X=0,Y=0,Page=0;
+	uint16 X=0,Page=0;
 	uint8 *P,KeyData;
 	P=Mema_Malloc(240);
 	TGUI_Clear_Show();
 	while(1)
 	{
-		Y=0;
 		PrintfVoid("PageIndex[%d] UpDownExit",Page);
 		for(X=0;X<320;X+=8)
 		{

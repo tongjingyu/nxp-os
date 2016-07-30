@@ -13,6 +13,9 @@
 #include <..\USER\Prj_Haoyu\PageApp.c>
 #include <Usart_Driver.h>
 #include <WM.h>
+#include <DemoDLG.c>
+extern void Task_Touch(void *Tags);
+extern int _TouchX,_TouchY;
 void DebugCall(void *Buf,uint8 Length)
 {
 	USART_WriteLine(UART_0,(char *)Buf,Length);
@@ -25,10 +28,25 @@ void Task0(void *Tags)
 	DeBug_SetCallBack(DebugCall);
 	while(1)
 	{
-		DeBug("fdsafsa",Infor_Error);
 		GPIO_OutputValue(2,1<<21,0);
 		Tos_TaskDelay(100);
 		GPIO_OutputValue(2,1<<21,1);
+		Tos_TaskDelay(100);
+	}
+}
+void Task_Touch(void *Tags)
+{
+	Coordinate  *C;
+	TP_Init();
+	while(1)
+	{
+		C=Read_Ads7846();
+		if(C->x>10000)USART_WriteLine(UART_0,"");
+			else 
+			{
+
+				GUI_TOUCH_Exec();
+			}
 		Tos_TaskDelay(100);
 	}
 }
@@ -63,28 +81,40 @@ void Task1(void *Tags)
 	while(1)
 	{
 		C=Read_Ads7846();
-		//Printf(" %d   \n",C->x);
-		//Printf(" %d   ",C->y);
 		if(C->x>10000)USART_WriteLine(UART_0,"");
-			else USART_WriteLine(UART_0,"x=%dy=%d\r\n",C->x,C->y);
+			else 
+			{
+				USART_WriteLine(UART_0,"x=%dy=%d\r\n",C->x,C->y);
+			}
 		Tos_TaskDelay(100);
 	}
 }
+extern void _InitController(unsigned LayerIndex);
 void Task3(void *Tags)
 {
-		SDRAM_32M_16BIT_Init();	  
+	int i=0;
+	SDRAM_32M_16BIT_Init();	  
 	LCD_Initializtion();
 	GLCD_Clear(Green);
   WM_SetCreateFlags(WM_CF_MEMDEV);
+	LCD_X_DisplayDriver(0,LCD_X_INITCONTROLLER,0);
   GUI_Init();
+	CreateDemo();
+	GUI_Exec();
 	while(1)
 	{
 		GUI_AA_SetFactor(3);
 		GUI_SetColor(GUI_BLACK);
 		GUI_AA_FillRoundedRect(10,10,54,54,5);
+		
+		
 		Tos_TaskDelay(1000);
 		GUI_SetColor(GUI_WHITE);
 		GUI_AA_FillRoundedRect(10,10,54,54,5);
+		GUI_AA_FillRoundedRect(100,100,154,154,5);
+		GUI_AA_DrawLine(50,50,70,70);
+		GUI_AA_DrawLine(70,50,50,70);
+		GUI_DispDecAt(i++,20,20,4);
 		Tos_TaskDelay(1000);
 	}
 }
@@ -93,7 +123,8 @@ const TaskInitList TaskList[]={
 Task0,Null,"Task0",2000},
 {MUI_Task,(void *)&MenuHome[0],"MUI_Task",2000},
 {Task1,Null,"Task0",2000},
-{Task3,Null,"Task0",2000},
+//{Task3,Null,"Task0",2000},
+{Task_Touch,Null,"Task0",2000},
 {Task_GetKey,Null,"Task0",2000},
 {Null},
 };

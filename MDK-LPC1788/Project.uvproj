@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define>BOARD_HAOYU</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\Driver;..\Configs;..\Boot;..\Tos;..\Tools;..\FS\TQFS;..\USER\Prj_4.3LCD;..\USER\Prj_CanBus;..\USER\Prj_Sensor;..\GUI\MGui;..\FuncTask;..\USER\Prj_Really;..\USER\Prj_PdaTran;..\USB\WHID;..\FS;..\GUI\TGui;..\GUI;..\Libraries\Drivers\include;..\Libraries\CMSIS</IncludePath>
+              <IncludePath>..\USER;..\Driver;..\Configs;..\Boot;..\Tos;..\Tools;..\FS\TQFS;..\USER\Prj_4.3LCD;..\USER\Prj_CanBus;..\USER\Prj_Sensor;..\GUI\MGui;..\FuncTask;..\USER\Prj_Really;..\USER\Prj_PdaTran;..\USB\WHID;..\FS;..\GUI\TGui;..\GUI;..\Libraries\Drivers\include;..\Libraries\CMSIS;..\GUI\Application</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -595,7 +595,34 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>FuncTask</GroupName>
+          <GroupName>GUI</GroupName>
+          <Files>
+            <File>
+              <FileName>emWin_516_Keil4_M3_LE.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\GUI\emWin_516_Keil4_M3_LE.lib</FilePath>
+            </File>
+            <File>
+              <FileName>BSP.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GUI\BSP.c</FilePath>
+            </File>
+            <File>
+              <FileName>GUI_X.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GUI\GUI_X.c</FilePath>
+            </File>
+            <File>
+              <FileName>GUIConf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GUI\GUIConf.c</FilePath>
+            </File>
+            <File>
+              <FileName>LCDConf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GUI\LCDConf.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Main</GroupName>

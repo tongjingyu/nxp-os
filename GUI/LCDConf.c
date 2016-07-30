@@ -23,7 +23,6 @@ Purpose     : Display controller configuration (single layer)
 #include "LPC177x_8x.h"
 #include "system_LPC177x_8x.h"
 #include <..\USER\Prj_Haoyu\GLCD.h>
-
 #ifdef __ICCARM__
   #pragma diag_suppress=Pe188  // Avoid "enumerated type mixed with another type" warning as we are not using enumerated values from CMSIS files for NVIC_* parameters
 #endif
@@ -292,7 +291,6 @@ static void _ExecTouch(void) {
 *   Initializes the LCD controller and touch screen
 *
 */
-extern LCD_Initializtion(void);
 static void _InitController(unsigned LayerIndex) {
   //
   // Set display size and video-RAM address
@@ -303,7 +301,6 @@ static void _InitController(unsigned LayerIndex) {
   //
   // Init LCD
   //
-  LCD_Initializtion();
 
 #if GUI_SUPPORT_TOUCH  // Used when touch screen support is enabled
   {
