@@ -135,8 +135,6 @@ int _TouchX,_TouchY;
 
 #if GUI_SUPPORT_TOUCH  // Used when touch screen support is enabled
 
-static U8 _HasTouch;
-
 //
 // OS timers
 //
@@ -234,6 +232,7 @@ void LCD_X_Config(void) {
   //
   // Display driver configuration, required for Lin-driver
   //
+	_InitController(0);
   LCD_SetPosEx     (0, 0, 0);
   if (LCD_GetSwapXYEx(0)) {
     LCD_SetSizeEx  (0, YSIZE_PHYS , XSIZE_PHYS);
@@ -317,9 +316,6 @@ int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData) {
 void GUI_TOUCH_X_ActivateX(void) {
 
   _CheckTouch();
-  if (_HasTouch) {
-   
-  }
 }
 
 /*********************************************************************
@@ -333,9 +329,7 @@ void GUI_TOUCH_X_ActivateX(void) {
 *   Voltage on X-axis is switched off.
 */
 void GUI_TOUCH_X_ActivateY(void) {
-  if (_HasTouch) {
-   
-  }
+
 }
 
 /*********************************************************************
@@ -347,11 +341,7 @@ void GUI_TOUCH_X_ActivateY(void) {
 *   Measures voltage of X-axis.
 */
 int  GUI_TOUCH_X_MeasureX(void) {
-  if (_HasTouch)
-	{
     return _TouchX;
-  }
-  return -1;
 }
 
 /*********************************************************************
@@ -363,11 +353,7 @@ int  GUI_TOUCH_X_MeasureX(void) {
 *   Measures voltage of Y-axis.
 */
 int  GUI_TOUCH_X_MeasureY(void) {
-  if (_HasTouch) 
-	{
     return _TouchY;
-  }
-  return -1;
 }
 #include <..\USER\Prj_Haoyu\TouchPanel.h>
 #include <tos.h>
@@ -379,13 +365,11 @@ void Task_Touch(void *Tags)
 	{
 		GUI_TOUCH_Exec();
 		C=Read_Ads7846();
-		if((C->x<10000)&(C->y<10000))
-		{	
-				_HasTouch=1;
+		if(C)
+		{
 				_TouchX=C->x;
 				_TouchY=C->y;
-				GUI_TOUCH_Exec();
-		}else _HasTouch=0;
+		}
 		Tos_TaskDelay(10);
 	}
 }

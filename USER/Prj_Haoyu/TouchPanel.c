@@ -96,15 +96,6 @@ void TP_Init(void)
 *******************************************************************************/
 static void DelayUS(uint32_t cnt)
 {
-  uint32_t i;
-  for(i = 0;i<cnt;i++)
-  {
-     uint8_t us = 50; /* 设置值为12，大约延1微秒 */    
-     while (us--)     /* 延1微秒	*/
-     {
-       ;   
-     }
-  }
 }
 
 /*******************************************************************************
@@ -220,6 +211,8 @@ Coordinate *Read_Ads7846(void)
   int m0,m1,m2,TP_X[1],TP_Y[1],temp[3];
   uint8_t count=0;
   int buffer[2][9]={{0},{0}};  /* 坐标X和Y进行多次采样 */
+	screen.x=0;
+	screen.y=0;
   do					       /* 循环采样9次 */
   {		   
     TP_GetAdXY(TP_X,TP_Y);  
@@ -283,7 +276,7 @@ Coordinate *Read_Ads7846(void)
 
 	return &screen;
   }  
-  return 0; 
+  return &screen; 
 }
 
 /*******************************************************************************

@@ -35,7 +35,8 @@
 #define ID_TEXT_0   (GUI_ID_USER + 0x02)
 #define ID_SLIDER_0   (GUI_ID_USER + 0x03)
 #define ID_BUTTON_0   (GUI_ID_USER + 0x04)
-
+#define ID_BUTTON_1   (GUI_ID_USER + 0x05)
+#define ID_EDIT_0   (GUI_ID_USER + 0x06)
 // USER START (Optionally insert additional defines)
 // USER END
 
@@ -58,7 +59,9 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { PROGBAR_CreateIndirect, "Progbar", ID_PROGBAR_0, 56, 53, 339, 20, 0, 0, 0 },
   { TEXT_CreateIndirect, "Text", ID_TEXT_0, 118, 10, 199, 21, 0, 100, 0 },
   { SLIDER_CreateIndirect, "Slider", ID_SLIDER_0, 57, 100, 335, 20, 0, 0, 0 },
-  { BUTTON_CreateIndirect, "Button", ID_BUTTON_0, 61, 152, 80, 20, 0, 0, 0 },
+  { BUTTON_CreateIndirect, "Button", ID_BUTTON_0, 61, 152, 80, 40, 0, 0, 0 },
+	{ BUTTON_CreateIndirect, "Next", ID_BUTTON_1, 180, 152, 80, 40, 0, 0, 0 },
+	{	EDIT_CreateIndirect,"Edit",ID_EDIT_0,300, 152, 80, 40, 0, 0, 0 },
   // USER START (Optionally insert additional widgets)
   // USER END
 };
@@ -78,7 +81,8 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
 *       _cbDialog
 */
 static void _cbDialog(WM_MESSAGE * pMsg) {
-  WM_HWIN hItem;
+	static char Stop;
+  WM_HWIN hItem,hTtem1;
   int Id, NCode;
   // USER START (Optionally insert additional variables)
   // USER END
@@ -91,13 +95,13 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     hItem = pMsg->hWin;
     FRAMEWIN_SetTextColor(hItem, 0x00000000);
     FRAMEWIN_SetTitleHeight(hItem, 20);
-    FRAMEWIN_SetText(hItem, "Mywindow");
+    FRAMEWIN_SetText(hItem, "Emwin");
     FRAMEWIN_SetFont(hItem, GUI_FONT_13HB_1);
     //
     // Initialization of 'Text'
     //
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
-    TEXT_SetText(hItem, "GUIBuilder");
+    TEXT_SetText(hItem, "Toprie");
     TEXT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_VCENTER);
     TEXT_SetFont(hItem, GUI_FONT_20_ASCII);
     TEXT_SetTextColor(hItem, 0x00000000);
@@ -106,6 +110,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     //
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
     BUTTON_SetText(hItem, "Start");
+		hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
+		EDIT_SetFont(hItem, GUI_FONT_20_ASCII);
     // USER START (Optionally insert additional code for further widget initialization)
     // USER END
     break;
@@ -124,6 +130,9 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
         // USER END
         break;
       case WM_NOTIFICATION_VALUE_CHANGED:
+				hItem = WM_GetDialogItem(pMsg->hWin, ID_SLIDER_0);
+				hTtem1=WM_GetDialogItem(pMsg->hWin, ID_PROGBAR_0);
+				PROGBAR_SetValue(hTtem1, SLIDER_GetValue(hItem));
         // USER START (Optionally insert code for reacting on notification message)
         // USER END
         break;
@@ -134,6 +143,13 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     case ID_BUTTON_0: // Notifications sent by 'Button'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
+					hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
+				Stop=!Stop;
+				BUTTON_SetFont(hItem, &GUI_Font24B_ASCII);
+				if(Stop)BUTTON_SetText(hItem, "Stop");
+				else BUTTON_SetText(hItem, "Start");
+				hItem=WM_GetDialogItem(pMsg->hWin, ID_PROGBAR_0);
+				PROGBAR_SetValue(hItem, 66);
         // USER START (Optionally insert code for reacting on notification message)
         // USER END
         break;
@@ -145,6 +161,26 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
       // USER END
       }
       break;
+		case ID_BUTTON_1:
+			switch(NCode){
+				case WM_NOTIFICATION_CLICKED:
+					hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
+				  //BUTTON_SetFont(hItem, &GUI_Font24B_ASCII);
+					BUTTON_SetText(hItem, "Clicked");
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      case WM_NOTIFICATION_RELEASED:
+					hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
+					BUTTON_SetText(hItem, "Released");
+					hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
+					EDIT_AddKey(hItem, 66);
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      // USER START (Optionally insert additional code for further notification handling)
+      // USER END
+			}
     // USER START (Optionally insert additional code for further Ids)
     // USER END
     }

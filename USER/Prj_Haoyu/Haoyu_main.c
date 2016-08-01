@@ -44,8 +44,6 @@ static GUI_POINT aPoints[]={
 };
 void Task1(void *Tags)
 {
-	Coordinate  *C;
-	TP_Init();
 
 //		GUI_AA_SetFactor(3);
 //	GUI_AA_DrawArc(60*3,60*3,50*3,50*3,0,180);
@@ -65,49 +63,47 @@ void Task1(void *Tags)
 //	GUI_AA_FillCircle(160*3,120*3,80*3);
 	while(1)
 	{
-		C=Read_Ads7846();
-		if((C->x<10000)&(C->y<10000))
-			{
-				USART_WriteLine(UART_0,"x=%dy=%d\r\n",C->x,C->y);
-			}
 		Tos_TaskDelay(100);
 	}
 }
 extern void _InitController(unsigned LayerIndex);
 void Task3(void *Tags)
 {	
+	 WM_HWIN hWin;
+	 WM_HWIN hItem;
 	SDRAM_32M_16BIT_Init();	  
 	LCD_Initializtion();
-	GLCD_Clear(0);
+	//GLCD_Clear(0);
   WM_SetCreateFlags(WM_CF_MEMDEV);
 	LCD_X_DisplayDriver(0,LCD_X_INITCONTROLLER,0);
   GUI_Init();
-	CreateMywindow();
-	GUI_Exec();
+	hWin=CreateMywindow();
 	GUI_CURSOR_Show();
+//	GUI_Delay(10);
 	while(1)
 	{
-			// CreateMywindow();
-	GUI_Exec();
-//		GUI_AA_SetFactor(3);
-//		GUI_SetColor(GUI_BLACK);
-//		GUI_AA_FillRoundedRect(10,10,54,54,5);
-//		Tos_TaskDelay(1000);
-//		GUI_SetColor(GUI_WHITE);
-//		GUI_AA_FillRoundedRect(10,10,54,54,5);
-//		GUI_AA_FillRoundedRect(100,100,154,154,5);
-//		GUI_AA_DrawLine(50,50,70,70);
-//		GUI_AA_DrawLine(70,50,50,70);
-//		GUI_DispDecAt(i++,20,20,4);
-		Tos_TaskDelay(100);
+			hItem=WM_GetDialogItem(hWin, ID_PROGBAR_0);
+			PROGBAR_SetValue(hItem, Tos_CPUInfor.Userate_CPU);
+//			// CreateMywindow();
+//	GUI_Exec();
+////		GUI_AA_SetFactor(3);
+////		GUI_SetColor(GUI_BLACK);
+////		GUI_AA_FillRoundedRect(10,10,54,54,5);
+////		Tos_TaskDelay(1000);
+////		GUI_SetColor(GUI_WHITE);
+////		GUI_AA_FillRoundedRect(10,10,54,54,5);
+////		GUI_AA_FillRoundedRect(100,100,154,154,5);
+////		GUI_AA_DrawLine(50,50,70,70);
+////		GUI_AA_DrawLine(70,50,50,70);
+////		GUI_DispDecAt(i++,20,20,4);
+		Tos_TaskDelay(10);
 	}
 }
 void Task4(void *Tags)
 {	
 	while(1)
 	{
-	GUI_Exec();
-	Tos_TaskDelay(100);
+	GUI_Delay(10);
 	}
 }
 const TaskInitList TaskList[]={
