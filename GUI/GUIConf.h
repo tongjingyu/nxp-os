@@ -28,7 +28,7 @@ Purpose     : Configuration of available features and default values
 *
 *       Multi tasking support
 */
-#define GUI_OS                    (0)  // Compile with multitasking support
+#define GUI_OS                    (1)  // Compile with multitasking support
 
 /*********************************************************************
 *
@@ -37,7 +37,7 @@ Purpose     : Configuration of available features and default values
 #ifndef   GUI_SUPPORT_TOUCH
   #define GUI_SUPPORT_TOUCH       (1)  // Support touchscreen
 #endif
-#define GUI_SUPPORT_MOUSE         (1)  // Support a mouse
+#define GUI_SUPPORT_MOUSE         (0)  // Support a mouse
 #define GUI_SUPPORT_UNICODE       (1)  // Support mixed ASCII/UNICODE strings
 #define GUI_WINSUPPORT            (1)  // Window manager package available
 #define GUI_SUPPORT_MEMDEV        (1)  // Memory devices available

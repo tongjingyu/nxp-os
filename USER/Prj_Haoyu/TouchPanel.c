@@ -248,14 +248,14 @@ Coordinate *Read_Ads7846(void)
 	if(m0<m1)
 	{
 	  if(m2<m0) 
-	    screen.x=(temp[0]+temp[2])/2;
+	    screen.y=(temp[0]+temp[2])/2;
 	  else 
-	    screen.x=(temp[0]+temp[1])/2;	
+	    screen.y=(temp[0]+temp[1])/2;	
 	}
 	else if(m2<m1) 
-	  screen.x=(temp[0]+temp[2])/2;
+	  screen.y=(temp[0]+temp[2])/2;
 	else 
-	  screen.x=(temp[1]+temp[2])/2;
+	  screen.y=(temp[1]+temp[2])/2;
 
 	/* 同上 计算Y的平均值 */
     temp[0]=(buffer[1][0]+buffer[1][1]+buffer[1][2])/3;
@@ -272,14 +272,14 @@ Coordinate *Read_Ads7846(void)
 	if(m0<m1)
 	{
 	  if(m2<m0) 
-	    screen.y=(temp[0]+temp[2])/2;
+	    screen.x=(temp[0]+temp[2])/2;
 	  else 
-	    screen.y=(temp[0]+temp[1])/2;	
+	    screen.x=(temp[0]+temp[1])/2;	
     }
 	else if(m2<m1) 
-	   screen.y=(temp[0]+temp[2])/2;
+	   screen.x=(temp[0]+temp[2])/2;
 	else
-	   screen.y=(temp[1]+temp[2])/2;
+	   screen.x=(temp[1]+temp[2])/2;
 
 	return &screen;
   }  

@@ -26,9 +26,9 @@ Purpose     : GUIDEMO initialization
 *
 *       MainTask
 */
-void main1(void) {
+int main(void) {
    //must be init Systick
-  	SDRAM_32M_16BIT_Init();	  
+  SDRAM_32M_16BIT_Init();	  
 	LCD_Initializtion();
 	GLCD_Clear(777);
 	SYSTICK_InternalInit(1);  //Initialize System Tick with 1ms time interval

@@ -117,7 +117,7 @@ char *Strstr(const char*s1,const char*s2)
             }
             s1++;
         }
-        return NULL;
+        return Null;
     }
     else
         return (char*)s1;

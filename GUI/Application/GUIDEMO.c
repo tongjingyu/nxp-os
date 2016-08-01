@@ -82,7 +82,7 @@ static void _DrawBkSimple(int DrawLogo) {
   GUI_SetBkColor(BK_COLOR_1);
   GUI_Clear();
   if (DrawLogo) {
-    GUI_DrawBitmap(&bmSeggerLogo70x35, 5, 5);
+
   }
 }
 
@@ -99,7 +99,7 @@ static void _DrawBk(int DrawLogo) {
   ySize = LCD_GetYSize();
   GUI_DrawGradientV(0, 0, xSize, ySize, BK_COLOR_0, BK_COLOR_1);
   if (DrawLogo) {
-    GUI_DrawBitmap(&bmSeggerLogo70x35, 5, 5);
+
   }
 }
 
@@ -156,7 +156,7 @@ static void _DrawBkCircle(int DrawLogo) {
   }
   GUI_MEMDEV_Write(hMemStretch);
   if (DrawLogo) {
-    GUI_DrawBitmap(&bmSeggerLogo70x35, LOGO_DIST_BORDER, LOGO_DIST_BORDER);
+
   }
 }
 
@@ -251,16 +251,7 @@ static void _cbFrameWinControl(WM_MESSAGE * pMsg) {
     WM_SendMessage(WM_HBKWIN, pMsg);
     break;
   case WM_INIT_DIALOG:
-    hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_PROGBAR0);
-    PROGBAR_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_VCENTER);
-    PROGBAR_SetFont(hItem, &GUI_FontD6x8);
-    hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_HALT);
-    BUTTON_SetFocussable(hItem, 0);
-    hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_NEXT);
-    BUTTON_SetFocussable(hItem, 0);
-    hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_TEXT0);
-    TEXT_SetText(hItem, "Intro");
-    TEXT_SetFont(hItem, &GUI_Font8_ASCII);
+   
     break;
   case WM_PAINT:
     xSize = WM_GetWindowSizeX(pMsg->hWin);
@@ -365,7 +356,7 @@ static void _Main(void) {
   WM_DisableMemdev(WM_HBKWIN);
   GUI_Exec();
   WM_EnableMemdev(WM_HBKWIN);
-  GUIDEMO_Intro();
+
   //
   // Run the demos
   //
@@ -605,21 +596,7 @@ void GUIDEMO_ShowIntro(const char * acTitle, const char * acDescription) {
   GUI_Exec();
   GUIDEMO_DrawBk(1);
   GUI_SetColor(GUI_WHITE);
-  //
-  // Title
-  //
-  GUI_SetTextMode(GUI_TM_TRANS);
-  GUI_SetFont(&GUI_FontRounded22);
-  GUI_DispStringHCenterAt(acTitle, xCenter, 60);
-  //
-  // Description
-  //
-  GUI_SetFont(&GUI_FontSouvenir18);
-  FontDistY = GUI_GetFontDistY();
-  GUI_DispStringHCenterAt(acDescription, xCenter, yCenter - FontDistY + 10);
-  //
-  // Determine time to wait
-  //
+
   i = 0;
   while (acDescription[i]) {
     i++;

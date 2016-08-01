@@ -61,24 +61,12 @@ int GUI_X_GetTime(void) {
 * Return         : None
 * Attention		 : None
 *******************************************************************************/
-static void DelayUS(uint32_t cnt)
-{
-  uint32_t i;
-  for(i = 0;i<cnt;i++)
-  {
-     uint16_t us = 1000; /* 设置值为12，大约延1微秒 */    
-     while (us--)     /* 延1微秒	*/
-     {
-       ;   
-     }
-  }
-}
 
+void Tos_TaskDelay(U32 DelayTime);
 void GUI_X_Delay(int ms) 
 { 
-	DelayUS(1); 
-//  int tEnd = OS_TimeMS + ms;
-//  while ((tEnd - OS_TimeMS) > 0);
+
+	Tos_TaskDelay(ms);
 }
 
 /*********************************************************************
@@ -90,7 +78,6 @@ void GUI_X_Delay(int ms)
 */
 
 void GUI_X_ExecIdle(void) {}
-
 /*********************************************************************
 *
 *      Logging: OS dependent

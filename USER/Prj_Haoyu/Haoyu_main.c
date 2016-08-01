@@ -13,7 +13,8 @@
 #include <..\USER\Prj_Haoyu\PageApp.c>
 #include <Usart_Driver.h>
 #include <WM.h>
-#include <DemoDLG.c>
+#include <MywindowDLG.c>
+
 extern void Task_Touch(void *Tags);
 extern int _TouchX,_TouchY;
 void DebugCall(void *Buf,uint8 Length)
@@ -34,22 +35,7 @@ void Task0(void *Tags)
 		Tos_TaskDelay(100);
 	}
 }
-void Task_Touch(void *Tags)
-{
-	Coordinate  *C;
-	TP_Init();
-	while(1)
-	{
-		C=Read_Ads7846();
-		if(C->x>10000)USART_WriteLine(UART_0,"");
-			else 
-			{
 
-				GUI_TOUCH_Exec();
-			}
-		Tos_TaskDelay(100);
-	}
-}
 static GUI_POINT aPoints[]={
 {0,0},
 {70,-30},
@@ -59,7 +45,6 @@ static GUI_POINT aPoints[]={
 void Task1(void *Tags)
 {
 	Coordinate  *C;
-
 	TP_Init();
 
 //		GUI_AA_SetFactor(3);
@@ -81,8 +66,7 @@ void Task1(void *Tags)
 	while(1)
 	{
 		C=Read_Ads7846();
-		if(C->x>10000)USART_WriteLine(UART_0,"");
-			else 
+		if((C->x<10000)&(C->y<10000))
 			{
 				USART_WriteLine(UART_0,"x=%dy=%d\r\n",C->x,C->y);
 			}
@@ -91,41 +75,50 @@ void Task1(void *Tags)
 }
 extern void _InitController(unsigned LayerIndex);
 void Task3(void *Tags)
-{
-	int i=0;
+{	
 	SDRAM_32M_16BIT_Init();	  
 	LCD_Initializtion();
-	GLCD_Clear(Green);
+	GLCD_Clear(0);
   WM_SetCreateFlags(WM_CF_MEMDEV);
 	LCD_X_DisplayDriver(0,LCD_X_INITCONTROLLER,0);
   GUI_Init();
-	CreateDemo();
+	CreateMywindow();
 	GUI_Exec();
+	GUI_CURSOR_Show();
 	while(1)
 	{
-		GUI_AA_SetFactor(3);
-		GUI_SetColor(GUI_BLACK);
-		GUI_AA_FillRoundedRect(10,10,54,54,5);
-		
-		
-		Tos_TaskDelay(1000);
-		GUI_SetColor(GUI_WHITE);
-		GUI_AA_FillRoundedRect(10,10,54,54,5);
-		GUI_AA_FillRoundedRect(100,100,154,154,5);
-		GUI_AA_DrawLine(50,50,70,70);
-		GUI_AA_DrawLine(70,50,50,70);
-		GUI_DispDecAt(i++,20,20,4);
-		Tos_TaskDelay(1000);
+			// CreateMywindow();
+	GUI_Exec();
+//		GUI_AA_SetFactor(3);
+//		GUI_SetColor(GUI_BLACK);
+//		GUI_AA_FillRoundedRect(10,10,54,54,5);
+//		Tos_TaskDelay(1000);
+//		GUI_SetColor(GUI_WHITE);
+//		GUI_AA_FillRoundedRect(10,10,54,54,5);
+//		GUI_AA_FillRoundedRect(100,100,154,154,5);
+//		GUI_AA_DrawLine(50,50,70,70);
+//		GUI_AA_DrawLine(70,50,50,70);
+//		GUI_DispDecAt(i++,20,20,4);
+		Tos_TaskDelay(100);
+	}
+}
+void Task4(void *Tags)
+{	
+	while(1)
+	{
+	GUI_Exec();
+	Tos_TaskDelay(100);
 	}
 }
 const TaskInitList TaskList[]={
 {
 Task0,Null,"Task0",2000},
-{MUI_Task,(void *)&MenuHome[0],"MUI_Task",2000},
+//{MUI_Task,(void *)&MenuHome[0],"MUI_Task",2000},
 {Task1,Null,"Task0",2000},
-//{Task3,Null,"Task0",2000},
+{Task3,Null,"Task0",2000},
 {Task_Touch,Null,"Task0",2000},
 {Task_GetKey,Null,"Task0",2000},
+{Task4,Null,"Task0",2000},
 {Null},
 };
 

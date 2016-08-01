@@ -23,6 +23,7 @@ Purpose     : Display controller configuration (single layer)
 #include "LPC177x_8x.h"
 #include "system_LPC177x_8x.h"
 #include <..\USER\Prj_Haoyu\GLCD.h>
+int _TouchX,_TouchY;
 #ifdef __ICCARM__
   #pragma diag_suppress=Pe188  // Avoid "enumerated type mixed with another type" warning as we are not using enumerated values from CMSIS files for NVIC_* parameters
 #endif
@@ -85,10 +86,10 @@ Purpose     : Display controller configuration (single layer)
 //
 // Touch controller settings
 //
-#define TOUCH_AD_LEFT         320       //触摸屏最左端ADC采样值
-#define TOUCH_AD_RIGHT        3550      //触摸屏最右端ADC采样值
-#define TOUCH_AD_TOP          800       //触摸屏最上端ADC采样值
-#define TOUCH_AD_BOTTOM       3050      //触摸屏最下端ADC采样值
+#define TOUCH_AD_LEFT         220       //触摸屏最左端ADC采样值
+#define TOUCH_AD_RIGHT        3910      //触摸屏最右端ADC采样值
+#define TOUCH_AD_TOP          3556       //触摸屏最上端ADC采样值
+#define TOUCH_AD_BOTTOM       240      //触摸屏最下端ADC采样值
 #define TOUCH_TIMER_INTERVAL  10        //触摸屏采样间隔
 
 /*********************************************************************
@@ -123,33 +124,6 @@ Purpose     : Display controller configuration (single layer)
   #error No display driver defined!
 #endif
 
-/*********************************************************************
-*
-*       Defines, sfrs
-*
-**********************************************************************
-*/
-//
-// Touch screen
-//
-//Xp---->P0.24(ADC0_IN[1])//用来检测Y轴电压
-//Xm---->P0.23(ADC0_IN[0])
-//Yp---->P0.12(ADC0_IN[6])//用来检测X轴电压
-//Ym---->P1.31(ADC0_IN[5])
-#define ADC_CLKDIV                 ((PeripheralClock - 1) / 12400000)  // ADC clock should be 12.4 MHz or less
-
-#define IOCON_ENABLE_INPUT_BUFFER  (1 << 7)   //设置为数字端口模式
-#define IOCON_PULL_DOWN            (1 << 3)   //设置引脚模式为下拉
-#define IOCON_PULL_UP              (2 << 3)   //设置引脚模式为上拉
-
-#define IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(Port, Mask)  \
-          {                                                  \
-            U32 Temp;                                        \
-            Temp  = LPC_IOCON->Port;                         \
-            Temp &= ~((0x1Ful << 0) | (1 << 7));             \
-            Temp |= Mask;                                    \
-            LPC_IOCON->Port = Temp;                          \
-          }
 
 
 /*********************************************************************
@@ -174,8 +148,6 @@ static U8 _HasTouch;
 *
 **********************************************************************
 */
-static void _ExecTouch(void);
-void TIMER1_IRQHandler (void);
 
 /*********************************************************************
 *
@@ -184,14 +156,6 @@ void TIMER1_IRQHandler (void);
 **********************************************************************
 */
 
-void TIMER1_IRQHandler (void)  
-{  
-  if ( LPC_TIM1->IR & (0x1<<0) )
-  {
-    LPC_TIM1->IR = 0x1<<0;		/* clear interrupt flag */
-    _ExecTouch();
-  }
-}
 #endif
 
 /*********************************************************************
@@ -208,89 +172,16 @@ static void _SetDisplayOrigin(int x, int y) {
 
 #if GUI_SUPPORT_TOUCH  // Used when touch screen support is enabled
 
-/*********************************************************************
-*
-*       _DelayMs
-*
-* Function description:
-*   Starts a timer and waits for the given delay in ms.
-*/
-static void _DelayMs(U32 ms) {
-  LPC_TIM0->TCR = 0x02;  // Reset timer
-  LPC_TIM0->PR  = 0x00;  // Set prescaler to zero
-  LPC_TIM0->MR0 = ms * (SystemCoreClock / (LPC_SC->PCLKSEL & 0x1F) / 1000 - 1);
-  LPC_TIM0->IR  = 0xFF;  // Reset all interrrupts
-  LPC_TIM0->MCR = 0x04;  // Stop timer on match
-  LPC_TIM0->TCR = 0x01;  // Start timer
-  //
-  // Wait until delay time has elapsed
-  //
-  while (LPC_TIM0->TCR & 1);
-}
 
-/*********************************************************************
-*
-*       _CheckTouch()
-*
-* Function decription:
-*   Checks if we have a touch right in this moment.
-*/
+
 static void _CheckTouch(void) {
-  //
-  // xPlus = GPIO, out, low, enable input buffer, pull-down
-  //
-  IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_24, (IOCON_PULL_DOWN | IOCON_ENABLE_INPUT_BUFFER));
-  LPC_GPIO0->DIR |= (1uL << 24);
-  LPC_GPIO0->CLR |= (1uL << 24);
-  //
-  // xMinus = GPIO, in, floating, enable input buffer
-  //
-  IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_23, IOCON_ENABLE_INPUT_BUFFER);
-  LPC_GPIO0->DIR &= ~(1uL << 23);
-  //
-  // yPlus = GPIO, in, enable input buffer, pull-up
-  //
-  IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_12, (IOCON_PULL_UP | IOCON_ENABLE_INPUT_BUFFER));
-  LPC_GPIO0->DIR &= ~(1uL << 12);
-  //
-  // yMinus = GPIO, in, pull-up, enable input buffer
-  //
-  IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P1_31, (IOCON_PULL_UP | IOCON_ENABLE_INPUT_BUFFER));
-  LPC_GPIO1->DIR &= ~(1uL << 31);
-  //
-  // Check for yMinus to be low, this means we have a touch
-  //
-  _DelayMs(1);
-  if ((LPC_GPIO1->PIN & (1uL << 31)) == 0) {
-    _HasTouch = 1;
-  } else {
-    _HasTouch = 0;
-  }
+
 }
 
-/*********************************************************************
-*
-*       _ExecTouch
-*
-* Function description:
-*   Check for new touch event. Static x, y coordinates will be updated
-*   by the _CheckUpdateTouch() routine. If no touch event has occurred
-*   we do nothing.
-*/
-static void _ExecTouch(void) {
-  GUI_TOUCH_Exec();
-}
 
 #endif  // GUI_SUPPORT_TOUCH
 
-/*********************************************************************
-*
-*       _InitController
-*
-* Function description:
-*   Initializes the LCD controller and touch screen
-*
-*/
+
 static void _InitController(unsigned LayerIndex) {
   //
   // Set display size and video-RAM address
@@ -305,20 +196,6 @@ static void _InitController(unsigned LayerIndex) {
 #if GUI_SUPPORT_TOUCH  // Used when touch screen support is enabled
   {
     U32 TouchOrientation;
-    U32 pclk;
-
-    //
-    // Initialize touch screen
-    //
-    LPC_SC->PCONP |= (1 << 12);  // Enable clock for ADC
-    LPC_ADC->CR    = 0
-                     | (1          <<  1)  // Sel AD0[1]
-                     | (ADC_CLKDIV <<  8)
-                     | (1          << 21)  // Enable ADC
-                     ;
-    //
-    // Calibrate touch
-    //
     TouchOrientation = (GUI_MIRROR_X * LCD_GetMirrorXEx(0)) |
                        (GUI_MIRROR_Y * LCD_GetMirrorYEx(0)) |
                        (GUI_SWAP_XY  * LCD_GetSwapXYEx (0)) ;
@@ -330,16 +207,6 @@ static void _InitController(unsigned LayerIndex) {
       GUI_TOUCH_Calibrate(GUI_COORD_X, 0, XSIZE_PHYS, TOUCH_AD_LEFT, TOUCH_AD_RIGHT);   // x axis
       GUI_TOUCH_Calibrate(GUI_COORD_Y, 0, YSIZE_PHYS, TOUCH_AD_TOP , TOUCH_AD_BOTTOM);  // y axis
     }
-    //
-    // Start touch timer
-    //
-    LPC_SC->PCONP |= (0x1<<2);
-    pclk = SystemCoreClock/4;
-    LPC_TIM1->PR  = pclk/1000000; /* Set prescaler to get 1 M counts/sec */
-    LPC_TIM1->MR0 = 1000 * TOUCH_TIMER_INTERVAL;
-    LPC_TIM1->MCR = (0x3<<0);	    /* Interrupt and Reset on MR0 */
-    NVIC_EnableIRQ(TIMER1_IRQn);
-    LPC_TIM1->TCR = 1;            /* Enable timer 1 */
   }
 #endif
 }
@@ -416,19 +283,9 @@ int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData) {
   // Required
   //
   case LCD_X_INITCONTROLLER:
-    //
-    // Called during the initialization process in order to set up the
-    // display controller and put it into operation. If the display
-    // controller is not initialized by any external routine this needs
-    // to be adapted by the customer...
-    //
-    // ...
     _InitController(0);
     return 0;
   case LCD_X_SETORG:
-    //
-    // Required for setting the display origin which is passed in the 'xPos' and 'yPos' element of p
-    //
     pSetOrg = (LCD_X_SETORG_INFO *)pData;
     _SetDisplayOrigin(pSetOrg->xPos, pSetOrg->yPos);
     return 0;
@@ -458,38 +315,10 @@ int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData) {
 *   Voltage on Y-axis is switched off.
 */
 void GUI_TOUCH_X_ActivateX(void) {
-  U32 v;
 
   _CheckTouch();
   if (_HasTouch) {
-    //
-    // Setup ADC channel 1(P0.24)
-    //
-    v            = LPC_ADC->CR;
-    v           &= ~(0xFFul);
-    v           |= (1 << 1);
-    LPC_ADC->CR  = v;   //选择通道1
-    //
-    // xPlus = ADC0_IN[1]
-    //设置P0.24引脚为模拟输入引脚，使用引脚功能1
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_24, 1);  
-    //
-    // yPlus = GPIO out, high, enable input buffer
-    //
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_12, IOCON_ENABLE_INPUT_BUFFER);
-    LPC_GPIO0->DIR |= (1uL << 12);
-    LPC_GPIO0->SET |= (1uL << 12);
-    //
-    // xMinus = GPIO in, floating
-    //
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_23, 0);
-    LPC_GPIO0->DIR &= ~(1uL << 23);
-    //
-    // yMinus = GPIO out, low
-    //
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P1_31, 0);
-    LPC_GPIO1->DIR |= (1uL << 31);
-    LPC_GPIO1->CLR |= (1uL << 31);
+   
   }
 }
 
@@ -504,37 +333,8 @@ void GUI_TOUCH_X_ActivateX(void) {
 *   Voltage on X-axis is switched off.
 */
 void GUI_TOUCH_X_ActivateY(void) {
-  U32 v;
-
   if (_HasTouch) {
-    //
-    // Setup ADC channel 6(P0.12)
-    //
-    v            = LPC_ADC->CR;
-    v           &= ~(0xFFul);
-    v           |= (1 << 6);    //选择通道6
-    LPC_ADC->CR  = v;
-    //
-    // xPlus = GPIO out, high, enable input buffer
-    //
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_24, IOCON_ENABLE_INPUT_BUFFER);
-    LPC_GPIO0->DIR |= (1uL << 24);
-    LPC_GPIO0->SET |= (1uL << 24);
-    //
-    // yPlus = ADC0_IN[6]
-    //P0.12选择模拟输入模式，引脚选择第三功能
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_12, 3);  
-    //
-    // xMinus = GPIO out, low
-    //
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P0_23, 0);
-    LPC_GPIO0->DIR |= (1uL << 23);
-    LPC_GPIO0->CLR |= (1uL << 23);
-    //
-    // yMinus = GPIO in, floating
-    //
-    IOCON_CLR_FUNC_MODE_ADMODE_AND_ADD_MASK(P1_31, 0);
-    LPC_GPIO1->DIR &= ~(1uL << 31);
+   
   }
 }
 
@@ -547,22 +347,9 @@ void GUI_TOUCH_X_ActivateY(void) {
 *   Measures voltage of X-axis.
 */
 int  GUI_TOUCH_X_MeasureX(void) {
-  U32 v;
-  U32 x;
-  int i;
-
-  if (_HasTouch) {
-    x = 0;
-
-    for (i = 0; i < 16; i++) {
-      LPC_ADC->CR |= (1 << 24);  // Start measurement
-      do {
-        v = LPC_ADC->DR[6];
-      } while ((v & (1UL << 31)) == 0);
-      x += ((v & 0xFFFF) >> 4);
-    }
-    x >>= 4;
-    return x;
+  if (_HasTouch)
+	{
+    return _TouchX;
   }
   return -1;
 }
@@ -576,26 +363,30 @@ int  GUI_TOUCH_X_MeasureX(void) {
 *   Measures voltage of Y-axis.
 */
 int  GUI_TOUCH_X_MeasureY(void) {
-  U32 v;
-  U32 y;
-  int i;
-
-  if (_HasTouch) {
-    y = 0;
-
-    for (i = 0; i < 16; i++) {
-      LPC_ADC->CR |= (1 << 24);  // Start measurement
-      do {
-        v = LPC_ADC->DR[1];
-      } while ((v & (1UL << 31)) == 0);
-      y += ((v & 0xFFFF) >> 4);
-    }
-    y >>= 4;
-    return y;
+  if (_HasTouch) 
+	{
+    return _TouchY;
   }
   return -1;
 }
-
-#endif  // GUI_SUPPORT_TOUCH
-
-/*************************** End of file ****************************/
+#include <..\USER\Prj_Haoyu\TouchPanel.h>
+#include <tos.h>
+void Task_Touch(void *Tags)
+{
+	Coordinate  *C;
+	TP_Init();
+	while(1)
+	{
+		GUI_TOUCH_Exec();
+		C=Read_Ads7846();
+		if((C->x<10000)&(C->y<10000))
+		{	
+				_HasTouch=1;
+				_TouchX=C->x;
+				_TouchY=C->y;
+				GUI_TOUCH_Exec();
+		}else _HasTouch=0;
+		Tos_TaskDelay(10);
+	}
+}
+#endif 

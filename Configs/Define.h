@@ -57,7 +57,7 @@ typedef void (*DeviceWRFunc)(void *Addr,void *Data,void *Length);
 typedef void *(*FuncVoid)(void *Addr,void *Data,void *Length);
 
 #define NullFunc  ((void*)0)
-#define NULL 0
+
 #define Tos_TaskNull	0xFF	
 
 #define SystemInfor "TRTOS 4.0"
