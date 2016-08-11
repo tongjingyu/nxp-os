@@ -124,7 +124,6 @@ uint16 USART_ReadDatas(UART_ID_Type USARTx,uint8 *Buf,uint16 Length,uint32 TimeO
 	R=Tos_TaskGetDev(DeviceId_USART_RX[UsartCH],0);
   if(R)
 	{
-		
 		USART_RX_TaskID[UsartCH]=Tos_TaskCurrent;
 		if(Length>=USART_RX_BUFFER_SIZE)Length=USART_RX_BUFFER_SIZE;
 		USART_RX_Count[UsartCH]=Length;
@@ -132,7 +131,6 @@ uint16 USART_ReadDatas(UART_ID_Type USARTx,uint8 *Buf,uint16 Length,uint32 TimeO
 		if(TimeOut)Tos_TaskDelay(TimeOut);
 		else Tos_TaskSuspend(USART_RX_TaskID[UsartCH]); 
 	  Tos_TaskDropDev(DeviceId_USART_RX[UsartCH]);
-	
 	}
 	if(Buf!=Null)BufferCoppy(&USART_RX_Buffer[UsartCH][0],&Buf[0],USART_RX_Index[UsartCH]);
 	return USART_RX_Index[UsartCH];

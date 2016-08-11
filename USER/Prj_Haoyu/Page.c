@@ -61,11 +61,9 @@ const MUI_MenuStruct Menu0x2000[]={
 	{"(3)W25Q16",(void *)&Menu0x2200[0],VT_Menu,2},
 	{"HandTest",Null,VT_End,Null},
 };
-uint32 _Tos_Cpu_Freq=Tos_Cpu_Freq;
 const MUI_MenuStruct Menu0x3100[]={
 	{"(1)BACK",(void *)&Menu0x3000[0],VT_Menu,1},
   {"(2)CPU_Model:%s",(void *)CPU_Model,VT_ROMStr,0},
-	{"(3)Tos_Cpu_Freq:%d",(void *)&_Tos_Cpu_Freq,VT_ROMUint32,0},
 	{"(4)BoardName:%s",(void *)Board_Name,VT_ROMStr,0},
 	{"Hand",Null,VT_End,Null},
 };

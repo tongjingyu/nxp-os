@@ -277,7 +277,7 @@ int32_t MCI_ReadFifo(uint32_t * dest)
 
     for (i = start; i <= end; i++) 
     {
-        *dest = LPC_MCI->FIFO[i];
+        *dest = LPC_MCI->FIFO;
         
         dest++;
     }
@@ -312,7 +312,7 @@ int32_t MCI_WriteFifo(uint32_t * src)
 
     for (i = start; i <= end; i++) 
     {
-        LPC_MCI->FIFO[i] = *src;
+        LPC_MCI->FIFO = *src;
         
         src++;
     }
@@ -863,7 +863,7 @@ int32_t MCI_Init(uint8_t powerActiveLevel )
     PINSEL_ConfigPin(1, 3, 2);
 
     //SD_PWR
-    PINSEL_ConfigPin(1, 5, 2);
+    //PINSEL_ConfigPin(1, 5, 2);
 
     //SD_DAT_0
     PINSEL_ConfigPin(1, 6, 2);

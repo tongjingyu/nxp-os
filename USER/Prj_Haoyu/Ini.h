@@ -8,9 +8,8 @@
 #define  Tos_RootTaskStackSize    2000
 #define  Tos_DeviceTotal         10     //设备池大小
 #define  Tos_TaskWatchDog        20000   //任务卡死复位时间
-#define  Tos_Cpu_Freq						72000000	 //系统工作频率
-#define  Board_Name             "TP500" 
-#define  CPU_Model              "STM32L151RBT6" 
+#define  Board_Name             "HY" 
+#define  CPU_Model              "LPC1788" 
 #define  FLASH_PARAM_PAGE	      254
 #define  USART_CH_SIZE 5
 #define  COMPILE_MODE_DEBUG

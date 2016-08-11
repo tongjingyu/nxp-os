@@ -351,7 +351,7 @@
               <MiscControls></MiscControls>
               <Define>BOARD_HAOYU</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\Driver;..\Configs;..\Boot;..\Tos;..\Tools;..\FS\TQFS;..\USER\Prj_4.3LCD;..\USER\Prj_CanBus;..\USER\Prj_Sensor;..\GUI\MGui;..\FuncTask;..\USER\Prj_Really;..\USER\Prj_PdaTran;..\USB\WHID;..\FS;..\GUI\TGui;..\GUI;..\Libraries\Drivers\include;..\Libraries\CMSIS;..\GUI\Application</IncludePath>
+              <IncludePath>..\USER;..\Driver;..\Configs;..\Boot;..\Tos;..\Tools;..\FS\TQFS;..\USER\Prj_4.3LCD;..\USER\Prj_CanBus;..\USER\Prj_Sensor;..\GUI\MGui;..\FuncTask;..\USER\Prj_Really;..\USER\Prj_PdaTran;..\USB\WHID;..\FS;..\GUI\TGui;..\GUI;..\Libraries\Drivers\include;..\Libraries\CMSIS;..\GUI\Application;..\FS\EFSL\inc;..\FS\EFSL\conf;..\FS\EFSL\inc\interfaces;..\FS\EFSL\main</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -437,6 +437,36 @@
               <FileType>1</FileType>
               <FilePath>..\Libraries\Drivers\source\lpc177x_8x_uart.c</FilePath>
             </File>
+            <File>
+              <FileName>lpc177x_8x_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>lpc177x_8x_gpdma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_gpdma.c</FilePath>
+            </File>
+            <File>
+              <FileName>lpc177x_8x_usbhost.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_usbhost.c</FilePath>
+            </File>
+            <File>
+              <FileName>lpc177x_8x_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>lpc177x_8x_mci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\lpc177x_8x_mci.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug_frmwrk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\Drivers\source\debug_frmwrk.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -496,6 +526,11 @@
               <FileName>Usart_Driver.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Driver\Usart_Driver.c</FilePath>
+            </File>
+            <File>
+              <FileName>emc_nand.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Driver\emc_nand.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -598,11 +633,6 @@
           <GroupName>GUI</GroupName>
           <Files>
             <File>
-              <FileName>emWin_516_Keil4_M3_LE.lib</FileName>
-              <FileType>4</FileType>
-              <FilePath>..\GUI\emWin_516_Keil4_M3_LE.lib</FilePath>
-            </File>
-            <File>
               <FileName>GUI_X.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\GUI\GUI_X.c</FilePath>
@@ -617,6 +647,96 @@
               <FileType>1</FileType>
               <FilePath>..\GUI\LCDConf.c</FilePath>
             </File>
+            <File>
+              <FileName>emWin_516_Keil4_M3_LE.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\GUI\emWin_516_Keil4_M3_LE.lib</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>USB</GroupName>
+          <Files>
+            <File>
+              <FileName>dir.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\dir.c</FilePath>
+            </File>
+            <File>
+              <FileName>disc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\disc.c</FilePath>
+            </File>
+            <File>
+              <FileName>efs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\efs.c</FilePath>
+            </File>
+            <File>
+              <FileName>extract.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\extract.c</FilePath>
+            </File>
+            <File>
+              <FileName>fat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\fat.c</FilePath>
+            </File>
+            <File>
+              <FileName>file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\file.c</FilePath>
+            </File>
+            <File>
+              <FileName>fs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\fs.c</FilePath>
+            </File>
+            <File>
+              <FileName>ioman.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\ioman.c</FilePath>
+            </File>
+            <File>
+              <FileName>ls.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\ls.c</FilePath>
+            </File>
+            <File>
+              <FileName>mkfs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\mkfs.c</FilePath>
+            </File>
+            <File>
+              <FileName>partition.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\partition.c</FilePath>
+            </File>
+            <File>
+              <FileName>plibc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\plibc.c</FilePath>
+            </File>
+            <File>
+              <FileName>time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\time.c</FilePath>
+            </File>
+            <File>
+              <FileName>ui.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\ui.c</FilePath>
+            </File>
+            <File>
+              <FileName>debug1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\debug1.c</FilePath>
+            </File>
+            <File>
+              <FileName>if_lpc177x_8x.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\src\interfaces\if_lpc177x_8x.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -626,6 +746,21 @@
               <FileName>Main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\USER\Main.c</FilePath>
+            </File>
+            <File>
+              <FileName>efsl_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\main\efsl_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>fs_mci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\main\fs_mci.c</FilePath>
+            </File>
+            <File>
+              <FileName>monitor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FS\EFSL\main\monitor.c</FilePath>
             </File>
           </Files>
         </Group>

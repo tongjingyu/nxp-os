@@ -1,76 +1,199 @@
-#include <Include.h>
-#include <ADC_Driver.h>
-  
-static void ADC1_GPIO_Config(void)
-{
-	GPIO_InitTypeDef GPIO_InitStructure;
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1 | RCC_APB2Periph_GPIOC, ENABLE);
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_4;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);				// PC1,输入时不用设置速率
-}
+#include "lpc177x_8x_adc.h"
+#include "lpc177x_8x_pinsel.h"
+#include "lpc177x_8x_gpdma.h"
+#include "debug_frmwrk.h"
+#include "bsp.h"
 
-static void ADC1_Mode_Config(uintbus Addr)
-{
-	DMA_InitTypeDef DMA_InitStructure;
-	ADC_InitTypeDef ADC_InitStructure;
-	DMA_DeInit(DMA1_Channel1);
-	DMA_InitStructure.DMA_PeripheralBaseAddr = (u32)&ADC1->DR;	 //ADC地址
-	DMA_InitStructure.DMA_MemoryBaseAddr =Addr;//内存地址
-	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
-	DMA_InitStructure.DMA_BufferSize = 1;
-	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;//外设地址固定
-	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Disable;  //内存地址固定
-	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_HalfWord;	//半字
-	DMA_InitStructure.DMA_MemoryDataSize = DMA_MemoryDataSize_HalfWord;
-	DMA_InitStructure.DMA_Mode = DMA_Mode_Circular;		//循环传输
-	DMA_InitStructure.DMA_Priority = DMA_Priority_High;
-	DMA_InitStructure.DMA_M2M = DMA_M2M_Disable;
-	DMA_Init(DMA1_Channel1, &DMA_InitStructure);
-	DMA_Cmd(DMA1_Channel1, ENABLE);
-	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;	//独立ADC模式
-	ADC_InitStructure.ADC_ScanConvMode = DISABLE ; 	 //禁止扫描模式，扫描模式用于多通道采集
-	ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;	//开启连续转换模式，即不停地进行ADC转换
-	ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;	//不使用外部触发转换
-	ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right; 	//采集数据右对齐
-	ADC_InitStructure.ADC_NbrOfChannel = 1;	 	//要转换的通道数目1
-	ADC_Init(ADC1, &ADC_InitStructure);
-	
-	/*配置ADC时钟，为PCLK2的8分频，即9Hz*/
-	RCC_ADCCLKConfig(RCC_PCLK2_Div8); 
-	/*配置ADC1的通道11为55.	5个采样周期，序列为1 */ 
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_14, 1, ADC_SampleTime_55Cycles5);
-	
-	/* Enable ADC1 DMA */
-	ADC_DMACmd(ADC1, ENABLE);
-	
-	/* Enable ADC1 */
-	ADC_Cmd(ADC1, ENABLE);
-	
-	/*复位校准寄存器 */   
-	ADC_ResetCalibration(ADC1);
-	/*等待校准寄存器复位完成 */
-	while(ADC_GetResetCalibrationStatus(ADC1));
-	
-	/* ADC校准 */
-	ADC_StartCalibration(ADC1);
-	/* 等待校准完成*/
-	while(ADC_GetCalibrationStatus(ADC1));
-	
-	/* 由于没有采用外部触发，所以使用软件触发ADC转换 */ 
-	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
-}
-
-/*
- * 函数名：ADC1_Init
- * 描述  ：无
- * 输入  ：无
- * 输出  ：无
- * 调用  ：外部调用
+/* Example group ----------------------------------------------------------- */
+/** @defgroup ADC_DMA		ADC DMA
+ * @ingroup ADC_Examples
+ * @{
  */
-void ADC1_Init(uintbus Addr)
+
+/************************** PRIVATE DEFINITIONS *************************/
+/** DMA size of transfer */
+#define DMA_SIZE		1
+
+/************************** PRIVATE VARIABLES *************************/
+uint8_t  menu1[] =
+"***********************************************************************\n\r"
+" Hello NXP Semiconductors \n\r"
+" ADC DMA example \n\r"
+"\t - MCU: LPC177x_8x \n\r"
+"\t - Core: ARM CORTEX-M3 \n\r"
+"\t - Communicate via: UART0\1\2 - 115200bps \n\r"
+" DMA testing : ADC peripheral to memory\n\r"
+" Use ADC with 12-bit resolution rate of 400KHz\n\r"
+" The ADC value is handled by DMA function\n\r"
+" The content here is displayed by UART interface\n\r"
+" Turn the potentiometer to see how ADC value changes\n\r"
+" Press q to stop the demo\n\r"
+"***********************************************************************\n\r";
+
+/* Terminal Counter flag for Channel 0 */
+__IO uint32_t Channel0_TC;
+
+/* Error Counter flag for Channel 0 */
+__IO uint32_t Channel0_Err;
+
+/************************** PRIVATE FUNCTION *************************/
+void DMA_IRQHandler (void);
+
+void print_menu(void);
+/*----------------- INTERRUPT SERVICE ROUTINES --------------------------*/
+/*********************************************************************//**
+ * @brief		GPDMA interrupt handler sub-routine
+ * @param[in]	None
+ * @return 		None
+ **********************************************************************/
+void DMA_IRQHandler (void)
 {
-	ADC1_GPIO_Config();
-	ADC1_Mode_Config(Addr);
+	// check GPDMA interrupt on channel 0
+	if (GPDMA_IntGetStatus(GPDMA_STAT_INT, 0))
+	{
+		// Check counter terminal status
+		if(GPDMA_IntGetStatus(GPDMA_STAT_INTTC, 0))
+		{
+			// Clear terminate counter Interrupt pending
+			GPDMA_ClearIntPending (GPDMA_STATCLR_INTTC, 0);
+
+			Channel0_TC++;
+		}
+
+		// Check error terminal status
+		if (GPDMA_IntGetStatus(GPDMA_STAT_INTERR, 0))
+		{
+			// Clear error counter Interrupt pending
+			GPDMA_ClearIntPending (GPDMA_STATCLR_INTERR, 0);
+
+			Channel0_Err++;
+		}
+	}
+}
+
+/*-------------------------PRIVATE FUNCTIONS------------------------------*/
+/*********************************************************************//**
+ * @brief		Print menu
+ * @param[in]	None
+ * @return 		None
+ **********************************************************************/
+void print_menu(void)
+{
+	_DBG(menu1);
+}
+
+/*-------------------------MAIN FUNCTION------------------------------*/
+/*********************************************************************//**
+ * @brief		c_entry: Main ADC program body
+ * @param[in]	None
+ * @return 		None
+ **********************************************************************/
+void c_entry(void)
+{
+	GPDMA_Channel_CFG_Type GPDMACfg;
+	volatile uint32_t adc_value, tmp;
+	uint8_t  quit;
+
+	/* Initialize debug via UART0
+	 * ?115200bps
+	 * ?8 data bit
+	 * ?No parity
+	 * ?1 stop bit
+	 * ?No flow control
+	 */
+	debug_frmwrk_init();
+
+	// print welcome screen
+	print_menu();
+
+	/* Initialize ADC ----------------------------------------------------*/
+
+	/* Settings for AD input pin
+	 */
+	PINSEL_ConfigPin (BRD_ADC_PREPARED_CH_PORT, BRD_ADC_PREPARED_CH_PIN, BRD_ADC_PREPARED_CH_FUNC_NO);
+	PINSEL_SetAnalogPinMode(BRD_ADC_PREPARED_CH_PORT,BRD_ADC_PREPARED_CH_PIN,ENABLE);
+
+	/*  Configuration for ADC :
+	 * 	ADC conversion rate = 400KHz
+	 */
+	ADC_Init(LPC_ADC, 400000);
+
+	ADC_IntConfig(LPC_ADC, BRD_ADC_PREPARED_INTR, ENABLE);
+	ADC_ChannelCmd(LPC_ADC, BRD_ADC_PREPARED_CHANNEL, ENABLE);
+
+	/* GPDMA block section -------------------------------------------- */
+	/* Disable GPDMA interrupt */
+	NVIC_DisableIRQ(DMA_IRQn);
+
+	/* preemption = 1, sub-priority = 1 */
+	NVIC_SetPriority(DMA_IRQn, ((0x01<<3)|0x01));
+
+	/* Initialize GPDMA controller */
+	GPDMA_Init();
+
+	// Setup GPDMA channel --------------------------------
+	// channel 0
+	GPDMACfg.ChannelNum = 0;
+	// Source memory - unused
+	GPDMACfg.SrcMemAddr = 0;
+	// Destination memory
+	GPDMACfg.DstMemAddr = (uint32_t) &adc_value;
+	// Transfer size
+	GPDMACfg.TransferSize = DMA_SIZE;
+	// Transfer width - unused
+	GPDMACfg.TransferWidth = 0;
+	// Transfer type
+	GPDMACfg.TransferType = GPDMA_TRANSFERTYPE_P2M;
+	// Source connection
+	GPDMACfg.SrcConn = GPDMA_CONN_ADC;
+	// Destination connection - unused
+	GPDMACfg.DstConn = 0;
+	// Linker List Item - unused
+	GPDMACfg.DMALLI = 0;
+	GPDMA_Setup(&GPDMACfg);
+
+	/* Reset terminal counter */
+	Channel0_TC = 0;
+	/* Reset Error counter */
+	Channel0_Err = 0;
+
+	/* Enable GPDMA interrupt */
+	NVIC_EnableIRQ(DMA_IRQn);
+
+	while (1)
+	{
+		// Enable GPDMA channel 0
+		GPDMA_ChannelCmd(0, ENABLE);
+
+		ADC_StartCmd(LPC_ADC, ADC_START_NOW);
+
+		/* Wait for GPDMA processing complete */
+		while ((Channel0_TC == 0));
+
+		// Disable GPDMA channel 0
+		GPDMA_ChannelCmd(0, DISABLE);
+
+		//Display the result of conversion on the UART
+		_DBG("ADC value on channel "); _DBD(BRD_ADC_PREPARED_CHANNEL);
+		_DBG(" is: "); _DBD32(ADC_DR_RESULT(adc_value)); _DBG_("");
+
+		// Wait for a while
+		for(tmp = 0; tmp < 1000000; tmp++);
+
+		/* GPDMA Re-setup */
+		GPDMA_Setup(&GPDMACfg);
+
+		/* Reset terminal counter */
+		Channel0_TC = 0;
+
+		/* Reset Error counter */
+		Channel0_Err = 0;
+
+		if(_DG_NONBLOCK(&quit) &&
+			(quit == 'Q' || quit == 'q'))
+			break;
+	}
+    _DBG_("Demo termination!!!");
+
+	ADC_DeInit(LPC_ADC);
 }

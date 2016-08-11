@@ -91,7 +91,7 @@ void GLCD_Init (void);
 void GLCD_Clear(uint16_t color);
 void GLCD_SetPixel_16bpp (uint16_t Xpos, uint16_t Ypos, uint16_t color);
 void GLCD_DrawLine( uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1 , uint16_t color );
-
+void LCD_Initializtion(void);
 #endif
 
 /*********************************************************************************************************

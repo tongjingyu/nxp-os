@@ -4,7 +4,8 @@
 #include "lpc177x_8x_eeprom.h"
 void MCU_Reset()
 {
-	
+	__disable_fault_irq();      // STM32 »Ì∏¥Œª  
+	NVIC_SystemReset();
 }
 void SysTick_Set()
 {

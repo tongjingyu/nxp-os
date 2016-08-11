@@ -31,7 +31,9 @@
 */
 
 #define ID_WINDOW_0 (GUI_ID_USER + 0x00)
-#define ID_DROPDOWN_0 (GUI_ID_USER + 0x01)
+#define ID_RADIO_0 (GUI_ID_USER + 0x02)
+#define ID_EDIT_1 (GUI_ID_USER + 0x04)
+
 
 // USER START (Optionally insert additional defines)
 // USER END
@@ -50,28 +52,18 @@
 *
 *       _aDialogCreate
 */
-static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
-  { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 400, 272, 0, 0, 0 },
-  { DROPDOWN_CreateIndirect, "Dropdown", ID_DROPDOWN_0, 150, 93, 80, 40, 0, 0, 0 },
+float test1;
+static const GUI_WIDGET_CREATE_INFO _aDialogCreate3[] = {
+  { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 480, 272, 0, 0, 0 },
+	{ BUTTON_CreateIndirect, "保存", GUI_ID_BUTTON1, 480-105, 272-35, 50, 30, 0, 0, 0 },
+  { BUTTON_CreateIndirect, "退出", GUI_ID_BUTTON0, 480-55, 272-35, 50, 30, 0, 0, 0 },
+	{ EDIT_CreateIndirect, "", ID_EDIT_0, 0, 0, 100, 32, 0, 0, 0 },
+	{ EDIT_CreateIndirect, "", ID_EDIT_1, 0, 32, 100, 32, 0, 0, 0 },
   // USER START (Optionally insert additional widgets)
   // USER END
 };
 
-/*********************************************************************
-*
-*       Static code
-*
-**********************************************************************
-*/
-
-// USER START (Optionally insert additional static code)
-// USER END
-
-/*********************************************************************
-*
-*       _cbDialog
-*/
-static void _cbDialog(WM_MESSAGE * pMsg) {
+static void _cbDialog3(WM_MESSAGE * pMsg) {
   WM_HWIN hItem;
   int Id, NCode;
   // USER START (Optionally insert additional variables)
@@ -80,18 +72,58 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   switch (pMsg->MsgId) {
   case WM_INIT_DIALOG:
     //
-    // Initialization of 'Window'
-    //
-    hItem = pMsg->hWin;
-    WINDOW_SetBkColor(hItem, 0x0093EECA);
-    // USER START (Optionally insert additional code for further widget initialization)
+	
+    // Initialization of 'EDIT'
+	 hItem = pMsg->hWin;
+	EDIT_SetFloatMode(WM_GetDialogItem(pMsg->hWin, ID_EDIT_0),test1,0,1000,4,GUI_EDIT_SIGNED);
+	EDIT_SetTextAlign(WM_GetDialogItem(pMsg->hWin, ID_EDIT_0),GUI_TA_VCENTER);
+	EDIT_SetFloatMode(WM_GetDialogItem(pMsg->hWin, ID_EDIT_1),test1,-100,1000,2,GUI_EDIT_SIGNED);
+	EDIT_SetTextAlign(WM_GetDialogItem(pMsg->hWin, ID_EDIT_1),GUI_TA_VCENTER);
     // USER END
     break;
   case WM_NOTIFY_PARENT:
     Id    = WM_GetId(pMsg->hWinSrc);
     NCode = pMsg->Data.v;
     switch(Id) {
-    case ID_DROPDOWN_0: // Notifications sent by 'Dropdown'
+			 case ID_EDIT_0: // Notifications sent by 'EDIT'
+      switch(NCode) {
+      case WM_NOTIFICATION_CLICKED:
+        // USER START (Optionally insert code for reacting on notification message)
+				
+        break;
+      case WM_NOTIFICATION_RELEASED:
+        // USER START (Optionally insert code for reacting on notification message)
+			MY_GetNumber(WM_GetDialogItem(pMsg->hWin, ID_EDIT_0),"请输入数据",1);
+        // USER END
+        break;
+      case WM_NOTIFICATION_VALUE_CHANGED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      // USER START (Optionally insert additional code for further notification handling)
+      // USER END
+      }
+      break;
+			 case ID_EDIT_1: // Notifications sent by 'EDIT'
+      switch(NCode) {
+      case WM_NOTIFICATION_CLICKED:
+        // USER START (Optionally insert code for reacting on notification message)
+				
+        break;
+      case WM_NOTIFICATION_RELEASED:
+        // USER START (Optionally insert code for reacting on notification message)
+			MY_GetNumber(WM_GetDialogItem(pMsg->hWin, ID_EDIT_1),"请输入数据",1);
+        // USER END
+        break;
+      case WM_NOTIFICATION_VALUE_CHANGED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      // USER START (Optionally insert additional code for further notification handling)
+      // USER END
+      }
+      break;
+			case GUI_ID_BUTTON0: // Notifications sent by 'Button'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
@@ -99,10 +131,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
         break;
       case WM_NOTIFICATION_RELEASED:
         // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      case WM_NOTIFICATION_SEL_CHANGED:
-        // USER START (Optionally insert code for reacting on notification message)
+			test1=EDIT_GetFloatValue(WM_GetDialogItem(pMsg->hWin, ID_EDIT_0));
+				GUI_EndDialog(pMsg->hWin,1);
         // USER END
         break;
       // USER START (Optionally insert additional code for further notification handling)
@@ -131,11 +161,11 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 *
 *       CreateWindow
 */
-WM_HWIN CreateWindow(void);
-WM_HWIN CreateWindow(void) {
+WM_HWIN CreateWindow1(void);
+WM_HWIN CreateWindow1(void) {
   WM_HWIN hWin;
-
-  hWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), &_cbDialog, WM_HBKWIN, 0, 0);
+  hWin = GUI_CreateDialogBox(_aDialogCreate3, GUI_COUNTOF(_aDialogCreate3), &_cbDialog3, WM_HBKWIN, 0, 0);
+	WM_SetFocus(hWin);
   return hWin;
 }
 

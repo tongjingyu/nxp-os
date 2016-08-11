@@ -47,7 +47,7 @@
 #include  "lpc177x_8x_usbhost.h"
 #include  "lpc177x_8x_pinsel.h"
 #include  "bsp.h"
-
+#include <Tos.h>
 /*
 **************************************************************************************************************
 *                                            DEFINITIONS
@@ -104,12 +104,7 @@ void        Host_WDHWait  (void);
  **********************************************************************/
 void  Host_DelayMS (uint32_t  delay)
 {
-    volatile  uint32_t  i;
-
-
-    for (i = 0; i < delay; i++) {
-        Host_DelayUS(1000);
-    }
+    Tos_TaskDelay(delay);
 }
 
 /*********************************************************************//**
@@ -132,12 +127,10 @@ void  Host_DelayUS (uint32_t  delay)
  * @param[in]		None.
  * @return 		None.
  **********************************************************************/
-void Host_CtrlInit(void)
+void Host_CtrlInit(uint32_t HostBaseAddr)
 {
-	uint32_t HostBaseAddr;
 	
 	/* Set up host base address and TD and ED descriptors */
-	HostBaseAddr = HOST_BASE_ADDR;
 
     Hcca       = (volatile  HCCA       *)(HostBaseAddr+0x000);
     TDHead     = (volatile  HCTD       *)(HostBaseAddr+0x100);
@@ -188,7 +181,7 @@ void Host_CtrlInit(void)
  * @param[in]		None.
  * @return 		None.
  **********************************************************************/
-void  Host_Init (void)
+void  Host_Init (uint32 Addr)
 {
 
     LPC_SC->PCONP   |= 0x80000000; 		/* Enable USB Interface	*/
@@ -203,21 +196,13 @@ void  Host_Init (void)
 	// Port U1
 	PINSEL_ConfigPin(0,29,1);	/* USB_D+1	*/
 	PINSEL_ConfigPin(0,30,1);	/* USB_D-1	*/
-	
-	PINSEL_ConfigPin(2,9,1);		/* USB_CONNECT1 */
+//	
+	//PINSEL_ConfigPin(2,9,1);		/* USB_CONNECT1 */
 	PINSEL_ConfigPin(1,18,1);		/* USB_UP_LED1	*/
 
-#if 0
-	PINSEL_ConfigPin(1,19,1);	    /* USB_TX_E1*/ 
-	PINSEL_ConfigPin(1,22,1);	    /* USB_RX_E1*/ 
-    PINSEL_ConfigPin(1,20,1);		/* USB_TX_DP1 */
-    PINSEL_ConfigPin(1,21,1);		/* USB_TX_DM1 */
-    PINSEL_ConfigPin(1,23,1);		/* USB_RX_DP1 */
-    PINSEL_ConfigPin(1,24,1);		/* USB_RX_DM1 */
-#else
+
 	PINSEL_ConfigPin(1,19,2);		/* USB_PPWR1	*/
 	PINSEL_ConfigPin(1,27,1);		/* USB_OVRCR1	*/
-#endif
 
 	// Port U2
 	PINSEL_ConfigPin(0,31,1);		/* USB_D+2	*/
@@ -242,7 +227,7 @@ void  Host_Init (void)
 
 //#endif /* _CURR_USING_BRD == _EA_PA_BOARD */
 
-    Host_CtrlInit();
+    Host_CtrlInit(Addr);
 
 
     /* Enable the USB Interrupt */
@@ -351,9 +336,8 @@ void  USB_IRQHandler (void)
 int32_t  Host_EnumDev (void)
 {
     int32_t  rc;
-
-    while (!gUSBConnected);
-    Host_DelayMS(100);                             /* USB 2.0 spec says atleast 50ms delay beore port reset */
+    while (!gUSBConnected)Tos_TaskDelay(1);
+    Tos_TaskDelay(100);                             /* USB 2.0 spec says atleast 50ms delay beore port reset */
 	
 	if ( HOST_RhscIntr & 0x01 )
 	{
@@ -369,7 +353,7 @@ int32_t  Host_EnumDev (void)
 		; // Wait for port reset to complete...
 	  LPC_USB->RhPortStatus2 = OR_RH_PORT_PRSC; // ...and clear port reset signal
 	}
-    Host_DelayMS(200);                                                 /* Wait for 100 MS after port reset  */
+    Tos_TaskDelay(200);                                                 /* Wait for 100 MS after port reset  */
 
     EDCtrl->Control = DEVICE_DESCRIPTOR_SIZE << 16;                    /* Put max pkt size = 8              */
                                                                        /* Read device desc */
@@ -382,7 +366,7 @@ int32_t  Host_EnumDev (void)
     if (rc != USB_HOST_FUNC_OK) {
         return (rc);
     }
-    Host_DelayMS(2);
+    Tos_TaskDelay(2);
     EDCtrl->Control = (EDCtrl->Control) | 1;                          /* Modify control pipe with address 1 */
                                                                       /* Get the configuration descriptor   */
     rc = HOST_GET_DESCRIPTOR(USB_DESCRIPTOR_TYPE_CONFIGURATION, 0, USB_ConfigDescriptor, DEVICE_CONFIGURATION_SIZE);
@@ -402,7 +386,7 @@ int32_t  Host_EnumDev (void)
     rc = USBH_SET_CONFIGURATION(1);                                    /* Select device configuration 1     */
     if (rc != USB_HOST_FUNC_OK) {
     }
-    Host_DelayMS(100);                                               /* Some devices may require this delay */
+    Tos_TaskDelay(100);                                               /* Some devices may require this delay */
     return (rc);
 }
 

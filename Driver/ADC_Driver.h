@@ -2,8 +2,12 @@
 #define _ADC_DRIVER_H_
 
 #include <Include.h>
+#define BRD_ADC_PREPARED_CHANNEL		(ADC_CHANNEL_4)
+#define BRD_ADC_PREPARED_INTR			(ADC_ADINTEN4)
 
-extern __IO uint16 ADC1_ConvertedValue;
-void ADC1_Init(uintbus Addr);
+#define BRD_ADC_PREPARED_CH_PORT		(1)
+#define BRD_ADC_PREPARED_CH_PIN			(30)
+#define BRD_ADC_PREPARED_CH_FUNC_NO		(1)
+
 
 #endif

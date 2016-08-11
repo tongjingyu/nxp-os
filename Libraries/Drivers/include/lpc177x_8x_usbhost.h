@@ -236,7 +236,7 @@ extern 	volatile  uint8_t  *USB_ConfigDescriptor;	/* Device Configuration Descri
  * @{
  */
 
-void        Host_Init     (void);
+void        Host_Init     (uint32_t Addr);
 int32_t     Host_EnumDev  (void);
 int32_t     Host_ProcessTD(volatile  HCED       *ed,
                            volatile  uint32_t  token,

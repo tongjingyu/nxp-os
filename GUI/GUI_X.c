@@ -24,6 +24,8 @@ Purpose     : Config / System dependent externals for GUI
 #include "system_LPC177x_8x.h"
 #include "GUI.h"
 #include "lpc177x_8x_systick.h"
+#include <tos.h>
+uint8 DeviceId_GUI=DeviceNull;
 void SysTick_Handler(void);
 
 /*********************************************************************
@@ -62,7 +64,6 @@ int GUI_X_GetTime(void) {
 * Attention		 : None
 *******************************************************************************/
 
-void Tos_TaskDelay(U32 DelayTime);
 void GUI_X_Delay(int ms) 
 { 
 
@@ -77,7 +78,7 @@ void GUI_X_Delay(int ms)
 *  Called if WM is in idle state
 */
 
-void GUI_X_ExecIdle(void) {}
+void GUI_X_ExecIdle(void) {Tos_TaskDelay(10);}
 /*********************************************************************
 *
 *      Logging: OS dependent
@@ -109,12 +110,35 @@ void GUI_X_ErrorOut(const char *s) { GUI_USE_PARA(s); }
 void GUI_X_Init(void) { }
 
 
-unsigned long GUI_X_GetTaskId(void) { return 0;}
+unsigned long GUI_X_GetTaskId(void) { return Tos_TaskCurrent;}
 
-void GUI_X_InitOS(void) { }
+void GUI_X_InitOS(void) {
 
-void GUI_X_Lock(void) { }
+}
 
-void GUI_X_Unlock(void) { }
+void GUI_X_Lock(void) { 
+	Tos_TaskGetDev(DeviceId_GUI,0);
+}
 
+void GUI_X_Unlock(void) { 
+	  Tos_TaskDropDev(DeviceId_GUI);
+}
+#include <SDRAM_K4S561632C_32M_16BIT.h>
+#include <..\USER\Prj_Haoyu\GLCD.h>
+void EMUI_Init()
+{
+	SDRAM_32M_16BIT_Init();	  
+	LCD_Initializtion();
+  GUI_Init();
+}
+void DeviceMount_GUI()
+{
+	if(DeviceId_GUI==DeviceNull)DeviceId_GUI=DeviceId_Index++;
+	Tos_Device_Tab[DeviceId_GUI].DeviceName="GUI";
+	Tos_Device_Tab[DeviceId_GUI].DeviceOwnerId=Null;
+	Tos_Device_Tab[DeviceId_GUI].DeviceVirtue=DV_Task;//格外注意，组设备非字节设备
+	Tos_Device_Tab[DeviceId_GUI].DeviceState=Ready;
+	Tos_Device_Tab[DeviceId_GUI].Init=EMUI_Init;
+	Tos_Device_Tab[DeviceId_GUI].Exit=Null;
+}
 /*************************** End of file ****************************/
