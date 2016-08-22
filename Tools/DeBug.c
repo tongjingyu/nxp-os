@@ -121,7 +121,7 @@ void DeBug(char *fmt,...)
 		StringEndingAppend("\r\n",&Buf[0]);
 		if(DeBug_CB)DeBug_CB((uint8 *)&Buf[0],GetTextLength(Buf));
 	}
-	Mema_Free(Buf);
 	}
+	Mema_Free(Buf);
 #endif
 }

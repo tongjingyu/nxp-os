@@ -35,10 +35,6 @@
 *                                       INCLUDE HEADER FILES
 **************************************************************************************************************
 */
-#include <DeBug.h>
-
-#define  PRINT_Log(...)       DeBug(__VA_ARGS__,Infor_Infor)
-#define  PRINT_Err(rc)        DeBug("ERROR: In %s at Line %u - rc = %d\n", __FUNCTION__, __LINE__, rc,Infor_Infor)
 
 #include  "usbhost_ms.h"
 

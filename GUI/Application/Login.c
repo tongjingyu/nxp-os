@@ -56,6 +56,7 @@ static const GUI_WIDGET_CREATE_INFO Login_aDialogCreate[] = {
   { WINDOW_CreateIndirect, "Window", ID_WINDOW_0, 0, 0, 480, 272, 0, 0, 0 },
 	{ PROGBAR_CreateIndirect, "Progbar", ID_PROGBAR_0, 60, 200, 360, 20, 0, 0, 0 },
 	{ TEXT_CreateIndirect, "TOPRIE", GUI_ID_TEXT0, 0, 0, 480, 272, 0, 0, 0 },
+	{ TEXT_CreateIndirect, "Start...", GUI_ID_TEXT1, 0, 0, 480, 272, 0, 0, 0 },
   // USER START (Optionally insert additional widgets)
   // USER END
 };
@@ -77,6 +78,10 @@ static void Login_cbDialog(WM_MESSAGE * pMsg) {
 	  TEXT_SetFont(hItem,GUI_FONT_32B_ASCII);
 		TEXT_SetTextColor(hItem,GUI_WHITE);
 		TEXT_SetTextAlign(hItem,TEXT_CF_HCENTER|TEXT_CF_VCENTER);
+		hItem = WM_GetDialogItem(pMsg->hWin,GUI_ID_TEXT1);
+	  TEXT_SetFont(hItem,GUI_FONT_13H_ASCII);
+		TEXT_SetTextColor(hItem,GUI_GRAY);
+		TEXT_SetTextAlign(hItem,TEXT_CF_BOTTOM|TEXT_CF_LEFT);
     // USER END
     break;
   case WM_NOTIFY_PARENT:
@@ -114,6 +119,13 @@ void Login_SetProgbar(WM_HWIN hWin,uint8 Value)
 	WM_HWIN hItem;
 	hItem=WM_GetDialogItem(hWin, ID_PROGBAR_0);
 	PROGBAR_SetValue(hItem, Value);
+	GUI_Exec();
+}
+void Login_SetText(WM_HWIN hWin,const char *Value)
+{
+	WM_HWIN hItem;
+	hItem=WM_GetDialogItem(hWin, GUI_ID_TEXT1);
+	TEXT_SetText(hItem, Value);
 	GUI_Exec();
 }
 WM_HWIN CreateLogin(void);

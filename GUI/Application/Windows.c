@@ -22,7 +22,7 @@
 // USER END
 
 #include "DIALOG.h"
-
+#include <anniu.c>
 /*********************************************************************
 *
 *       Defines
@@ -59,6 +59,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate2[] = {
 	{ BUTTON_CreateIndirect, "设置", GUI_ID_BUTTON2, 415, 90, 50, 30, 0, 0, 0 },
 	{ BUTTON_CreateIndirect, "管理", GUI_ID_BUTTON3, 415, 120, 50, 30, 0, 0, 0 },
 	{ BUTTON_CreateIndirect, "文件", GUI_ID_BUTTON4, 415, 150, 50, 30, 0, 0, 0 },
+	{ BUTTON_CreateIndirect, "功能", GUI_ID_BUTTON5, 415, 180, 50, 30, 0, 0, 0 },
 	{ TEXT_CreateIndirect, "60.2", GUI_ID_EDIT0, 0, 50, 200, 94, 0, 0, 0 },
 	{ TEXT_CreateIndirect, "25.4°", GUI_ID_EDIT1, 0, 150, 300, 94, 0, 0, 0 },
   // USER START (Optionally insert additional widgets)
@@ -68,36 +69,38 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate2[] = {
 static void _cbDialog2(WM_MESSAGE * pMsg) {
   WM_HWIN hItem;
   int Id, NCode;
+
   // USER START (Optionally insert additional variables)
   // USER END
 
   switch (pMsg->MsgId) {
   case WM_INIT_DIALOG:
 	hItem = pMsg->hWin;
+	GUI_SetDefault();
+	GUI_SetDefaultFont(&SIFA_Font);
 	BUTTON_SetDefaultFont(&SIFA_Font);
 	EDIT_SetDefaultFont(&SIFA_Font);
 	EDIT_SetDefaultTextAlign(EDIT_CF_VCENTER);
 	EDIT_SetTextAlign(WM_GetDialogItem(pMsg->hWin, ID_EDIT_0),EDIT_CF_VCENTER);
     // USER START (Optionally insert additional code for further widget initialization)
-	hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON0);
-	BUTTON_SetFont(hItem, &SIFA_Font);
-	hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
-	EDIT_SetFont(hItem, &SIFA_Font);
-	hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON1);
-	BUTTON_SetFont(hItem, &SIFA_Font);
-	hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON2);
-	BUTTON_SetFont(hItem, &SIFA_Font);
-	hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON3);
-	BUTTON_SetFont(hItem, &SIFA_Font);
+	BUTTON_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON0), &SIFA_Font);
+	BUTTON_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON1), &SIFA_Font);
+	BUTTON_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON2), &SIFA_Font);
+	BUTTON_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON3), &SIFA_Font);
 	BUTTON_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON4), &SIFA_Font);
+	BUTTON_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_BUTTON5), &SIFA_Font);
 	TEXT_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT0), GUI_FONT_D64);
 	TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT0), GUI_GREEN);
 	TEXT_SetFont(WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT1), GUI_FONT_D60X80);
 	TEXT_SetTextColor(WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT1), GUI_BLUE);
 	hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
 	GUI_UC_SetEncodeUTF8();
+
     // USER END
     break;
+	case WM_PAINT:
+	
+		break;
   case WM_NOTIFY_PARENT:
     Id    = WM_GetId(pMsg->hWinSrc);
     NCode = pMsg->Data.v;
@@ -122,24 +125,6 @@ static void _cbDialog2(WM_MESSAGE * pMsg) {
       }
       break;
     case ID_RADIO_0: // Notifications sent by 'Radio'
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      case WM_NOTIFICATION_RELEASED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      case WM_NOTIFICATION_VALUE_CHANGED:
-        // USER START (Optionally insert code for reacting on notification message)
-        // USER END
-        break;
-      // USER START (Optionally insert additional code for further notification handling)
-      // USER END
-      }
-      break;
-			 case ID_EDIT_1: // Notifications sent by 'EDIT'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
@@ -227,6 +212,19 @@ static void _cbDialog2(WM_MESSAGE * pMsg) {
       // USER END
       }
       break;
+				case GUI_ID_BUTTON5: // Notifications sent by 'Button'
+      switch(NCode) {
+      case WM_NOTIFICATION_CLICKED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      case WM_NOTIFICATION_RELEASED:
+					UsartFramewin();
+        break;
+      // USER START (Optionally insert additional code for further notification handling)
+      // USER END
+      }
+      break;
 				case GUI_ID_BUTTON4: // Notifications sent by 'Button'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
@@ -265,7 +263,9 @@ static void _cbDialog2(WM_MESSAGE * pMsg) {
 WM_HWIN CreateWindow(void);
 WM_HWIN CreateWindow(void) {
   WM_HWIN hWin;
+		uint8 *P_SIFA;
   hWin = GUI_CreateDialogBox(_aDialogCreate2, GUI_COUNTOF(_aDialogCreate2), &_cbDialog2, WM_HBKWIN, 0, 0);
+
 	WM_SetFocus(hWin);
   return hWin;
 }

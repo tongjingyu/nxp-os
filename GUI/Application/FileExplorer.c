@@ -1,6 +1,5 @@
 #include "DIALOG.h"
 
-#define ID_FRAMEWIN_0   (GUI_ID_USER + 0x00)
 #define ID_TREEVIEW_0   (GUI_ID_USER + 0x01)
 
 static const GUI_WIDGET_CREATE_INFO FileExplorer_aDialogCreate[] = {

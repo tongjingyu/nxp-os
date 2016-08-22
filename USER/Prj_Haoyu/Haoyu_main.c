@@ -20,6 +20,7 @@
 #include <History.c>
 #include <MywindowDLG.c>
 #include <Login.c>
+#include <UsartFunc.c>
 #include <FileExplorer.c>
 #include <Windows1.c>
 #include <Windows.c>
@@ -35,9 +36,7 @@ void Task0(void *Tags)
 {
 	CLKPWR_ConfigPPWR(CLKPWR_PCONP_PCGPIO, ENABLE);
 	GPIO_SetDir(2, 1<<21, GPIO_DIRECTION_OUTPUT);
-	GPIO_SetDir(1, 1<<5, GPIO_DIRECTION_OUTPUT);
 	GPIO_OutputValue(2,1<<21,0);
-	GPIO_OutputValue(1,1<<5,1);
 	DeBug_SetCallBack(DebugCall);
 	while(1)
 	{
@@ -85,34 +84,30 @@ void Task1(void *Tags)
 //		EMC_NAND_Test();	
 //	USB_Task(0);
 
-	main1();
 	while(1)
 	{
 		Tos_TaskDelay(100);
 	}
 }
 GUI_FONT SIF_Font;
+uint8 *LoadFile_ToRAM(char *Name);
 extern void _InitController(unsigned LayerIndex);
 void Task3(void *Tags)
 {	
 	uint8 *P_SIFA,*P_SIFB;
 	uint32 Length;
 	WM_HWIN hWin;
-	RMema_Init((void *)FONT_BASE_ADDR);
-	P_SIFA=RMema_Malloc(1260992);
-	P_SIFB=RMema_Malloc(1032080);
+	
 	WM_SetCreateFlags(WM_CF_MEMDEV);
 	hWin=CreateLogin();
-	Login_SetProgbar(hWin,2);
-	Length=LoadFile_ToSDRAM("songti16.sif",(uint32)P_SIFA);
-	Login_SetProgbar(hWin,10);
-	SaveFile_ToNand((uint32)P_SIFA,RMema_Length(P_SIFA),1024*1024*0);
-	Login_SetProgbar(hWin,20);
-	Length=LoadFile_ToSDRAM("songti12.sif",(uint32)P_SIFB);
-	SaveFile_ToNand((uint32)P_SIFB,RMema_Length(P_SIFB),1024*1024*2);
-	Login_SetProgbar(hWin,40);
-	LoadFile_FromNand((uint32)P_SIFA,RMema_Length(P_SIFA),1024*1024*0); 
-	LoadFile_FromNand((uint32)P_SIFB,RMema_Length(P_SIFB),1024*1024*2);
+	Login_SetProgbar(hWin,0);
+	Login_SetText(hWin,"Load Font...");
+	P_SIFA=LoadFile_ToRAM("songti16.sif");
+	if(P_SIFA==0){Login_SetText(hWin,"Load Font Fail!");GUI_Delay(10000);}
+	Login_SetProgbar(hWin,50);
+	P_SIFB=LoadFile_ToRAM("songti12.sif");
+	if(P_SIFB==0){Login_SetText(hWin,"Load Font Fail!");GUI_Delay(10000);}
+	Login_SetProgbar(hWin,100);
 	GUI_SIF_CreateFont((void*)P_SIFA, &SIFA_Font, GUI_SIF_TYPE_PROP);
 	GUI_SIF_CreateFont((void*)P_SIFB, &SIFB_Font, GUI_SIF_TYPE_PROP);
 	GUI_EndDialog(hWin,0);
@@ -138,6 +133,8 @@ void Task3(void *Tags)
 ////		GUI_AA_DrawLine(50,50,70,70);
 ////		GUI_AA_DrawLine(70,50,50,70);
 ////		GUI_DispDecAt(i++,20,20,4);
+//				P_SIFA=LoadFile_ToRAM("c.gif");
+//	GUI_GIF_Draw(P_SIFA,RMema_Length(P_SIFA),0,0);
 		GUI_Delay(10);
 		//GUI_SendKeyMsg('a',1);
 	}

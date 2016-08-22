@@ -44,6 +44,7 @@ static void DialogBox_cbDialog(WM_MESSAGE * pMsg) {
     // Initialization of 'Listview'
     //
 		hItem = pMsg->hWin;
+
 		FRAMEWIN_AddCloseButton(pMsg->hWin, FRAMEWIN_BUTTON_RIGHT, 0);
 		FRAMEWIN_SetFont(pMsg->hWin, &SIFA_Font);
 		FRAMEWIN_SetTextColor(pMsg->hWin, 0x00000000);

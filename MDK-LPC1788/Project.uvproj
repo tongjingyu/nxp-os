@@ -558,39 +558,49 @@
           <GroupName>Tos</GroupName>
           <Files>
             <File>
-              <FileName>Tos.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tos\Tos.c</FilePath>
-            </File>
-            <File>
-              <FileName>Tos_timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tos\Tos_timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>tos_core_a.asm</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\Tos\tos_core_a.asm</FilePath>
-            </File>
-            <File>
               <FileName>Tos_Include.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Tos\Tos_Include.h</FilePath>
             </File>
             <File>
-              <FileName>LockCode.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tos\LockCode.c</FilePath>
+              <FileName>LockCode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tos\LockCode.h</FilePath>
             </File>
             <File>
-              <FileName>Tos_Mema.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tos\Tos_Mema.c</FilePath>
+              <FileName>SDRAM_Mema.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tos\SDRAM_Mema.h</FilePath>
             </File>
             <File>
-              <FileName>Tos_Device.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Tos\Tos_Device.c</FilePath>
+              <FileName>Tos.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tos\Tos.h</FilePath>
+            </File>
+            <File>
+              <FileName>tos_core_a.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tos\tos_core_a.h</FilePath>
+            </File>
+            <File>
+              <FileName>Tos_device.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tos\Tos_device.h</FilePath>
+            </File>
+            <File>
+              <FileName>Tos_Mema.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tos\Tos_Mema.h</FilePath>
+            </File>
+            <File>
+              <FileName>Tos_Timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Tos\Tos_Timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>Project.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\Tos\Project.lib</FilePath>
             </File>
           </Files>
         </Group>
@@ -648,94 +658,14 @@
               <FilePath>..\GUI\LCDConf.c</FilePath>
             </File>
             <File>
+              <FileName>Mci_EFSL.lib</FileName>
+              <FileType>4</FileType>
+              <FilePath>..\FS\EFSL\Mci_EFSL.lib</FilePath>
+            </File>
+            <File>
               <FileName>emWin_516_Keil4_M3_LE.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\GUI\emWin_516_Keil4_M3_LE.lib</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>USB</GroupName>
-          <Files>
-            <File>
-              <FileName>dir.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\dir.c</FilePath>
-            </File>
-            <File>
-              <FileName>disc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\disc.c</FilePath>
-            </File>
-            <File>
-              <FileName>efs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\efs.c</FilePath>
-            </File>
-            <File>
-              <FileName>extract.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\extract.c</FilePath>
-            </File>
-            <File>
-              <FileName>fat.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\fat.c</FilePath>
-            </File>
-            <File>
-              <FileName>file.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\file.c</FilePath>
-            </File>
-            <File>
-              <FileName>fs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\fs.c</FilePath>
-            </File>
-            <File>
-              <FileName>ioman.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\ioman.c</FilePath>
-            </File>
-            <File>
-              <FileName>ls.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\ls.c</FilePath>
-            </File>
-            <File>
-              <FileName>mkfs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\mkfs.c</FilePath>
-            </File>
-            <File>
-              <FileName>partition.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\partition.c</FilePath>
-            </File>
-            <File>
-              <FileName>plibc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\plibc.c</FilePath>
-            </File>
-            <File>
-              <FileName>time.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\time.c</FilePath>
-            </File>
-            <File>
-              <FileName>ui.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\ui.c</FilePath>
-            </File>
-            <File>
-              <FileName>debug1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\debug1.c</FilePath>
-            </File>
-            <File>
-              <FileName>if_lpc177x_8x.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\src\interfaces\if_lpc177x_8x.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -751,16 +681,6 @@
               <FileName>efsl_main.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\FS\EFSL\main\efsl_main.c</FilePath>
-            </File>
-            <File>
-              <FileName>fs_mci.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\main\fs_mci.c</FilePath>
-            </File>
-            <File>
-              <FileName>monitor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FS\EFSL\main\monitor.c</FilePath>
             </File>
           </Files>
         </Group>

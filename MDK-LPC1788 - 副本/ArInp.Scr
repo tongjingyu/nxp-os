@@ -1,0 +1,8 @@
+--create ..\USER\Prj_Haoyu\Obj\Project.lib
+..\user\prj_haoyu\obj\tos.o
+..\user\prj_haoyu\obj\tos_timer.o
+..\user\prj_haoyu\obj\tos_core_a.o
+..\user\prj_haoyu\obj\lockcode.o
+..\user\prj_haoyu\obj\tos_mema.o
+..\user\prj_haoyu\obj\tos_device.o
+..\user\prj_haoyu\obj\sdram_mema.o

@@ -41,7 +41,7 @@ void *RMema_Malloc(uint32 Size)
 	TP->NextPtr=0;
 	TP->Size=Size;
 	P->NextPtr=TP;
-	
+	DeBug("addr=%x",((uint32)TP+sizeof(TOS_RMema_Ptr)),Infor_Infor);
 	return (uint8 *)((uint32)TP+sizeof(TOS_RMema_Ptr));
 }
 /********************************************************************************
